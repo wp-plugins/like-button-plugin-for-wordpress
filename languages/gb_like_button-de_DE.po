@@ -1,0 +1,663 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: gb_fb_lB\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-04-30 18:05+0100\n"
+"PO-Revision-Date: 2010-04-30 18:05+0100\n"
+"Last-Translator: Stefan Natter <info@gangxtaboii.com>\n"
+"Language-Team: gangxtaboii\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Language: GERMAN\n"
+"X-Poedit-Country: AUSTRIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../gb_fb-like-button.php:235
+msgid "Donate"
+msgstr "Spenden"
+
+#: ../gb_fb-like-button.php:242
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: ../html/gb_generator.php:24
+msgid "URL - (Example: http://example.com)"
+msgstr "URL - (Beispiel: http://www.beispiel.de)"
+
+#: ../html/gb_generator.php:28
+#: ../include/fb_widget.php:99
+msgid "Layout Style"
+msgstr "Layout Style"
+
+#: ../html/gb_generator.php:43
+#: ../include/fb_widget.php:113
+msgid "Show Faces?"
+msgstr "Profilbilder anzeigen?"
+
+#: ../html/gb_generator.php:47
+#: ../include/fb_widget.php:116
+msgid "Width"
+msgstr "Breite"
+
+#: ../html/gb_generator.php:51
+#: ../include/fb_widget.php:119
+msgid "Height"
+msgstr "H&ouml;he"
+
+#: ../html/gb_generator.php:55
+#: ../include/fb_widget.php:122
+msgid "Verb to display"
+msgstr "Verb das angezeigt wird"
+
+#: ../html/gb_generator.php:70
+#: ../include/fb_widget.php:139
+msgid "Color Scheme"
+msgstr "Farbdesign"
+
+#: ../html/gb_meta.php:28
+msgid "Open Graph Protocol - Needed Meta-Tags"
+msgstr "Open Graph Protokoll - Meta-Tags"
+
+#: ../html/gb_meta.php:39
+msgid "Insert all meta-tags you need into this textboxes"
+msgstr "F&uuml;gen Sie alle Meta-Tags in diese Textboxen ein"
+
+#: ../html/gb_meta.php:40
+msgid "You&prime;ll find examples here: <a href=\"http://developers.facebook.com/docs/opengraph\" target=\"_blank\">http://developers.facebook.com/docs/opengraph</a>"
+msgstr "Beispiele finden Sie hier: <a href=\"http://developers.facebook.com/docs/opengraph\" target=\"_blank\">http://developers.facebook.com/docs/opengraph</a>"
+
+#: ../html/gb_meta.php:41
+msgid "<b>Important:</b> You can put GB-Shortcodes into this boxes! This Shortcodes will then work as php-Code in the Background."
+msgstr "<b>Wichtig:</b> Sie können die GB-Shortcodes für diese Textboxen verwenden. Die Shortcodes werden den Rest f&uuml;r Sie erledigen."
+
+#: ../html/gb_meta.php:42
+msgid "<b>GB-Meta-Shortcodes:</b>  Site-Name => $binfo || Page-Title => $ptitle || Page-URL => $plink"
+msgstr "<b>GB-Meta-Shortcodes:</b>  Blog-Name => $binfo || Seiten-Title => $ptitle || Seiten-URL => $plink"
+
+#: ../html/gb_meta.php:43
+msgid "<b>Example:</b> If you use: Page-Title => $ptitle || If a visitor visits a page or post of your blog the title of this page/post will be the content of this meta-tag dynamically. The same will happen with the $purl-GB-Shortocde."
+msgstr "<b>Beispiel:</b> Nehmen wir an Sie verwenden:  Page-Title => $ptitle || Für jede Seite die besucht wird, wird dieser spezielle Meta-Tag dynamisch generiert."
+
+#: ../html/gb_meta.php:49
+msgid "Open Graph Protocol - Aditional-Meta-Tags"
+msgstr "Open Graph Protokoll - Optionale Meta-Tags"
+
+#: ../html/gb_meta.php:60
+msgid "You don&acute;t have to use this meta-tags. But they are additional if you want to specify your blog/content."
+msgstr "Sie m&uuml;ssen diese Meta-Tags nicht unbedingt benutzten. Sie sind optional."
+
+#: ../html/gb_meta.php:66
+msgid "Link-Relation"
+msgstr "Link-Beziehung"
+
+#: ../html/gb_meta.php:74
+msgid "Activate this option if you want to show \"Likes\" like this on facebook:"
+msgstr "Aktivieren Sie diese Option wenn Sie möchten das die \"Likes\" auf Facebook so erscheinen:"
+
+#: ../html/gb_meta.php:75
+msgid "<b>Notice:</b> You must fill in the Page-URL-Meta-Tag."
+msgstr "<b>Wichtig:</b> Sie m&uuml;ssen den Seiten-URL-Meta-Tag ausgef&uuml;llt haben."
+
+#: ../html/gb_meta.php:96
+msgid "Site-Name"
+msgstr "Seiten-Name"
+
+#: ../html/gb_meta.php:103
+msgid "Admin-IDs"
+msgstr "Admin-IDs"
+
+#: ../html/gb_meta.php:112
+msgid "Blog-Type"
+msgstr "Blog-Typ"
+
+#: ../html/gb_meta.php:119
+#: ../html/gb_meta.php:264
+msgid "AppID"
+msgstr "AppID"
+
+#: ../html/gb_meta.php:128
+msgid "Page-Title"
+msgstr "Seiten-Titel"
+
+#: ../html/gb_meta.php:134
+msgid "You only have to enter one of this to Meta-Tags (Admin-ID or AppID) as long as you don not use the Java-SDK."
+msgstr "Sie m&uuml;ssen nur eine dieser beiden Tags ausfüllen (Admin oder AppID) solange Sie das Java-SDK nicht verwenden."
+
+#: ../html/gb_meta.php:135
+msgid "<b>APPID:</b> If you want to use the Java-SDK you have to enter a valid Facebook-App-ID."
+msgstr "<b>APPID:</b> Wenn Sie das Java-SDK verwenden m&ouml;chten, dann m&uuml;ssen Sie eine g&uuml;ltige Facebook-Ap-ID eingeben."
+
+#: ../html/gb_meta.php:136
+msgid "<b>Admin-ID:</b> Facebook-Profile-IDs of all Administrators of this Like-Button."
+msgstr "<b>Admin-ID:</b> Facebook-Profile-IDs von allen Like-Button Admins."
+
+#: ../html/gb_meta.php:142
+msgid "Page-URL"
+msgstr "Seiten-URL"
+
+#: ../html/gb_meta.php:151
+msgid "Page-Description"
+msgstr "Seitenbeschreibung"
+
+#: ../html/gb_meta.php:160
+msgid "Image"
+msgstr "Bild"
+
+#: ../html/gb_meta.php:178
+msgid "Postal-Code"
+msgstr "PLZ"
+
+#: ../html/gb_meta.php:185
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: ../html/gb_meta.php:193
+msgid "Street-Address"
+msgstr "Strasse"
+
+#: ../html/gb_meta.php:201
+msgid "Phone-Number"
+msgstr "Telefon"
+
+#: ../html/gb_meta.php:209
+msgid "Locality"
+msgstr "Gegend"
+
+#: ../html/gb_meta.php:216
+msgid "Fax-Number"
+msgstr "Fax"
+
+#: ../html/gb_meta.php:224
+msgid "Region"
+msgstr "Region"
+
+#: ../html/gb_meta.php:232
+msgid "Country"
+msgstr "Land"
+
+#: ../html/gb_meta.php:240
+msgid "Latitude"
+msgstr "Breitengrad"
+
+#: ../html/gb_meta.php:246
+msgid "Longitude"
+msgstr "L&auml;ngengrad"
+
+#: ../html/gb_meta.php:261
+msgid "AppID: (required)"
+msgstr "AppID: (benötigt)"
+
+#: ../html/gb_meta.php:274
+msgid "You have to enter this two attributes to the &lt;head&gt;-tag in your &quot;Template-header.php&quot;-file."
+msgstr "Sie m&uuml;ssen diese 2 Attribute dem &lt;head&gt;-Tag in eurem &quot;Template-header.php&quot;-File hinzuf&uuml;gen."
+
+#: ../html/gb_meta.php:280
+msgid "If you do not do this the Open-Graph-Protocol will not work with all its functions."
+msgstr "Wenn Sie dies nicht machen, werden nicht alle Open-Graph-Protocol-Funktionen aktiviert."
+
+#: ../html/gb_metaboxes.php:48
+msgid "Code of your Like-Button"
+msgstr "Code des Like-Buttons"
+
+#: ../html/gb_metaboxes.php:54
+msgid "iFrame-Code of your generated Like-Button"
+msgstr "iFrame-Code des generierten Like-Buttons"
+
+#: ../html/gb_metaboxes.php:55
+msgid "You&prime;ll get your Code here: <a href=\"http://developers.facebook.com/docs/reference/plugins/like\" target=\"_blank\">http://developers.facebook.com/docs/reference/plugins/like</a>"
+msgstr "Sie können den Code hier generieren: <a href=\"http://developers.facebook.com/docs/reference/plugins/like\" target=\"_blank\">http://developers.facebook.com/docs/reference/plugins/like</a>"
+
+#: ../html/gb_metaboxes.php:68
+msgid "Install the Plugin"
+msgstr "Installieren Sie das Plugin"
+
+#: ../html/gb_metaboxes.php:70
+msgid "Go to the Settings-Page and complete all the required information and activate the Plugin with the first checkbox on this site."
+msgstr "Fügen Sie alle benötigten Informationen auf der Settings-Page des Plugins ein und aktivieren Sie die oberste Checkbox."
+
+#: ../html/gb_metaboxes.php:72
+msgid "Facebook-Generator-FAQ:"
+msgstr "Facebook-Generator-FAQ"
+
+#: ../html/gb_metaboxes.php:74
+msgid "The URL must look like this -> http://example.com. Otherwise the Button will not work properly."
+msgstr "Die URL muss wie folgt aussehen: http://www.beispiel.de. Andererseits funktioniert das Plugin m&ouml;glicherweise nicht richtig."
+
+#: ../html/gb_metaboxes.php:77
+msgid "[like]-Shortcode"
+msgstr "[like]-Shortcode"
+
+#: ../html/gb_metaboxes.php:79
+msgid "Y only have to insert <strong>[like]</strong> into a post/article and your like-Button (generated on this Option-Page) will appear"
+msgstr "Nun müssen Sie nur noch folgenden Shortcode an einer gewünsten Stelle im Aritkel/Post einfügen damit der Like-Button - den Sie hier generiert haben - erscheint: <strong>[like]</strong>"
+
+#: ../html/gb_metaboxes.php:82
+msgid "Facebook-Like-Button-Widget"
+msgstr "Facebook-Like-Button-Widget"
+
+#: ../html/gb_metaboxes.php:84
+msgid "Go to the Widgets-Page on the left. Add the \"Facebook-Like-Button\" Widget and add the required information."
+msgstr "Begeben Sie sich auf die Widget-Seite (auf der linken Seite) und fügen Sie das neue Widget \"Facebook-Like-Button\" hinzu. F&uuml;len Sie alle Informationen die ben&ouml;tigt werden aus."
+
+#: ../html/gb_metaboxes.php:85
+msgid "The URL must look like the URL for the Facebook-Generator on this site."
+msgstr "Die URL muss genau wie beim Facebook-Generator, auf dieser Seite, aussehen."
+
+#: ../html/gb_newsbox.php:42
+msgid "was created by"
+msgstr "erstellt von"
+
+#: ../html/gb_newsbox.php:43
+msgid "The development of this plugin took a lot of time and effort, so please don&rsquo;t forget to donate if you found this plugin useful."
+msgstr "Die Entwicklung dieses Projekts hat sehr viel Zeit in Anspruch genommen. Weswegen das gesamte Team über jede Unterstützung  sehr erfreut wäre."
+
+#: ../html/gb_newsbox.php:45
+msgid "There are also other ways of supporting this plugin to ensure it is maintained and well supported in the future!"
+msgstr "Es gibt verschieden Arten wie ihr das Projekt unterstützen könnt damit es auch in Zukunft ohne Probleme läuft und gut supported bleibt."
+
+#: ../html/gb_newsbox.php:46
+msgid "Rating the plugin on wordpress.org (if you like it), linking/spreading the word, and submitting code contributions will all help."
+msgstr "Bewertet unser Projekt auf wordpress.org (wenn ihr wollt), schickt es an alle die ihr kennt oder postet es auf eurer Webseite und schickt uns fehlerhaften Code wenn ihr welchen findet. Danke."
+
+#: ../html/gb_newsbox.php:86
+msgid "en"
+msgstr "de"
+
+#: ../html/gb_settings.php:26
+msgid "Activate the Like-Button"
+msgstr "Aktivieren Sie den Like-Button"
+
+#: ../html/gb_settings.php:42
+#: ../html/gb_settings.php:84
+msgid "Activate this option if you want to activate the Like-Button for your Blog"
+msgstr "Aktivieren Sie diese Option wenn Sie möchten das der eingestellte Like Button (siehe weiter unten) auf dem Blog erscheint."
+
+#: ../html/gb_settings.php:48
+msgid "Use the FB-LB-Generator"
+msgstr "Verwende den FB-LB-Generator"
+
+#: ../html/gb_settings.php:54
+msgid "Activate this option if you want to use the Like-Button-Generator instead of copy&past your own code into to textbox below"
+msgstr "Aktivieren Sie diese Option wenn Sie den Like-Button-Generator verwenden möchten"
+
+#: ../html/gb_settings.php:59
+msgid "Activate the JavaScript SDK"
+msgstr "JavaScript SDK aktiveren?"
+
+#: ../html/gb_settings.php:67
+msgid "Activate this option if you want to enable all the FB-Like-Button-Functions which are available."
+msgstr "Aktivieren Sie diese Option wenn Sie möchten das alle verf&uuml;gbaren Funktionen des Like-Buttons aktiviert werden."
+
+#: ../html/gb_settings.php:68
+msgid "<b>Notice:</b> You must have a valid AppID if you want to use the JavaScript SDK."
+msgstr "<b>Wichtig:</b> Sie müssen eine g&uuml;ltige AppID besitzten damit die JavaScript SDK richtig funktioniert."
+
+#: ../html/gb_settings.php:74
+msgid "Add the Like-Button in the Footer"
+msgstr "Position des Like-Buttons im Footer"
+
+#: ../html/gb_settings.php:78
+#: ../include/fb_likeButton.php:48
+msgid "Before the Footer"
+msgstr "Vor dem Footer"
+
+#: ../html/gb_settings.php:79
+msgid "After the Footer"
+msgstr "Nach dem Footer"
+
+#: ../html/gb_settings.php:87
+msgid "Show the Like-Button on every"
+msgstr "Zeige den Like-Button auf jeder:"
+
+#: ../html/gb_settings.php:93
+msgid "Front-Page"
+msgstr "Hauptseite"
+
+#: ../html/gb_settings.php:99
+msgid "Page"
+msgstr "Seite"
+
+#: ../html/gb_settings.php:102
+#: ../html/gb_settings.php:110
+#: ../html/gb_settings.php:122
+#: ../html/gb_settings.php:130
+msgid "Exclude IDs"
+msgstr "IDs auschließen"
+
+#: ../html/gb_settings.php:107
+msgid "Post"
+msgstr "Post"
+
+#: ../html/gb_settings.php:119
+msgid "Archive"
+msgstr "Archiv"
+
+#: ../html/gb_settings.php:127
+msgid "Category"
+msgstr "Kategorie"
+
+#: ../html/gb_settings.php:139
+msgid "Activate this option if you want to activate the Like-Button on every selected post, page..."
+msgstr "Aktivieren Sie diese Option wenn Sie möchten das der eingestellte Like Button (siehe weiter unten) auf jeder Seite/Artikel (je nach Auswahl) erscheint."
+
+#: ../html/gb_submit.php:29
+msgid "Save Changes"
+msgstr "Änderungen speichern"
+
+#: ../html/gb_submit.php:34
+msgid "Restore default Like-Button settings?"
+msgstr "Alle Einstellungen zur&uuml;cksetzten?"
+
+#: ../html/gb_submit.php:34
+msgid "Restore Defaults"
+msgstr "Zur&uuml;cksetzten"
+
+#: ../html/setting-page.php:87
+msgid "Plugin-Settings"
+msgstr "Einstellungen"
+
+#: ../html/setting-page.php:90
+msgid "Your Like-Button-Code"
+msgstr "Code des Like-Buttons"
+
+#: ../html/setting-page.php:93
+msgid "Like-Button-Generator"
+msgstr "Facebook-Like-Button-Generator"
+
+#: ../html/setting-page.php:94
+msgid "Open Graph Protocol - Meta-Tags"
+msgstr "Open Graph Protokoll - Meta-Tags"
+
+#: ../html/setting-page.php:107
+msgid "Plugin-FAQ"
+msgstr "Plugin-FAQ"
+
+#: ../html/setting-page.php:110
+msgid "Support"
+msgstr "Support"
+
+#: ../include/fb_likeButton.php:48
+msgid "Vor dem Footer"
+msgstr "Vor dem Footer"
+
+#: ../include/fb_widget.php:93
+msgid "Title"
+msgstr "Titel"
+
+#: ../include/fb_widget.php:93
+msgid "(required)"
+msgstr "(benötigt)"
+
+#: ../include/fb_widget.php:96
+msgid "URL"
+msgstr "URL"
+
+#: ../include/fb_widget.php:181
+#: ../include/fb_widget.php:182
+msgid "Facebook-Like-Button-Generator"
+msgstr "Facebook-Like-Button-Generator"
+
+#~ msgid "<b>Important:</b> You can put php-Code into this textarea!"
+#~ msgstr "<b>Wichtig:</b> Sie können php-Code in der Textarea verwenden!"
+
+#~ msgid ""
+#~ "<b>Example:</b> &lt;meta property=\"og:site_name\" content=\"&lt;?php "
+#~ "bloginfo(&rsquo;name&rsquo;); ?&gt;\""
+#~ msgstr ""
+#~ "<b>Beispiel:</b> &lt;meta property=\"og:site_name\" content=\"&lt;?php "
+#~ "bloginfo(&rsquo;name&rsquo;); ?&gt;\""
+
+#~ msgid "Article"
+#~ msgstr "Artikel"
+
+#~ msgid "GB-News"
+#~ msgstr "GB-News"
+
+#~ msgid "FB-Like Button"
+#~ msgstr "FB-Like-Button"
+
+#~ msgid "Add your Facebook-Like-Button-Code here"
+#~ msgstr "Fügen Sie den Like-Button-Code hier ein"
+
+#~ msgid "Sorry, Jump-Page works only under WordPress 2.5 or higher"
+#~ msgstr ""
+#~ "Tut uns Leid, aber Jump-Page funktioniert erst ab WordPress 2.5 oder "
+#~ "höher."
+
+#~ msgid "Path to your Jump-Page"
+#~ msgstr "Url/Pfad zur Weiterleitungsseite (Jump-Page)"
+
+#~ msgid "Example"
+#~ msgstr "Beispiel"
+
+#~ msgid "http://www.yourdomain.com/jump-page/"
+#~ msgstr "http://www.beispiel.com/jump-page.php"
+
+#~ msgid "or"
+#~ msgstr "oder"
+
+#~ msgid "http://www.yourblog.com/?page_id=67"
+#~ msgstr "http://www.beispiel.com/?page_id=67"
+
+#~ msgid "Recommendation"
+#~ msgstr "Empfehlung"
+
+#~ msgid "We recommend to use it like this"
+#~ msgstr "Wir empfehlen Ihnen die Verwendung dieser Variante"
+
+#~ msgid "Text of your Jump-Page"
+#~ msgstr "Text auf der Weiterleitungsseite"
+
+#~ msgid ""
+#~ "Text for your Jump-Page. It will appear until the visitor is redirected "
+#~ "to the requested url."
+#~ msgstr "Dieser Text wird auf der Weiterleitungsseite zu sehen sein."
+
+#~ msgid "Time until the Plugin redirects your Visitors (sec)"
+#~ msgstr "Zeit bis das Plugin die Besucher weiterleitet (sek)"
+
+#~ msgid "they will be redirected within"
+#~ msgstr "die Besucher werden dann nach"
+
+#~ msgid "seconds"
+#~ msgstr "Sekunden weitergeleitet"
+
+#~ msgid "only EXTERNAL Links"
+#~ msgstr "nur externe Links"
+
+#~ msgid "Available at"
+#~ msgstr "Verfügbar ab"
+
+#~ msgid ""
+#~ "ENABLE or DISABLE this if you want to use this plugin only for external "
+#~ "links or not."
+#~ msgstr ""
+#~ "Aktivieren oder Deaktivieren Sie diese Option wenn das Plugin nur externe "
+#~ "Links oder alle Links behandeln soll."
+
+#~ msgid "Enable Ads/Information"
+#~ msgstr "Aktiviert die Werbung"
+
+#~ msgid ""
+#~ "ENABLE or DISABLE this if you want to show Ads or other Information on "
+#~ "your jump-page"
+#~ msgstr ""
+#~ "Aktivieren oder Deaktivieren Sie diese Option wenn Sie Werbung/News/etc. "
+#~ "auf der Weiterleitungsseite anzeigen möchten oder nicht."
+
+#~ msgid "Top-Information"
+#~ msgstr "Top-Information"
+
+#~ msgid "Information at the top of the page"
+#~ msgstr "Informationen am Anfang der Seite"
+
+#~ msgid "Google-Ads"
+#~ msgstr "Google-Werbung"
+
+#~ msgid "Bottom-Information"
+#~ msgstr "Fuß-Information"
+
+#~ msgid "Information at the bottom of the page"
+#~ msgstr "Informationen am Ende der Seite"
+
+#~ msgid "working since version"
+#~ msgstr "verfügbar seit der Version"
+
+#~ msgid ""
+#~ "Enable/Disable this if you want to create and design your own external-"
+#~ "jump-page."
+#~ msgstr ""
+#~ "Aktivieren/Deaktivieren Sie diese Option wenn Sie eine eigene "
+#~ "Weiterleitungsseite verwenden möchten"
+
+#~ msgid "external Jump-Page-Url"
+#~ msgstr "externe Weiterleitungsseite (URL)"
+
+#~ msgid "The URl to your Jump-Page."
+#~ msgstr "Url/Pfad zur Weiterleitungsseite (Jump-Page)"
+
+#~ msgid "URL-Variable (PHP)"
+#~ msgstr "URL-Variable (PHP)"
+
+#~ msgid ""
+#~ "You must put the variable in this box for your external page. this "
+#~ "variable will send the url for the requested page"
+#~ msgstr ""
+#~ "Fügen Sie hier die Variable ein die an Ihre Externe Weiterleitungsseite "
+#~ "gesendet wird."
+
+#~ msgid "Now you have to create a Jump-Page for the plugin"
+#~ msgstr "Jetzt musst du eine Jump-Page erstellen"
+
+#~ msgid "Create a page and add the following shortcode"
+#~ msgstr "Erstelle eine neue Seite  und füge den folgenden Shortcode ein"
+
+#~ msgid "after that you can use the plugin like this (in posts/pages, etc.)"
+#~ msgstr ""
+#~ "Danach kannst du das Plugin wie folgt verwenden (in Artikeln oder Seiten)"
+
+#~ msgid ""
+#~ "Create a new Page/Post and click on the new button in the wysiwyg-editor "
+#~ "and then add the required information."
+#~ msgstr ""
+#~ "Erstelle einen neuen Artikel oder neue Page und klicke dann auf den neuen "
+#~ "Button im wysiwyg-Editor und fügen Sie dann die benötigten Informationen "
+#~ "ein."
+
+#~ msgid "it will copy sth. like this into your textbox"
+#~ msgstr "Folgendes wird dann in die Eingabebox eingefügt"
+
+#~ msgid "http://www.example.com"
+#~ msgstr "http://www.beispiel.de"
+
+#~ msgid "Example-Link"
+#~ msgstr "Beispiel-Link"
+
+#~ msgid "this will show up like this"
+#~ msgstr "wird angezeigt als"
+
+#~ msgid "Design"
+#~ msgstr "Design"
+
+#~ msgid ""
+#~ "You can design your jump-page on your own by adding the following css-"
+#~ "class in your css-file"
+#~ msgstr ""
+#~ "Du kannst die Weiterleitungsseite selber gestalten in dem du die folgende "
+#~ "CSS-Klasse in deiner css-Datei addest"
+
+#~ msgid ""
+#~ "in order to hide your jump-page properly install the following plugin"
+#~ msgstr ""
+#~ "Damit die Jump-Page auch in der Navigation nicht mehr sichtbar ist "
+#~ "solltest du folgendes Plugin installieren"
+
+#~ msgid ""
+#~ "Intern-Link-Handling and the ability to use and create your own Jump-Page "
+#~ "will be available at version"
+#~ msgstr ""
+#~ "Die Behandlung von Internen-Links sowie die Möglichkeit eigene "
+#~ "Weiterleitungsseiten (Jum-Pages) zu verwenden folgt ab Version"
+
+#~ msgid "You are not allowed to be here"
+#~ msgstr "Sie haben keine Erlaubnis hier zu sein."
+
+#~ msgid "URL-Settings"
+#~ msgstr "URL-Einstellungen"
+
+#~ msgid "Enter the url here:"
+#~ msgstr "Geben Sie die URL hier ein:"
+
+#~ msgid "Enter the title here:"
+#~ msgstr "Geben Sie den Titel hier ein:"
+
+#~ msgid "title = Example-Link"
+#~ msgstr "Titel = Beispiel-Link"
+
+#~ msgid "Cancel"
+#~ msgstr "Abbrechen"
+
+#~ msgid "Insert"
+#~ msgstr "Einfügen"
+
+#~ msgid ""
+#~ "The development of this project took a lot of time and effort, so please "
+#~ "don&rsquo;t forget to donate if you found this project useful."
+#~ msgstr ""
+#~ "Die Entwicklung dieses Projekts hat sehr viel Zeit in Anspruch genommen. "
+#~ "Weswegen das gesamte Team über jede Unterstützung  sehr erfreut wäre."
+
+#~ msgid ""
+#~ "There are also other ways of supporting this project to ensure it is "
+#~ "maintained and well supported in the future!"
+#~ msgstr ""
+#~ "Es gibt verschieden Arten wie ihr das Projekt unterstützen könnt damit es "
+#~ "auch in Zukunft ohne Probleme läuft und gut supported bleibt."
+
+#~ msgid ""
+#~ "Rating the project on wordpress.org (if you like it), linking/spreading "
+#~ "the word, and submitting code contributions will all help."
+#~ msgstr ""
+#~ "Bewertet unser Projekt auf wordpress.org (wenn ihr wollt), schickt es an "
+#~ "alle die ihr kennt oder postet es auf eurer Webseite und schickt uns "
+#~ "fehlerhaften Code wenn ihr welchen findet. Danke."
+
+#~ msgid "Top-AD"
+#~ msgstr "Werbung am Anfang"
+
+#~ msgid "Bottom-AD"
+#~ msgstr "Werbung am Ende"
+
+#~ msgid "FAQ"
+#~ msgstr "FAQ"
+
+#~ msgid "Example: URL=http://www.example.com - Titel: Example-Link"
+#~ msgstr "Beispiel: URL=http://www.beispiel.com - Titel: Beispiel-Link"
+
+#~ msgid ""
+#~ "The URl to your Jump-Page. Notice: If this Textbox isn&prime;t emtpy the "
+#~ "Plugin will always act like you use a external Jump-Page."
+#~ msgstr "Die URL Ihrer eigenen Weiterleitungsseite:"
+
+#, fuzzy
+#~ msgid "EXTERNAL Jump-Page"
+#~ msgstr "Jump-Page"
+
+#~ msgid "Du hast keine Erlaubnis hier zu sein!"
+#~ msgstr "You are not allowed to be here"
+
+#~ msgid "Speichern"
+#~ msgstr "Save"
+
+#~ msgid "URL-Einstellungen"
+#~ msgstr "URL-Settings"
+
+#~ msgid "URL hier eingeben:"
+#~ msgstr "Enter the url here:"
+
+#~ msgid "Titel hier eingeben:"
+#~ msgstr "Enter the title here:"
