@@ -1,0 +1,167 @@
+=== Like-Button-Plugin-For-Wordpress ===
+Contributors: GangXtaBoii
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SB94MEM9ATTBG
+Tags: facebook, like button, open graph protocol, social plugins, fb, plugins, for wordpress, button, widget, sidebar widget, shortcode, like, generator
+Requires at least: 2.7.x
+Tested up to: 2.9.x
+Stable tag: 2.5
+
+Adds a Facebook-Like-Button, Shortcode [like] for the Button and a Like-Button-Widget to your Blog for every post/page. The Shortocde inserts the code for your Like-Button.You can add it where ever you want. Also a little Like-Button widget is then available  as well as a Like-Button after every post/page you choose. This widget includes a little Like-Button-Generator to make it easier for you to get a Like-Button to your sidebar.
+
+== Description ==
+
+**Facebook-Like-Button**
+This plugin adds a Like-Button after every post/page you choose (you can exclude some IDs. These exlucded IDs will have no Like-Button). This widget includes a little Like-Button-Generator to make it easier for you to get a Like-Button to your sidebar, Shortcode or after every Post/Page. You could also choose the position of your like-button within the post/page.
+
+**Shortcode**
+It also adds a Shortcode `[like]` which inserts the code for your Facebook-Like-Button. You can create a like-Button with the FB-LB-Generator on the settings-page. After that it is possible to create some Open-Graph-Protocol-Meta-Tags which will be written in the <head>-section. Also the JavaSDK will be used for your Buttons. But only if you enter a valid Facebook-AppID into the AppID-Box.
+
+Now you can put the shortcode `[like]` where ever you want to insert the Facebook-Like-Button.
+
+**Widget**
+There is also a new Widget available. Go to the Widget-Page and add the Facebook-Like-Button-Generator to your sidebar. Enter all your information into the FB-LB-Generator - that's it.
+
+
+| [More Information](http://www.gb-world.net/like-button-plugin-for-wordpress) |
+| [GB-Wiki](http://www.gb-world.net/wiki/GB-Wiki:Like-Button-Plugin-For-Wordpress) |
+| [GB-Forum-Topic](http://www.gb-world.net/forum/viewtopic.php?f=15&t=14&start=0) |
+| [FAQ](http://www.gb-world.net/forum/viewtopic.php?f=25&p=26) |
+| [Support](http://www.gb-world.net/forum/viewforum.php?f=22&start=0) |
+
+== Installation ==
+
+Extract the zip file and just drop the contents in the `/wp-content/plugins/` directory of your WordPress installation and then activate the Plugin from Plugins page.
+
+Make sure that your template has the `wp_footer();` in its footer.php-file. Because since version 1.4 we need to write some stuff into the footer.
+
+If you still have some problems write us a new topic into our support-forum:
+| [Support](http://gangxtaboii.com/forum/viewforum.php?f=22&start=0) |
+
+== Frequently Asked Questions ==
+
+**Short-FAQ:** 
+
+**1.** Install the Plugin
+
+**2.** Go to the Settings-Page and complete all the required information and activate the Plugin with the first checkbox on this site.
+
+**3. Facebook-Generator-FAQ:**
+
+*   The URL must look like this -> http://example.com. Otherwise the Button will not work properly.
+
+*   Now choose your layout style, width, height, font, verb to display, color scheme and if faces should be shown.
+
+*   Language: It is possible to choose a language for your button. But keep in mind that you have to activate the Java-SDK and you must have a valid appID.
+
+*   Dynamic Like-Button: Every page will have its own unique like-button if you activate this checkbox. Otherwise every page will use the same facebook-like-button.
+
+**4. [like]-Shortcode**
+*   You only have to insert [like] into a post/article and your like-Button (generated on this Option-Page) will appear
+
+**5. Facebook-Like-Button-Widget**
+*   Go to the Widgets-Page on the left. Add the "Facebook-Like-Button" Widget and add the required information.
+
+*   The URL must look like the URL for the Facebook-Generator on this site.
+
+
+**Important Notes:**  
+  
+You only have to enter one of this to Meta-Tags (Admin-ID or AppID) as long as you don not use the Java-SDK.  
+**APPID:** If you want to use the Java-SDK you have to enter a valid Facebook-App-ID.  
+**Admin-ID:** Facebook-Profile-IDs of all Administrators of this Like-Button.
+**Open-Graph-Protocol:** You have to add these attributes
+
+**xmlns:og="http://opengraphprotocol.org/schema/"
+xmlns:fb="http://www.facebook.com/2008/fbml">**
+
+to the html-tag in your template-header.php-file. If you do not do this the Open-Graph-Protocol will not work with all its functions.
+
+
+**official FAQ:**
+
+| [FAQ](http://www.gb-world.net/forum/viewtopic.php?f=25&p=26) |
+
+
+| [GB-Wiki](http://www.gb-world.net/wiki/GB-Wiki:Like-Button-Plugin-For-Wordpress) |
+| [GB-Forum-Topic](http://www.gb-world.net/forum/viewtopic.php?f=15&t=14&start=0) |
+| [Support](http://www.gb-world.net/forum/viewforum.php?f=22&start=0) |
+
+
+== Screenshots ==
+1. FB-Like Button Option-Page
+2. You have to enter this two attributes to the -tag in your "Template-header.php"-file.
+3. The Facebook-Like-Button-Generator
+
+
+== Changelog ==
+
+**<span style=\"text-decoration: underline;\">Changelog &#45; English:</span>**
+
+**Version 2.5**
+
+*   Bugfix and update speed of the plugin
+*   changed all the settings to our new domain: gb-world.net
+
+**Version 2.0**
+
+*   Updating the GB-Newsbox to v2.5
+*   fixed the bug for all IE-Users. They were not able to save any options
+
+**Version 1.4.5**
+
+*   We introduced the php-function 'urlencode' to ensure that the url for the facebook-button is correct	
+*   it is now possible to change the language of the fb-button by yourself (only if you use the Java-SDK)
+*   We have expendet your Generator with new functions
+*   It is now also possible to choose the position of the facebook-button within the content of your page/post (top/bottom)
+
+**Version 1.4**
+
+*   We finally finished all the work for our 1.3.x-versions. We have tested this new code on a website of us and it works!
+
+
+**Version 1.3.7.5**
+
+*   every Post/Page or even Frontpage will now have a individual Facebook-Like-Button. This is the principal function of a Like-Button. The Like-Buttons are generated automatically after you make one with our Generator.
+
+**Version 1.3.7.3**
+
+*   we implemented the fb:like-tag into this plugin. We do not know if all works properly with this new code segment. we need some reports from you if there is a new bug or something else.
+*   we know that some domains have a problem with the Java-SDK-Output of our plugin. We do not really know why. We are working on that problem.
+
+**Version 1.3.6.2**
+
+*   important bugfix: enabling all functions of the open-graph-protocol and fixing a mistake in the code
+*   extending the FAQ
+
+**Version  1.3.6**
+
+*   some new translations
+*   some bugfixes in the background-code
+
+**Version  1.3.5**
+
+*   fix some bugs.
+
+**Version  1.3**
+
+*   relase this version to the official WP-Plugin-Repo.
+
+== Help US ==
+
+Help us translating the Plugin into other languages. Translate it into your language and send us your language-files. Thanks a lot. You'll also get a link on our plugin-page.
+
+== Searching for new Dev-Team-Members  ==
+
+GangXtaBoii.com is a new comunity which will support many new projects from unknown and well-known people. Everybody can publish their projects on our website (in our forum). But we need more people in our team. A reliable gb-team is very important for us. Are you reliable, interested in our topics and you wanna host your projects and other projects on our website?
+
+Write us a small text about your personality, experiences and why you wanna join our team. We will answer as soon as possible. We are pleased to have new people in our gb-team.
+
+| [GB-Application](http://www.gb-world.net/forum/viewforum.php?f=20) |
+
+== BUGS ==
+
+If you find any bugs please report them at our forum: | [Support](http://www.gb-world.net/forum/viewforum.php?f=22&start=0) |
+
+== Wiki ==
+
+check our new wiki for further information: | [GB-Wiki](http://www.gb-world.net/wiki/GB-Wiki:Like-Button-Plugin-For-Wordpress) |
