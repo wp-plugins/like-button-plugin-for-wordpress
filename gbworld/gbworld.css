@@ -1,0 +1,44 @@
+/* #######################################################
+
+	@Author: Stefan Natter
+	Version 1.0
+	http://www.gb-world.net
+	for GB-World Wordpress-Plugins
+
+####################################################### */
+
+#gb_world {
+}
+
+li.ajax-error {
+	color: #555;
+}
+
+li.gxtb_feed_li {
+	border: none;
+}
+
+a.gxtb_feed {
+	color: #d54e21;
+}
+
+a.gxtb_feed:hover {
+	color: #3c627f;
+}
+
+#gb_world h2 {
+	text-decoration: underline;
+}
+
+img.gb_world {
+	border:solid;
+}
+
+.gxtb-clearer {
+	clear: both;
+}
+
+#gb_world_iframe {
+width: 100%;
+height: 150px;
+}
