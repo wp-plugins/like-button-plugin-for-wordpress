@@ -1,0 +1,48 @@
+/* #######################################################
+
+	@Author: Stefan Natter
+	Version 0.1
+	http://www.gb-world.net
+	for the WP-Plugin: Like-Button-Plugin-For-Wordpress by Stefan Natter
+
+####################################################### */
+
+#gxtb_lb_fB_options {
+
+}
+
+
+/* ##################  BEGIN Postfocus-Image-Box   ################## */
+
+img.gxtb_image {
+	border: dashed;
+	border-width:thin;
+	padding: 5px 15px 15px 5px;
+}
+
+#gxtb_fb_lB_meta_post_focus_div {
+	border: none;
+}
+
+/* ##################  END Postfocus-Image-Box   ################## */
+
+
+/* ##################  BEGIN Preview-Image-Box   ################## */
+
+table.gxtb_img_preview {
+	border: dashed;
+	border-width:thin;
+	overflow: hidden;
+}
+
+#gxtb_img_preview td {
+	font-style: italic;
+	font-size: small;
+	width:50px;
+}
+
+#gxtb_img_preview_div img {
+	max-width:400px;
+}
+
+/* ##################  END Preview-Image-Box   ################## */
