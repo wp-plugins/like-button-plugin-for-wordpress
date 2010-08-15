@@ -1,0 +1,187 @@
+/* #######################################################
+
+	@Author: Stefan Natter
+	Version 1.5
+	http://www.gb-world.net
+	for the WP-Plugin: Like-Button-Plugin-For-Wordpress by Stefan Natter
+
+####################################################### */
+
+#gxtb_lb_fB_options {
+
+}
+
+/* ################## BEGIN MAIN-SETTINGS  ################## */
+
+#gxtb_lb_fB_options input {
+	border: 2px solid #748ab7; /* #a4c6d3; */
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	/* margin-right: 7px; */
+	/* width: 177px; */
+	color: #555;
+	font-size: 11px;
+	/* margin-left: 5px; */
+}
+
+#gxtb_lb_fB_options select {
+	vertical-align: baseline;
+	/* width: 176px; */
+	/* margin-right: 5px; */
+	border: 1px solid #748ab7;
+	background-color: #eceef5;
+}
+
+#gxtb_lb_fB_options input.checkbox {
+	/* margin-right: 5px; */
+	vertical-align: middle;
+	width: auto;
+	border-style: none;
+	background-color: #eceef5;
+}
+
+#gxtb_lb_fB_options input.radio {
+	margin-right: 5px;
+	margin-left: 15px;
+	vertical-align: middle;
+	width: auto;
+	border-style: none;
+	background-color: #eceef5;
+}
+
+/* ##################  END MAIN-SETTINGS  ################## */
+
+/* ##################  BEGIN Postfocus-Image-Box   ################## */
+
+img.gxtb_image {
+	border: dashed;
+	border-width:thin;
+	padding: 5px 15px 15px 5px;
+}
+
+#gxtb_fb_lB_meta_post_focus_div {
+	border: none;
+}
+
+/* ##################  END Postfocus-Image-Box   ################## */
+
+
+/* ##################  BEGIN Preview-Image-Box   ################## */
+
+table.gxtb_img_preview {
+	border: dashed;
+	border-width:thin;
+	overflow: hidden;
+}
+
+#gxtb_img_preview td {
+	font-style: italic;
+	font-size: small;
+	width:50px;
+}
+
+#gxtb_img_preview_div img {
+	max-width:400px;
+}
+
+/* ##################  END Preview-Image-Box   ################## */
+
+
+/* ##################  BEGIN BugTracker-Box   ################## */
+
+ul.bugtracker {
+	font-size:11px;
+	list-style-type:circle;
+	padding-left: 15px;
+}
+
+/* ##################  END BugTracker-Box   ################## */
+
+
+/* ##################  BEGIN TABLE-DESIGN (ID) ################## */
+ /* design impressions by wp-touch-plugin */
+
+#gb-table
+{
+	/* font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif; */
+	font-size: 12px;
+	/* margin: 15px; */
+	/* width: 480px; */
+	text-align: left;
+	border-collapse: collapse;
+	/* border-top: 7px solid;
+	border-bottom: 7px solid; */
+}
+
+#gb-table th
+{
+	font-size: 13px;
+	font-weight: normal;
+	padding: 8px;
+	background: none;
+	/* border-right: 1px solid;
+	border-left: 1px solid; */
+	/* color: #039; */
+}
+
+#gb-table ul, ol {
+	font-size:11px;
+	list-style-type:circle;
+	padding-left: 2px;
+}
+
+/* GENERATOR-TABLE */
+
+#gb-table-generator
+{
+	font-size: 11px;
+	text-align: left;
+	border-collapse: collapse;
+	padding: 0px 0px 5px 10px;
+}
+
+#gb-table-generator th
+{
+	font-size: 11px;
+	font-weight: normal;
+	background: none;
+	padding: 0px 0px 5px 10px;
+}
+
+#gb-table-generator td
+{
+	font-size: 11px;
+	font-weight: normal;
+	margin: 0px;
+	padding: 0px 0px 5px 10px;
+}
+
+#gb-table-generator ul, ol {
+	font-size:11px;
+	list-style-type:none;
+	padding: 0px 0px 5px 10px;
+}
+
+.gb-table-header-preview{
+	padding-top: 38px;
+	background: none;
+	margin-top: 33px;
+	border-top: 2px solid #748ab7;
+}
+
+
+/* ##################  END TABLE-DESIGN (ID) ################## */
+/* ##################  BEGIN TABLE-DESIGN (CLASS) ################## */
+
+td.gb-table-header{
+	padding: 8px;
+	background: none;
+	border-right: 2px solid #748ab7;
+}
+
+td.gb-table-tipp{
+	padding: 8px;
+	background: none;
+}
+
+/* ##################  END TABLE-DESIGN (CLASS) ################## */
