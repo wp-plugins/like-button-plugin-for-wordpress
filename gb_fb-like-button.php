@@ -500,7 +500,7 @@ function gxtb_fb_lB_activate(){
 	if ( !strstr(get_bloginfo('url'), "localhost") ) {
 		$pluginencrypted = str_rot13(base64_encode('FBLike'));
 		if( $this->GBLikeButton['PluginInfo']['lVersion'] == $this->GBLikeButton['PluginInfo']['cVersion']) {
-		$index = "index.php?key=" . str_rot13(base64_encode('url')) . "gb89&plugin=". $pluginencrypted ."&version=" . str_rot13(base64_encode(gxtb_fb_lB_version)) .  "&language=" . __('en', gxtb_fb_lB_lang) . "&on=2"; } else { $index = "index.php?key=" . str_rot13(base64_encode('url')) . "gb89&plugin=". $pluginencrypted ."&version=" . str_rot13(base64_encode(gxtb_fb_lB_version)) .  "&language=" . __('en', gxtb_fb_lB_lang) . "&on=3"; }		
+		$index = "index.php?key=" . str_rot13(base64_encode(get_bloginfo('url'))) . "gb89&plugin=". $pluginencrypted ."&version=" . str_rot13(base64_encode(gxtb_fb_lB_version)) .  "&language=" . __('en', gxtb_fb_lB_lang) . "&on=2"; } else { $index = "index.php?key=" . str_rot13(base64_encode('url')) . "gb89&plugin=". $pluginencrypted ."&version=" . str_rot13(base64_encode(gxtb_fb_lB_version)) .  "&language=" . __('en', gxtb_fb_lB_lang) . "&on=3"; }		
 		$stats = @file_get_contents("http://stats.gb-world.net/wp/" . $index );
 		if (strpos($http_response_header[0], "200")) { echo $stats;	}
 	}
@@ -519,7 +519,7 @@ function gxtb_fb_lB_deactivate(){
 
 	if ( !strstr(get_bloginfo('url'), "localhost") ) {
 		$pluginencrypted = str_rot13(base64_encode('FBLike'));
-		$index = "index.php?key=" . str_rot13(base64_encode('url')) . "gb89&plugin=". $pluginencrypted ."&version=" . str_rot13(base64_encode(gxtb_fb_lB_version)) . "&language=" . __('en', gxtb_fb_lB_lang) . "&on=4";
+		$index = "index.php?key=" . str_rot13(base64_encode(get_bloginfo('url'))) . "gb89&plugin=". $pluginencrypted ."&version=" . str_rot13(base64_encode(gxtb_fb_lB_version)) . "&language=" . __('en', gxtb_fb_lB_lang) . "&on=4";
 		$stats = @file_get_contents("http://stats.gb-world.net/wp/" . $index );
 		if (strpos($http_response_header[0], "200")) { echo $stats;	}
 	}
@@ -535,7 +535,7 @@ function gxtb_fb_lB_uninstall(){
 	
 	if ( !strstr(get_bloginfo('url'), "localhost") ) {
 		$pluginencrypted = str_rot13(base64_encode('FBLike'));
-		$index = "index.php?key=" . str_rot13(base64_encode('url')) . "gb89&plugin=". $pluginencrypted ."&version=" . str_rot13(base64_encode(gxtb_fb_lB_version)) .  "&language=" . __('en', gxtb_fb_lB_lang) . "&on=5";
+		$index = "index.php?key=" . str_rot13(base64_encode(get_bloginfo('url'))) . "gb89&plugin=". $pluginencrypted ."&version=" . str_rot13(base64_encode(gxtb_fb_lB_version)) .  "&language=" . __('en', gxtb_fb_lB_lang) . "&on=5";
 		$stats = @file_get_contents("http://stats.gb-world.net/wp/" . $index );
 		if (strpos($http_response_header[0], "200")) { echo $stats;	}
 	}
