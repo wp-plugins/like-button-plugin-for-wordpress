@@ -3,7 +3,7 @@ Contributors:  GBWorld, GangXtaBoii
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SB94MEM9ATTBG
 Tags: facebook, like button, open graph protocol, social plugins, fb, plugins, for wordpress, button, widget, sidebar widget, shortcode, like, generator, gb world, share, socialwidget, likebutton, fb, gbworld, gangxtaboii, meta tags, shortcode like, gbwiki, gb-world, dynamic, exclude, live support
 Requires at least: 2.7.x
-Tested up to: 3.0.4
+Tested up to: 3.1
 Stable tag: trunk
 
 This plugin adds a Like-Button wherever you want on your blog. Before or after the content as well as a sidebar-widget. And many more!
