@@ -46,7 +46,7 @@ $text = "";
 					 	$text .= sprintf( "<strong>%s:</strong> %s - <b>%s:</b> %s",
 						
 						__('Update', gxtb_fb_lB_lang),
-						__('After this Update/Reactivation <b>please check all your FB-Like Settings</b> if they are all the same! Because since [v4.3] there are many new things in the Backend. Thanks. Because there is a new function which copies all the old options into a new one but there is a chance that there is a problem after updating the Plugin. Please check all the options!', gxtb_fb_lB_lang),
+						__('After this Update/Reactivation <b>please check all your FB-Like Settings</b> if they are all the same! Because since [v4.3] there are many new things in the Backend. Thanks. Because there is a new function which copies all the old options into a new one but there is a chance that there is a problem after updating the Plugin. Please check all the options! <b>Instant Help: Run the GBCleaner on the Settings Page (in the menu on the left) to prevent bugs.</b>', gxtb_fb_lB_lang),
 						__('Especially', gxtb_fb_lB_lang),
 						__('Dynamic Button Setting, Meta-Tags and Design-Options. And do also update your header.php-file if you use XFBML (see more information below the XFBML-Checkbox).', gxtb_fb_lB_lang)
 						
