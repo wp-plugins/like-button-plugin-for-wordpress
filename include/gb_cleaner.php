@@ -154,12 +154,12 @@ try
 			);
 			
 	/* alle Alten Optionen löschen */
-	delete_option('gxtb_fb_lB_settings');
-	delete_option('gxtb_fb_lB_design');
-	delete_option('gxtb_fb_lB_analytics');
-	delete_option('gxtb_fb_lB_generator');
-	delete_option('gxtb_fb_lB_meta');
-	delete_option('gxtb_fb_lB');
+	#delete_option('gxtb_fb_lB_settings');
+	#delete_option('gxtb_fb_lB_design');
+	#delete_option('gxtb_fb_lB_analytics');
+	#delete_option('gxtb_fb_lB_generator');
+	#delete_option('gxtb_fb_lB_meta');
+	#delete_option('gxtb_fb_lB');
 	
 	update_option('GBLikeButton',$this->GBLikeButton); 
 ?>
