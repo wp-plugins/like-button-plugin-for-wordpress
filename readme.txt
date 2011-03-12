@@ -24,7 +24,7 @@ This plugin adds a Like-Button wherever you want on your blog. Before or after t
 *   use a shortcode to insert the like-Button
 *   create a Like-Button Sidebar-Widget (also individual Like-Button for every Site/Post or one Like-Button for the whole site.
 *   Recommendations-Sidebar-Widget: you can also add a Recommendations-Widget to your Sidebar
-*   Live [Support/BugTracker](http://bugs.gb-world.net/) in our Forum and [FanPage](http://www.facebook.com/GBWorldnet)
+*   [BugTracker](http://bugs.gb-world.net/) and live support on our [FanPage](http://www.facebook.com/GBWorldnet)
 *   easily connect your Facebook-Account, Fanpage or Application with the Like-Button on your blog
 *   Dashboard-Widget which shows you your blog-recommendations
 *   Individual Description-Tag for every post/page of your blog
