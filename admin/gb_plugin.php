@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.2] - GB-Plugin-Settings-Content [v0.2 - FINAL]
++	Like-Button-Plugin-For-Wordpress [v4.3.2] - GB-Plugin-Settings-Content [v0.3 - FINAL]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -125,11 +125,19 @@ function gxtb_fb_lB_Tools() {
 
 $tools_settings = array (
 	array(	"type" => "open"),
-	array(	"content" => "GB-Cleaner",
-			"tooltip" =>  __('Delete and update options which became senseless because of an plugin-update or anything else!', gxtb_fb_lB_lang),
+	array(	"content" => __('Run GB-Cleaner', gxtb_fb_lB_lang),
+			"tooltip" =>  __('With this GB-Cleaner App you can delete, unset and clear old options from older versions of this Plugin.', gxtb_fb_lB_lang),
 			"type" => "title"),	
 	array(	"input" => '<input type="checkbox" class="checkbox" name="gxtb_run_cleaner" id="gxtb_run_cleaner" /> ',	
-			"content" => __('With this GB-Cleaner App you can delete, unset and clear old options from older versions of this Plugin.', gxtb_fb_lB_lang),
+			"content" => __('If you run this Tool the GB-Cleaner will try to fix Bugs with the Settings and other stuff. <b>But keep in mind that you have to check all of your settings after you run it. Because it cleans and restores some settings!</b>', gxtb_fb_lB_lang),
+			"smalltip" => "",
+            "type" => "content"),
+			
+	array(	"content" => __('RESET Options', gxtb_fb_lB_lang),
+			"tooltip" =>  __('If you activate this option and hit save all of your settings will be restored to the your old settings of version 4.3 or below.', gxtb_fb_lB_lang),
+			"type" => "title"),	
+	array(	"input" => '<input type="checkbox" class="checkbox" name="gxtb_reset" id="gxtb_reset" /> ',	
+			"content" => __('If you activate this option and hit save all of your settings will be <b>restored</b> to the your old settings of version 4.3 or below.', gxtb_fb_lB_lang),
 			"smalltip" => "",
             "type" => "content"),
 	array(	"type" => "close")

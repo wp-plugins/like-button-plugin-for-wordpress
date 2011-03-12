@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-Settings-Page [v0.2 - FINAL]
++	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-Settings-Page [v0.3 - FINAL]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -29,8 +29,10 @@ class gxtb_gb_settings {
 	
 function gxtb_gb_settings() {
 	
-		include_once('gb_plugin.php');	
+		include('gb_plugin.php');	
 		$this->gxtb_fb_lB_Settings = new gxtb_fb_lB_Settings;
+		include( dirname(dirname(__FILE__)) . '/include/gb_cleaner.php' );
+		$this->gxtb_fb_lB_Cleaner = new gxtb_fb_lB_Cleaner();
 
 		global $screen_layout_columns;
 		$screen_layout_columns = 2;
@@ -43,9 +45,11 @@ function gxtb_gb_settings() {
 		
 		if ( isset( $_POST['gxtb_run_cleaner'] ) ) {
 			// cleanes all the senseless variables for this new update
-			include( dirname(dirname(__FILE__)) . '/include/gb_cleaner.php' );
-			$this->gxtb_fb_lB_Cleaner = new gxtb_fb_lB_Cleaner();
 			$this->gxtb_fb_lB_Cleaner -> RunGBCleaner();
+		}
+		
+		if (isset( $_POST['gxtb_reset'] ) ) {
+			$this->gxtb_fb_lB_Cleaner -> RunGBChanger44();	
 		}
 				
 #########################################################

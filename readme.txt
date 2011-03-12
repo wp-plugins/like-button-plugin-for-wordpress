@@ -147,6 +147,16 @@ to the html-tag in your template-header.php-file. If you do not do this the Open
 
 == Changelog ==
 
+= Version 4.4.2 =
+
++ jQuery: The conflict with Disqus is now fixed
++ GBCleaner: we updated and improve its functionality
++ Bugfix: The output of the Like Button was not correct (before or after the content)
++ Bugfix: We updated the Warning-System because the messages won't hide when everything is ok. But you still have to refresh to update the Messages
++ New: on the 'Expert-Mode' page you can now take a look at all your settings. They are listed in a textarea to help finding bugs
++ New: 'Reset Options' Tool on the 'Settings' Page
+
+
 = Version 4.4 =
 
 + New: We implemented the GB-Warning-System again after it was disabled since [v4.2]. It is now better, cleaner and even more detailed/helpful

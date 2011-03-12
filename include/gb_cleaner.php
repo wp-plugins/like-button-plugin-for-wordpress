@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-Cleaner [v1.1.1 Beta]
++	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-Cleaner [v1.1.2 Beta]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -28,13 +28,13 @@ class gxtb_fb_lB_Cleaner {
 function gxtb_fb_lB_Cleaner() { $this->GBLikeButton = get_option('GBLikeButton');} // end konstruktor
 function RunGBCleaner() {
 
-if ( isset($this->GBLikeButton['PluginInfo']['lVersion']) ) {
-
-	if ( version_compare($GBLikeButton['PluginInfo']['lVersion'], '4.4.1', '<') || $GBLikeButton['PluginInfo']['lVersion'] == "" ){
+	$this->GBLikeButton = get_option('GBLikeButton');
+	
+	if ( ( version_compare($GBLikeButton['PluginInfo']['lVersion'], '4.4.2', '<=') || $GBLikeButton['PluginInfo']['lVersion'] == "" ) &&  $this->GBLikeButton['PluginSetting']['GBCleaner'] == 0 ){
 		
 		$this->RunGBChanger44();
 	}
-}
+
 } // end function
 function RunGBChanger44() {
 	
@@ -42,7 +42,7 @@ function RunGBChanger44() {
 		
 try
 {
-  if ( get_option('gxtb_fb_lB_settings') || get_option('gxtb_fb_lB_design') || get_option('gxtb_fb_lB_analytics') || get_option('gxtb_fb_lB_generator') || get_option('gxtb_fb_lB_meta') || get_option('gxtb_fb_lB') )
+  if ( ((get_option('gxtb_fb_lB_settings') && get_option('gxtb_fb_lB_design') && get_option('gxtb_fb_lB_analytics') && get_option('gxtb_fb_lB_generator') || get_option('gxtb_fb_lB_meta')) || get_option('gxtb_fb_lB')) && $this->GBLikeButton['PluginSetting']['GBCleaner'] == 0)
   {
 	  $gxtb_fb_lB_settings = get_option('gxtb_fb_lB_settings');
 	  $gxtb_fb_lB_design = get_option('gxtb_fb_lB_design');
@@ -71,7 +71,7 @@ try
 			),
 			'PluginInfo' => array (
 				'cVersion' => gxtb_fb_lB_version,
-				'lVersion' => $gxtb_fb_lB['lVersion'],
+				'lVersion' => gxtb_fb_lB_version
 			),
 			'General' => array (
 				'on' => (isset($gxtb_fb_lB_settings['activate']) && $gxtb_fb_lB_settings['activate']==true) ? '1':'0',
@@ -166,7 +166,109 @@ try
   <div id="message" class="updated fade"><p><strong><?php echo sprintf( "%s '%s' [v%s] %s!", __('Successfully cleaned all the', gxtb_fb_lB_lang), gxtb_fb_lB_name,  gxtb_fb_lB_version, __('Settings', gxtb_fb_lB_lang)); ?></strong></p></div>
 <?php  
   } else {
-    throw new Exception('You already cleaned all the old');
+	  $this->GBLikeButton = array (
+			'PluginSetting' => array ( 
+                'Userlevel' => 'administrator', # min. Userlevel für alle Like-Seiten
+				'GBCleaner' => 0, ## deaktiviert den GB-Cleaner am Anfang by default (0 nie gelaufen | 1 bereits ausgeführt )
+                'jQuery' => 0, ## aktivieren/deaktivieren der Google-jQuery-Library (0 - WP | 1 - Google)
+                'Message' => array ( 
+					'Update' => 2, ## Update-Messages: Update-Messages für Hinweise nach dem Update (x Anzahl für Anzeige - Default: 2)
+					'Installation' => 2, ## Installation-Messages (x Anzahl für Anzeige - Default: 2)
+					'Help' => 2, ## Help-Messages (x Anzahl für Anzeige - Default: 2)
+					'Support' => 4, ## Support-Message for all the Hardwork I did (x Anzahl der Anzeige - Default:4 )
+					'Warning' => 1 ## Warning-Sys (0 - Warnungen aus | 1 - Warnungen an)
+				 ),
+                'Bugreport' => 0 ## Bugreport: noch OFFEN - wird für die Expertmod verwendet (Textbox mit allen Variablen usw) -> derzeit mittels Define ..debug gelöst
+			),
+            'EditorSetting' => array (
+				'PostButton' => 1, ## aktiviert den Post-Button im WYSIWYG-Editor
+				 'IndividualPost' => 1 ## aktiviert die individuellen Einstellungen von Posts/Pages
+			),
+			'PluginInfo' => array (
+				'cVersion' => gxtb_fb_lB_version,
+				'lVersion' => gxtb_fb_lB_version
+			),
+			'General' => array (
+				'on' => 0,
+				'addfooter_activate' => 0,
+				'addfooter' => 0,
+				'position_before' => 0,
+				'position_after' => 0,
+				'frontpage' => 1,
+				'page' => 1,
+				'page_exclude' => "",
+				'post' => 1,
+				'post_exclude' => "",
+				'category' => 0,
+				'category_exclude' => "",
+				'archiv' => 0,
+				'archiv_exclude' => "",		
+				'jdk' => 0,
+				'language' => "en_US",
+				'dynamic' => 1,
+				'shortcode' => 0
+			),
+			'Design' => array (
+				'css' => "",
+				'cssbox' => "",
+				'br_before' => 0,
+				'br_after' => 0	
+			),
+			'FBInsights' => array (
+				'on' => 0,
+				'frontpage' => "",
+				'frontpage_activ' => 0,
+				'category' => "",
+				'category_activ' => 0,
+				'page' => "",
+				'page_activ' => 0,
+				'post' => "",
+				'post_activ' => 0,
+				'archiv' => "",
+				'archiv_activ' => 0
+			),
+			'Generator' => array (
+				'url' => get_bloginfo('siteurl'),
+				'layout' => "standard",
+				'faces' => 0,
+				'width' => "150",
+				'height' => "250",
+				'verb' => "like",
+				'color' => "light",
+				'font' => "arial",
+				'scrolling' => 0,
+				'frameborder' => "0",
+				'borderstyle' => "none",
+				'overflow' => "hidden",
+				'trans' => 1
+			),
+			'OpenGraph' => array (
+				'site_name' => "&#036;binfo",
+				'blogtype' => "blog",
+				'pagetype' => "blog",
+				'posttype' => "article",
+				'admins' => "",
+				'app_id' => "",
+				'page_id' => "",
+				'title' => "&#036;ptitle",
+				'url' => "&#036;plink",
+				'description' => "",
+				'dusage' => "blogd",
+				'image' => "",
+				'plz' => "",
+				'mail' => "",
+				'street' => "",
+				'phone' => "",
+				'locality' => "",
+				'fax' => "",
+				'region' => "",
+				'country' => "",
+				'latitude' => "",
+				'longitude' => ""
+			));
+	  
+	  update_option('GBLikeButton',$this->GBLikeButton);
+    #throw new Exception('You already cleaned all the old');
   }
 }
 catch (Exception $e)

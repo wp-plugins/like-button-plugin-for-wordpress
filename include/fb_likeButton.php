@@ -182,16 +182,16 @@ if( !is_404() ) {
 if( $like_button_shown && ( isset($this->GBLikeButton['General']['position_before']) || isset($this->GBLikeButton['General']['position_after']) ) ) {
 	$gxtb_fb_lB_settings_both = false;
 
-	if ( $this->GBLikeButton['General']['position_before'] && $this->GBLikeButton['General']['position_after'] ) {
+	if ( $this->GBLikeButton['General']['position_before'] == 1 && $this->GBLikeButton['General']['position_after'] == 1 ) {
 	
 		$text = $this -> gxtb_fb_lB_breaks("before") . $text . $this -> gxtb_fb_lB_breaks("after") . $content . $this -> gxtb_fb_lB_breaks("before") . $text;
 		$gxtb_fb_lB_settings_both = true;
 		
-	} else if ( $this->GBLikeButton['General']['position_before'] && !$gxtb_fb_lB_settings_both ) {
+	} else if ( $this->GBLikeButton['General']['position_before']  == 1 && !$gxtb_fb_lB_settings_both ) {
 
 		$text = $this -> gxtb_fb_lB_breaks("before")  . $text . $this -> gxtb_fb_lB_breaks("after") . $content;
 		
-	} else if ( $this->GBLikeButton['General']['position_after'] && !$gxtb_fb_lB_settings_both ) {
+	} else if ( $this->GBLikeButton['General']['position_after'] == 1 && !$gxtb_fb_lB_settings_both ) {
 	
 		$text = $content . $this -> gxtb_fb_lB_breaks("before") . $text;
 

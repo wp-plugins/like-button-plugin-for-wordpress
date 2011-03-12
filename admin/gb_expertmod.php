@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-Expertmod [v0.2 - FINAL]
++	Like-Button-Plugin-For-Wordpress [v4.4.2] - GB-Expertmod [v0.3 - FINAL]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -130,7 +130,7 @@ function gb_expert() {
         <tr>
             <td class="gb-table-tipp">
 			</td>
-        </tr> <?php if (gxtb_fb_lB_debug || version_compare( gxtb_fb_lB_version, '5.0', '>=' ) || $this->GBLikeButton['PluginSetting']['Bugreport'] == 1) { ?>
+        </tr> <?php if (gxtb_fb_lB_debug || version_compare( gxtb_fb_lB_version, '4.4.2', '>=' ) || $this->GBLikeButton['PluginSetting']['Bugreport'] == 1) { ?>
         		<tr>
             <td width="20%" rowspan="2" valign="top" class="gb-table-header">
 				<strong>
@@ -146,11 +146,11 @@ if($key != "PluginSetting" && $key != "EditorSetting" && $key != "PluginInfo") {
 $string.= "" . $key . " => " . $value;
 $string.= "\n";
 	foreach ($this->GBLikeButton[$key] as $key1 => $value1) { 
-				$string.= $key1 . " => " . $value1;
+				$string.= "   " . $key1 . " => " . $value1;
 				$string.= "\n";
 				if($key1 == "Message") {
 					foreach ($this->GBLikeButton[$key][$key1] as $key2 => $value2) { 
-						$string.= $key2 . " => " . $value2;
+						$string.= "   " . $key2 . " => " . $value2;
 						$string.= "\n";
 					}
 				}

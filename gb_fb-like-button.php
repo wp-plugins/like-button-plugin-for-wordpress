@@ -3,7 +3,7 @@
 	Plugin Name: Like-Button-Plugin-For-Wordpress
 	Plugin URI: http://www.gb-world.net/like-button-plugin-for-wordpress/
 	Description: This Plugin provides the most settings for the Like-Button of Facebook. It's in a steadily development to ensure that everything is up-to-date with all the Web 2.0 Standards and Requirements. Enjoy the Like-Button now with GB-World.net's Like-Button-Plugin-For-Wordpress!
-	Version: 4.4.1
+	Version: 4.4.2
 	Author: Stefan Natter
 	Author URI: http://www.gb-world.net
 	Update Server: http://wordpress.org/extend/plugins/like-button-plugin-for-wordpress
@@ -76,7 +76,7 @@ function GBLikeButton() {
 if ( !defined('gxtb_fb_lB_shortcode' ) )
 	define( 'gxtb_fb_lB_shortcode', "gxtb" );
 if ( !defined('gxtb_fb_lB_version' ) )
-	define( 'gxtb_fb_lB_version', "4.4.1" );
+	define( 'gxtb_fb_lB_version', "4.4.2" );
 if ( !defined( 'gxtb_fb_lB_name' ) )
 	define( 'gxtb_fb_lB_name', "Like-Button-Plugin-For-Wordpress" );
 if ( !defined( 'gxtb_fb_lB_page' ) )
@@ -377,12 +377,16 @@ function gxtb_fb_lB_MetaTags() {
 
 function gxtb_fb_lB_activate(){
 	
+	$cleaner_update_check = false;
+	
 	if(!get_option('GBLikeButton')) {
+		
+		$cleaner_update_check = true;
 		
 		$this->GBLikeButton = array (
 			'PluginSetting' => array ( 
                 'Userlevel' => 'administrator', # min. Userlevel für alle Like-Seiten
-				'GBCleaner' => 0, ## deaktiviert den GB-Cleaner am Anfang by default (0 deaktiviert | 1 aktiviert)
+				'GBCleaner' => 0, ## deaktiviert den GB-Cleaner am Anfang by default (0 nie gelaufen | 1 bereits ausgeführt )
                 'jQuery' => 0, ## aktivieren/deaktivieren der Google-jQuery-Library (0 - WP | 1 - Google)
                 'Message' => array ( 
 					'Update' => 2, ## Update-Messages: Update-Messages für Hinweise nach dem Update (x Anzahl für Anzeige - Default: 2)
@@ -399,7 +403,7 @@ function gxtb_fb_lB_activate(){
 			),
 			'PluginInfo' => array (
 				'cVersion' => gxtb_fb_lB_version,
-				'lVersion' => ""
+				'lVersion' => gxtb_fb_lB_version
 			),
 			'General' => array (
 				'on' => 0,
@@ -491,8 +495,8 @@ function gxtb_fb_lB_activate(){
 	GB_infoPage_activate(gxtb_fb_lB_name, gxtb_fb_lB_version);
 	############ GB-World Infopage Setup ############	
 				
-	if ( get_option('gxtb_fb_lB') || (isset($this->GBLikeButton['PluginInfo']['lVersion']) && (version_compare($this->GBLikeButton['PluginInfo']['lVersion'], '4.4.1', '<') || $this->GBLikeButton['PluginInfo']['lVersion'] == "" )) ) {
-		require_once(dirname(__FILE__) . '/include/gb_cleaner.php');
+	if ( $cleaner_update_check == true ) {
+		include(dirname(__FILE__) . '/include/gb_cleaner.php');
 		$gxtb_fb_lB_Cleaner = new gxtb_fb_lB_Cleaner();
 		$gxtb_fb_lB_Cleaner -> RunGBChanger44();
 	} 
@@ -500,7 +504,7 @@ function gxtb_fb_lB_activate(){
 	if ( !strstr(get_bloginfo('url'), "localhost") ) {
 		$pluginencrypted = str_rot13(base64_encode('FBLike'));
 		if( $this->GBLikeButton['PluginInfo']['lVersion'] == $this->GBLikeButton['PluginInfo']['cVersion']) {
-		$index = "index.php?key=" . str_rot13(base64_encode(get_bloginfo('siteurl'))) . "gb89&plugin=". $pluginencrypted ."&version=" . str_rot13(base64_encode(gxtb_fb_lB_version)) .  "&language=" . __('en', gxtb_fb_lB_lang) . "&on=2"; } else { $index = "index.php?key=" . str_rot13(base64_encode('url')) . "gb89&plugin=". $pluginencrypted ."&version=" . str_rot13(base64_encode(gxtb_fb_lB_version)) .  "&language=" . __('en', gxtb_fb_lB_lang) . "&on=3"; }		
+		$index = "index.php?key=" . str_rot13(base64_encode(get_bloginfo('siteurl'))) . "gb89&plugin=". $pluginencrypted ."&version=" . str_rot13(base64_encode(gxtb_fb_lB_version)) .  "&language=" . __('en', gxtb_fb_lB_lang) . "&on=2"; } else { $index = "index.php?key=" . str_rot13(base64_encode(get_bloginfo('siteurl'))) . "gb89&plugin=". $pluginencrypted ."&version=" . str_rot13(base64_encode(gxtb_fb_lB_version)) .  "&language=" . __('en', gxtb_fb_lB_lang) . "&on=3"; }		
 		$stats = @file_get_contents("http://stats.gb-world.net/wp/" . $index );
 		if (strpos($http_response_header[0], "200")) { echo $stats;	}
 	}
