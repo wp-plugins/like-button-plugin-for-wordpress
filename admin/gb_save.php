@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-Save-Settings [v0.3 FINAL]
++	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-Save-Settings [v0.4 FINAL]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -41,6 +41,8 @@
 # SAVE
 if ( isset($_POST['fbsubmit']) && check_admin_referer('fb-like-button') && $_POST['fb_like_hidden'] == 'update' ) {
  
+if (get_option('GBLikeButton')) { # sichert die Datei vor Error-Meldungen falls die Option nicht verfügbar ist
+	
  	$GBLikeButton = get_option('GBLikeButton');
 	$stats = $GBLikeButton['General']['on'];
  
@@ -52,6 +54,7 @@ if ($_GET['page'] == "fb-like-button") {
 
 	$area = "General";
 	$keycode = "general_";
+	
 	foreach ($GBLikeButton[$area] as $key => $value) { 
 			
 				  switch ($key) {
@@ -232,7 +235,20 @@ $stats = @file_get_contents("http://stats.gb-world.net/wp/" . $index );
 # Nachdem alles abgefragt und gespeichert wurde wird die Post-Aktion auf 0 gesetzt per unset #
 	unset( $_POST['fbsubmit'] );
 	} // end if
+
 }
+else { ?>
+		<div class="ui-widget">
+			<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;"> 
+				<p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span> 
+				<strong><?php _e("Information", gxtb_fb_lB_lang); ?>:</strong> <?php echo sprintf("%s [<a href='admin.php?page=fb-like-settings'>%s</a>] %s.", __("Please run the", gxtb_fb_lB_lang), __("GBCleaner", gxtb_fb_lB_lang),__("first! There has been an error with your Settings.", gxtb_fb_lB_lang)); ?></p>
+			</div>
+		</div>
+<?php 
+} // end if get_option
+
+
+} // end if
 
 function rot13encrypt ($str) {
 return str_rot13(base64_encode($str));

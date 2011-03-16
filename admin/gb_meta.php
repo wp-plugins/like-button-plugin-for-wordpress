@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-Meta-Page [v0.2 - FINAL]
++	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-Meta-Page [v0.3 - FINAL]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -137,14 +137,14 @@ function gb_meta() {
 				</li>
 				<li class="ui-state-default ui-corner-top">
 					<a href="#tabs-11" class="ui-state-default ui-corner-top">
-						<?php _e('Blog-Specific Tags', gxtb_fb_lB_lang); ?>
+						<?php _e('Blog Tags', gxtb_fb_lB_lang); ?>
 					</a>
-				</li>
+				</li><?php /* 
 				<li class="ui-state-default ui-corner-top">
 					<a href="#tabs-12" class="ui-state-default ui-corner-top">
 						<?php _e('Image-Tag', gxtb_fb_lB_lang); ?>
 					</a>
-				</li>
+				</li> */ ?>
 				<li class="ui-state-default ui-corner-top">
 					<a href="#tabs-13" class="ui-state-default ui-corner-top">
 						<?php _e('Additional Tags', gxtb_fb_lB_lang); ?>
@@ -159,10 +159,11 @@ function gb_meta() {
 			</table></div>
 			<div class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="tabs-11"><table class="form-table">
 					<?php $this->metacontent -> tab2(); ?>
-			</table></div>
+                    <?php $this->metacontent -> tab3(); ?>
+			</table></div><?php /* 
 			<div class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="tabs-12"><table class="form-table">
 					<?php $this->metacontent -> tab3(); ?>
-			</table></div>
+			</table></div> */ ?>
 			<div class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="tabs-13"><table class="form-table">
 					<?php $this->metacontent -> tab4(); ?>			
 			</table></div>
@@ -270,7 +271,7 @@ $this->GBLikeButton = get_option('GBLikeButton');
 ?>
 							<tr>
 								<td valign="bottom" width="20%">							
-									<?php _e('Site-Name', gxtb_fb_lB_lang) ?>:
+									<?php _e('Site-Name', gxtb_fb_lB_lang) ?>: (<?php _e('required', gxtb_fb_lB_lang) ?>)
 								</td>
 								<td valign="bottom">
 									<input type="text" id="gxtb_fb_lB_meta_site_name" name="site_name" value="<?php if (isset($this->GBLikeButton['OpenGraph']['page_id']) && $this->GBLikeButton['OpenGraph']['site_name']) {echo $this->GBLikeButton['OpenGraph']['site_name'];} else {echo "";} ?>" /> <span class="hotspot" style="color:#900;" onmouseover="tooltip.show('<?php _e('This Shortcode will generate the Site-Name Tag dynamically!', gxtb_fb_lB_lang) ?>');" onmouseout="tooltip.hide();"><?php _e('Shortcode: $binfo', gxtb_fb_lB_lang) ?></span>
@@ -279,7 +280,7 @@ $this->GBLikeButton = get_option('GBLikeButton');
 											
 							<tr>
 								<td valign="bottom">							
-									<?php _e('Page-Title', gxtb_fb_lB_lang) ?>:
+									<?php _e('Page-Title', gxtb_fb_lB_lang) ?>: (<?php _e('required', gxtb_fb_lB_lang) ?>)
 								</td>
 								<td valign="bottom">
 									<input type="text" name="title" value="<?php if (isset($this->GBLikeButton['OpenGraph']['title']) && $this->GBLikeButton['OpenGraph']['title']) {echo $this->GBLikeButton['OpenGraph']['title'];} else {echo "";} ?>" /> <span class="hotspot" style="color:#900;" onmouseover="tooltip.show('<?php _e('This Shortcode will generate the Page-Title Tag dynamically!', gxtb_fb_lB_lang) ?>');" onmouseout="tooltip.hide();"><?php _e('Shortcode: $ptitle', gxtb_fb_lB_lang) ?></span>
@@ -288,7 +289,7 @@ $this->GBLikeButton = get_option('GBLikeButton');
 							
 							<tr>
 								<td valign="top">							
-									<?php _e('Page-URL', gxtb_fb_lB_lang) ?>:
+									<?php _e('Page-URL', gxtb_fb_lB_lang) ?>: (<?php _e('required', gxtb_fb_lB_lang) ?>)
 								</td>
 								<td valign="top">
 									<input type="text" name="url" value="<?php if (isset($this->GBLikeButton['OpenGraph']['url']) && $this->GBLikeButton['OpenGraph']['url'] != "") {echo $this->GBLikeButton['OpenGraph']['url'];} else {echo "";} ?>" /> <span class="hotspot" style="color:#900;" onmouseover="tooltip.show('<?php _e('This Shortcode will generate the Page-URL Tag dynamically!', gxtb_fb_lB_lang) ?>');" onmouseout="tooltip.hide();"><?php _e('Shortcode: $plink', gxtb_fb_lB_lang) ?></span>
@@ -358,7 +359,7 @@ $this->GBLikeButton = get_option('GBLikeButton');
                             
 							<tr>
 								<td valign="top">
-									<?php _e('Page-Description', gxtb_fb_lB_lang) ?>:
+									<?php _e('Page-Description', gxtb_fb_lB_lang) ?>: (<?php _e('required', gxtb_fb_lB_lang) ?>)
 								</td>
 								<td valign="bottom" colspan="4">
 									<textarea name="description" rows="5"/ style="width:100%"><?php if (isset($this->GBLikeButton['OpenGraph']['url']) && $this->GBLikeButton['OpenGraph']['description'] != "") {echo $this->GBLikeButton['OpenGraph']['description'];} else {echo "";} ?></textarea><br />
@@ -373,7 +374,11 @@ $this->GBLikeButton = get_option('GBLikeButton');
                                         </span><br />
                                     <input type='Radio' class="radio" Name='dusage' value='blogn' <?php if(isset($this->GBLikeButton['OpenGraph']['dusage']) && $this->GBLikeButton['OpenGraph']['dusage'] == "blogn") echo "checked"; ?>>
 										<span class="hotspot" onmouseover="tooltip.show('<?php _e('The text in the textarea above will be displayed', gxtb_fb_lB_lang) ?>');" onmouseout="tooltip.hide();">
-											<?php _e('Use this description', gxtb_fb_lB_lang) ?>
+											<?php _e('Use the description of this textarea', gxtb_fb_lB_lang) ?>
+                                        </span><br />
+                                    <input type='Radio' class="radio" Name='dusage' value='blognon' <?php if(isset($this->GBLikeButton['OpenGraph']['dusage']) && $this->GBLikeButton['OpenGraph']['dusage'] == "blognon") echo "checked"; ?>>
+										<span class="hotspot" onmouseover="tooltip.show('<?php _e('The Description Tag of your Blog will be used', gxtb_fb_lB_lang) ?>');" onmouseout="tooltip.hide();">
+											<?php _e('Deactivate the OpenGraph Description Tag', gxtb_fb_lB_lang) ?>
                                         </span>
 								</td>
 							</tr>
@@ -394,20 +399,13 @@ function tab3() {
 ?>
 	<tr>
 		<td valign="top" width="20%">							
-									<?php _e('Image', gxtb_fb_lB_lang) ?>:
-									<br />							
-				<a href="#imageHelp" class="fancylink" style="color:#900;border-bottom:1px dotted #900; text-decoration:none;"><?php _e('Need Help?', gxtb_fb_lB_lang) ?></a>
-						
-				<div id="imageHelp" style="display:none">
-					<h2><?php _e('More Information about the image-Meta-Tag') ?></h2>
-					<p><?php _e('The URL to an image that represents the entity. Images must be at least 50 pixels by 50 pixels.') ?><br><?php _e('Square images work best, but you are allowed to use images up to three times as wide as they are tall.') ?><br><br /><i>(<?php _e('Official Facebook-Description') ?>)</i></p>
-				</div>
+									<?php _e('Image', gxtb_fb_lB_lang) ?>: (<?php _e('required', gxtb_fb_lB_lang) ?>)
 								</td>
 								<td valign="top" colspan="5">
 									<input type="text" onchange="gxtb_image_src()" onselect="gxtb_image_src()" onfocus="gxtb_image_src()" id="gxtb_fb_lB_meta_image" name="image" value="<?php if (isset($this->GBLikeButton['OpenGraph']['image']) && $this->GBLikeButton['OpenGraph']['image'] != "") {echo $this->GBLikeButton['OpenGraph']['image'];} else {echo "";} ?>" size="50"/> <img src="<?php echo gxtb_fb_lB_PLUGIN_FOLDER; ?>/images/rot17a.gif"  onmouseover="tooltip.show('<?php _e('Complete URL of your Blog-Image which will appear on facebook if somebody posts his like-action on his wall.<br><b>Example:</b> if you use an facebook-app and post it on your wall there is always a little image on the left side of this post. And the same will happen with your image.', gxtb_fb_lB_lang); ?>');" onmouseout="tooltip.hide();">
 								</td>
-							</tr>			
-
+							</tr>
+                            
 							<tr>
 								<td valign="top" colspan="1">							
 									<?php _e('Preview', gxtb_fb_lB_lang) ?>:
@@ -443,6 +441,15 @@ function tab3() {
 									<?php _e('If image is picked in post that image will be taken. Otherwise the post/page will use this picture you set here.', gxtb_fb_lB_lang ) ?>
 								</td>
 							</tr>
+                            
+                           <tr>
+								<td valign="top" colspan="1">							
+									<b><?php _e('Help') ?>:</b>
+								</td>
+								<td valign="top" colspan="5">
+									<p><?php _e('The URL to an image that represents the entity. Images must be at least 50 pixels by 50 pixels.') ?><br><?php _e('Square images work best, but you are allowed to use images up to three times as wide as they are tall.') ?><br><br /><i>(<?php _e('Official Facebook-Description') ?>)</i></p>
+								</td>
+							</tr>	
 							
 							<tr>
 								<td valign="top"></td>

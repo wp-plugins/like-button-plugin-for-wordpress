@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.2] - GB-Meta-Generator [v1.4 - FINAL]
++	Like-Button-Plugin-For-Wordpress [v4.3.2] - GB-Meta-Generator [v1.5 - FINAL]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -115,7 +115,9 @@ $meta .= '
 	break;
 	
 	case "dusage":
+		if ($value != "blognon") {
 		$this -> gxtb_meta_description($key, $value, &$meta);
+		}
 	break;
 	
 	case ( $key == "blogtype" && is_home() ):
@@ -232,6 +234,7 @@ $meta .= '
 $meta .= '
 <meta property="og:description" content="' . $content . '"/>';	
 }
+
 }
 
 ####################################################

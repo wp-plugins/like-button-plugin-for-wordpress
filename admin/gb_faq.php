@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-FAQ-Page [v0.2]
++	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-FAQ-Page [v0.3]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -332,6 +332,8 @@ function gxbt_video_content() { ?>
 <object width="400" height="192" ><param name="allowfullscreen" value="true" /><param name="movie" value="http://www.facebook.com/v/134242099973630" /><embed src="http://www.facebook.com/v/134242099973630" type="application/x-shockwave-flash" allowfullscreen="true" width="500" height="292"></embed></object>
 <br />
 <object width="400" height="232" ><param name="allowfullscreen" value="true" /><param name="movie" value="http://www.facebook.com/v/134246893306484" /><embed src="http://www.facebook.com/v/134246893306484" type="application/x-shockwave-flash" allowfullscreen="true" width="500" height="332"></embed></object>
+<br />
+<object width="400" height="232" ><param name="allowfullscreen" value="true" /><param name="movie" value="http://www.facebook.com/v/147858845278622" /><embed src="http://www.facebook.com/v/147858845278622" type="application/x-shockwave-flash" allowfullscreen="true" width="500" height="332"></embed></object>
 </center>
 <?php } // end function
 function gxbt_mediawiki_content() { ?>

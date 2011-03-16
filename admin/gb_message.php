@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-MESSAGE-SYSTEM [v0.2 FINAL] - GB-WARNING-SYSTEM [v0.2 BETA] [mit global $GBLikeButton]
++	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-MESSAGE-SYSTEM [v0.2 FINAL] - GB-WARNING-SYSTEM [v0.3 BETA] [mit global $GBLikeButton]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -205,8 +205,8 @@ if ($GBLikeButton['PluginSetting']['Message']['Warning'] == 1) {
 		}
 				
 		# Alle Blog-Specific Tags müssen ausgefüllt sein #
-		if($GBLikeButton['OpenGraph']['site_name'] == "" || $GBLikeButton['OpenGraph']['title'] == "" || $GBLikeButton['OpenGraph']['url'] == "" || ($GBLikeButton['OpenGraph']['dusage'] == "blogn" && $GBLikeButton['OpenGraph']['description'] == "") ) {
-			$this -> warningtext[__('Blog-Specific Tags', gxtb_fb_lB_lang )] = array( __('Please set all the required Tags like the Examples show on the Tags-Page.', gxtb_fb_lB_lang ) => array("OpenGraph" => "fb-like-opengraph#tabs-11") );
+		if($GBLikeButton['OpenGraph']['site_name'] == "" || $GBLikeButton['OpenGraph']['title'] == "" || $GBLikeButton['OpenGraph']['url'] == "" || ( isset($GBLikeButton['OpenGraph']['dusage']) && $GBLikeButton['OpenGraph']['dusage'] == "blogn" && isset($GBLikeButton['OpenGraph']['description']) && $GBLikeButton['OpenGraph']['description'] == "") || $GBLikeButton['OpenGraph']['image'] == "") {
+			$this -> warningtext[__('Blog Tags', gxtb_fb_lB_lang )] = array( __('Please set all the required Tags like the Examples show on the Tags-Page.', gxtb_fb_lB_lang ) => array("OpenGraph" => "fb-like-opengraph#tabs-11") );
 		}		
 					
 	# Wenn Plugin bzw. Button nicht aktiviert ist #						
