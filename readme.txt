@@ -153,7 +153,7 @@ to the html-tag in your template-header.php-file. If you do not do this the Open
 + Design: We optimized the OpenGraph Page to keep it more simple
 + Bugfix: We optimized the Save-Process
 + New: We added a from  new option which lets you deactivate the description tag
-+ FAQ: new video added a new video from our Facebook Fanpage to the FAQ Page
++ FAQ: new video added from our Facebook Fanpage to the FAQ Page
 
 
 = Version 4.4.2 =
