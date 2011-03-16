@@ -1,5 +1,5 @@
 === Like-Button-Plugin-For-Wordpress ===
-Contributors:  GBWorld
+Contributors:  GBWorld, GangXtaBoii
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SB94MEM9ATTBG
 Tags: facebook, like button, open graph protocol, social plugins, fb, plugins, for wordpress, button, widget, sidebar widget, shortcode, like, generator, gb world, share, socialwidget, likebutton, fb, gbworld, gangxtaboii, meta tags, shortcode like, gbwiki, gb-world, dynamic, exclude, live support
 Requires at least: 2.7.x
