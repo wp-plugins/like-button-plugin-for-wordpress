@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-General-Page [v0.2 - OPEN Beta]
++	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-General-Page [v0.3 - OPEN Beta]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -454,7 +454,24 @@ function tab1() {
                 <?php _e('<b>Default:</b> en_US', gxtb_fb_lB_lang); ?>
             		</small>
 						</td>
-                    </tr>	
+                    </tr>
+                    
+                    <tr>
+                    	<td width="20%" rowspan="2" valign="top" class="gb-table-header"><strong><?php _e('Activate the Meta-Tag Output', gxtb_fb_lB_lang) ?></strong></td>
+                        <td width="80%" valign="middle">
+					<input name="opengraph_on" type="checkbox" class="checkbox" <?php if (isset($this->GBLikeButton['OpenGraph']['on']) && $this->GBLikeButton['OpenGraph']['on']) echo("checked"); ?> value="1"/> 
+                    <img src="<?php echo gxtb_fb_lB_PLUGIN_FOLDER; ?>/images/rot17a.gif"  onmouseover="tooltip.show('<?php _e('It is not recommended to deactivate the OpenGraph Output because the Plugin generates very individual and very dynamic OpenGraph Tags.', gxtb_fb_lB_lang); ?>');" onmouseout="tooltip.hide();">
+                         </td>
+                    </tr>
+                    <tr>
+                        <td class="gb-table-tipp">
+						<small>
+			<u><?php _e('Information', gxtb_fb_lB_lang); ?>:</u> <?php _e('Deactivate this Option if another Plugin already creates the OpenGraph Metatags or you just do not need/want it.', gxtb_fb_lB_lang); ?> 
+            		</small>
+						</td>
+                    </tr>
+					
+					<!--<tr><td colspan="2"><HR SIZE=1></td></tr>-->
 <?php }
 ############################################################################### 
 #################################### TAB 2 #################################### 

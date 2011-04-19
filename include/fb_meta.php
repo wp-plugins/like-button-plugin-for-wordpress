@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.2] - GB-Meta-Generator [v1.5 - FINAL]
++	Like-Button-Plugin-For-Wordpress [v4.3.2] - GB-Meta-Generator [v1.5.1 - FINAL]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -39,9 +39,18 @@ class gxtb_fb_lB_MetaAction {
 
 function gxtb_fb_lB_MetaAction() {
 
+	if ( is_single() || is_page() ) {
+		global $post;
+		$post_id = $post;
+		
+		if (is_object($post_id)) 
+			$post_id = $post_id->ID;
+		$fbnometa = get_post_meta($post_id, '_fbnometa', true);
+	}
+		
 	$this->GBLikeButton = get_option('GBLikeButton');
 
-	if($this->GBLikeButton['General']['on']) {
+	if($this->GBLikeButton['General']['on'] && (!isset($fbnometa) || !$fbnometa) && $this->GBLikeButton['OpenGraph']['on'] ) {
 		ob_start(array( $this, 'meta_output' ));
 		ob_end_flush();
 	}
@@ -142,21 +151,25 @@ $meta .= '
 	
 	case "image":
 	
-	if( is_single() || is_page() ) {
+if( is_single() || is_page() ) {
 	global $post, $wp_query;
    	$page_id = $wp_query->post->ID;
     $pic = get_post_meta($page_id, '_fbpic', true);	
+	$fbfeatured = get_post_meta($page_id, '_fbfeatured', true);
 	
-	if ( isset($pic) && !empty($pic) && strstr($pic, "http://") )
+	if($fbfeatured == 1) { # Featured Image:
+		$fbfeatured = wp_get_attachment_image_src( get_post_thumbnail_id( $page_id ), 'single-post-thumbnail' );
 $meta .= '
-<meta property="og:' . $key . '" content="' . $pic . '"/>';		
-	else
+<meta property="og:' . $key . '" content="' . $fbfeatured[0] . '"/>';	
+	}	
+	# Specific Image:
+	if ( isset($pic) && !empty($pic) && strstr($pic, "http://") ) {
 $meta .= '
-<meta property="og:' . $key . '" content="' . $value . '"/>';	
-	} else {
-$meta .= '
-<meta property="og:' . $key . '" content="' . $value . '"/>';	
+<meta property="og:' . $key . '" content="' . $pic . '"/>';
 	}
+	} # Default Image:
+$meta .= '
+<meta property="og:' . $key . '" content="' . $value . '"/>';	
 	break;
 ## END Special Tags ##	
 ## BEGIN Tags ##	

@@ -32,7 +32,7 @@ function gbworld() {
 	## Like-Box
   	add_meta_box('gxtb_world_like_box', 'GB-World on Facebook', array(&$this, 'gxtb_initialize_fb_box'), $this->pagehook, 'like', 'core');
 	## Supporter-Box
-  	add_meta_box('gxtb_world_supporter', 'GB-World-Supporter', array(&$this, 'gxtb_initialize_supporter'), $this->pagehook, 'feed_supporter', 'core');
+  	add_meta_box('gxtb_world_supporter', 'GB-World-Supporter (currently not up2date)', array(&$this, 'gxtb_initialize_supporter'), $this->pagehook, 'feed_supporter', 'core');
 	## Feed-Reader
   	add_meta_box('gxtb_world_feed_news', 'GB-World-Development-News', array(&$this, 'gxtb_initialize_feed_news'), $this->pagehook, 'feed_news', 'core');
   	add_meta_box('gxtb_world_feed_wp', 'GB-World.net', array(&$this, 'gxtb_initialize_feed_wp'), $this->pagehook, 'feed_wp', 'core');	
@@ -74,17 +74,11 @@ function gbworld() {
 										<tr>
 										<td height="30px"></td>
 										</tr>
-										<tr>
-											<td>
-											<?php do_meta_boxes($this->pagehook, 'feed_supporter', ""); ?>
-											</td>
-										</tr>
 										</table>
 										
                                  	</td>
 									
 									<td width="25px">
-									
 									</td>
 								 
 								 <td valign="top" rowspan="3">
@@ -96,8 +90,8 @@ function gbworld() {
 									 <td valign="top">
 										<?php do_meta_boxes($this->pagehook, 'feed_news', ""); ?>
 									 </td>
-								 </tr>
-                                 <tr>
+                                     </tr>
+                                     <tr>
 									 <td valign="top">
 										<?php do_meta_boxes($this->pagehook, 'feed_wp', ""); ?>
 									 </td>
@@ -105,7 +99,8 @@ function gbworld() {
                                  </table>
 								 
                                  <?php do_meta_boxes($this->pagehook, 'plugins', ""); ?>
-								 <?php do_meta_boxes($this->pagehook, 'paypal', ""); ?> 
+								 <?php do_meta_boxes($this->pagehook, 'paypal', ""); ?>
+                                 <?php do_meta_boxes($this->pagehook, 'feed_supporter', ""); ?>
                                  </td>
 								 
                                  </tr>

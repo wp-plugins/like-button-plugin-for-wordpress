@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-Save-Settings [v0.4 FINAL]
++	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-Save-Settings [v0.5 FINAL]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -54,6 +54,9 @@ if ($_GET['page'] == "fb-like-button") {
 
 	$area = "General";
 	$keycode = "general_";
+	
+	## [OpenGraph][on]-Option seperat abfragen #
+	$GBLikeButton['OpenGraph']['on'] = ( isset($_POST['opengraph_on'])) ? $_POST['opengraph_on']:0;
 	
 	foreach ($GBLikeButton[$area] as $key => $value) { 
 			
@@ -207,16 +210,46 @@ if( gxtb_fb_lB_debug ) {
 	}
 }
 
+if ($_GET['page'] == "fb-like-expert") {
+	
+if( gxtb_fb_lB_debug ) {
+	echo "<b>Debug-Modus [Expert]</b><br />";
+}
+	
+	$area = "Expert";
+	$keycode = "expert_";
+	foreach ($GBLikeButton[$area] as $key => $value) { 
+			
+				  switch ($key) {
+					  
+					  case "besidebutton":
+						  $GBLikeButton[$area][$key] = ( isset($_POST[$keycode . $key]) && $_POST[$keycode . $key] != "" ) ? stripslashes($_POST[$keycode . $key]):'';
+						  if($_POST[$keycode . $key] && gxtb_fb_lB_debug && isset($_POST[$keycode . $key]) ) {
+						  	echo "[" . $area ."][".$key."] => '" . stripslashes($_POST[$keycode . $key]) . "' from [" . $keycode . $key ."]<br />";
+						  }
+						  unset($_POST[$keycode . $key]);
+					  
+					  break;
+					  				  
+					  default:
+						  $GBLikeButton[$area][$key] = ( isset($_POST[$keycode . $key]) && $_POST[$keycode . $key] != "" ) ? $_POST[$keycode . $key]:'';
+						  if($_POST[$keycode . $key] && gxtb_fb_lB_debug && isset($_POST[$keycode . $key]) ) {
+						  	echo "[" . $area ."][".$key."] => '" . $_POST[$keycode . $key] . "' from [" . $keycode . $key ."]<br />";
+						  }
+						  unset($_POST[$keycode . $key]);
+					  break;
+				  }
+	}
+}
+
+
 	# Alles updaten #
 	update_option('GBLikeButton', $GBLikeButton);
 
-if( isset($_GET['page']) && $_GET['page'] == "fb-like-button" && isset($GBLikeButton['General']['on']) && $stats != $GBLikeButton['General']['on'] && !strstr(get_bloginfo('url'), "localhost") ) {
-	 	
+if( isset($_GET['page']) && $_GET['page'] == "fb-like-button" && isset($GBLikeButton['General']['on']) && $stats != $GBLikeButton['General']['on'] && !strstr(get_bloginfo('url'), "localhost") ) { 	
 	$pluginencrypted = rot13encrypt("FBLike");
 	$index = "index.php?key=" . rot13encrypt(get_bloginfo('url')) . "gb89&plugin=". $pluginencrypted ."&version=" . rot13encrypt(gxtb_fb_lB_version) . "&language=" . __('en', gxtb_fb_lB_lang) . "&on=" . $GBLikeButton['General']['on'];
-
 $stats = @file_get_contents("http://stats.gb-world.net/wp/" . $index );
-
 	if (strpos($http_response_header[0], "200")) {
 	   echo $stats;
 	} // end if

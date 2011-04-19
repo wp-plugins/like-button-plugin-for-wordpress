@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-Cleaner [v1.1.2 Beta]
++	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-Cleaner [v1.1.3 Beta]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -30,7 +30,7 @@ function RunGBCleaner() {
 
 	$this->GBLikeButton = get_option('GBLikeButton');
 	
-	if ( ( version_compare($GBLikeButton['PluginInfo']['lVersion'], '4.4.2', '<=') || $GBLikeButton['PluginInfo']['lVersion'] == "" ) &&  $this->GBLikeButton['PluginSetting']['GBCleaner'] == 0 ){
+	if ( ( version_compare($GBLikeButton['PluginInfo']['lVersion'], '4.4.3.1', '<=') || $GBLikeButton['PluginInfo']['lVersion'] == "" ) &&  $this->GBLikeButton['PluginSetting']['GBCleaner'] == 0 ){
 		
 		$this->RunGBChanger44();
 	}
@@ -55,6 +55,7 @@ try
 			'PluginSetting' => array ( 
                 'Userlevel' => $this->GBLikeButton['PluginSetting']['Userlevel'],
 				'GBCleaner' => 0,
+				'GBWidgetCleaner' => 0, ## deaktiviert den GB-Cleaner am Anfang by default (0 nie gelaufen | 1 bereits ausgeführt )	
                 'jQuery' => $this->GBLikeButton['PluginSetting']['jQuery'],
                 'Message' => array ( 
 					'Update' => $this->GBLikeButton['PluginSetting']['Message']['Update'],
@@ -128,6 +129,7 @@ try
 				'trans' => (isset($gxtb_fb_lB_generator['trans']) && $gxtb_fb_lB_generator['trans']==true) ? '1':'0'
 			),
 			'OpenGraph' => array (
+				'on' => 1, # gab es in den alten Optionen noch gar nicht #
 				'site_name' => (isset($gxtb_fb_lB_meta['site_name'])) ? $gxtb_fb_lB_meta['site_name']:"&#036;binfo",
 				'blogtype' => (isset($gxtb_fb_lB_meta['blogtype'])) ? $gxtb_fb_lB_meta['blogtype']:"blog",
 				'pagetype' => (isset($gxtb_fb_lB_meta['blogtype'])) ? $gxtb_fb_lB_meta['blogtype']:"blog",
@@ -150,10 +152,14 @@ try
 				'country' => (isset($gxtb_fb_lB_meta['country'])) ? $gxtb_fb_lB_meta['country']:"",
 				'latitude' => (isset($gxtb_fb_lB_meta['latitude'])) ? $gxtb_fb_lB_meta['latitude']:"",
 				'longitude' => (isset($gxtb_fb_lB_meta['longitude'])) ? $gxtb_fb_lB_meta['longitude']:""
+			),
+			'Expert' => array( ## wird hier, in der extend-datei sowie output verwendet #
+				'besidebutton' => "",
+				'besideposition' => "right"
 			)
 			);
 			
-	/* alle Alten Optionen löschen */
+	/* alle Alten Optionen löschen - Beta-Phase nocht nicht abgeschlossen */
 	#delete_option('gxtb_fb_lB_settings');
 	#delete_option('gxtb_fb_lB_design');
 	#delete_option('gxtb_fb_lB_analytics');
@@ -166,10 +172,12 @@ try
   <div id="message" class="updated fade"><p><strong><?php echo sprintf( "%s '%s' [v%s] %s!", __('Successfully cleaned all the', gxtb_fb_lB_lang), gxtb_fb_lB_name,  gxtb_fb_lB_version, __('Settings', gxtb_fb_lB_lang)); ?></strong></p></div>
 <?php  
   } else {
+	  global $wp_version;
 	  $this->GBLikeButton = array (
 			'PluginSetting' => array ( 
                 'Userlevel' => 'administrator', # min. Userlevel für alle Like-Seiten
 				'GBCleaner' => 0, ## deaktiviert den GB-Cleaner am Anfang by default (0 nie gelaufen | 1 bereits ausgeführt )
+				'GBWidgetCleaner' => 0, ## deaktiviert den GB-Cleaner am Anfang by default (0 nie gelaufen | 1 bereits ausgeführt )	
                 'jQuery' => 0, ## aktivieren/deaktivieren der Google-jQuery-Library (0 - WP | 1 - Google)
                 'Message' => array ( 
 					'Update' => 2, ## Update-Messages: Update-Messages für Hinweise nach dem Update (x Anzahl für Anzeige - Default: 2)
@@ -228,7 +236,7 @@ try
 				'archiv_activ' => 0
 			),
 			'Generator' => array (
-				'url' => get_bloginfo('siteurl'),
+				'url' =>  (version_compare( $wp_version, '3.0', '>=' )) ? get_home_url() : get_bloginfo('siteurl'),
 				'layout' => "standard",
 				'faces' => 0,
 				'width' => "150",
@@ -243,6 +251,7 @@ try
 				'trans' => 1
 			),
 			'OpenGraph' => array (
+				'on' => 1,
 				'site_name' => "&#036;binfo",
 				'blogtype' => "blog",
 				'pagetype' => "blog",
@@ -265,6 +274,10 @@ try
 				'country' => "",
 				'latitude' => "",
 				'longitude' => ""
+			),
+			'Expert' => array( ## wird hier, in der extend-datei sowie output verwendet #
+				'besidebutton' => "",
+				'besideposition' => "right"
 			));
 	  
 	  update_option('GBLikeButton',$this->GBLikeButton);
@@ -278,11 +291,12 @@ catch (Exception $e)
 } // end function
 
 function GBRestore() {
-	
+	global $wp_version;
 	$GBLikeButton = array (
 			'PluginSetting' => array ( 
                 'Userlevel' => 'administrator', # min. Userlevel für alle Like-Seiten
 				'GBCleaner' => 0, ## deaktiviert den GB-Cleaner am Anfang by default (0 deaktiviert | 1 aktiviert)
+				'GBWidgetCleaner' => 0, ## deaktiviert den GB-Cleaner am Anfang by default (0 nie gelaufen | 1 bereits ausgeführt )	
                 'jQuery' => 0, ## aktivieren/deaktivieren der Google-jQuery-Library (0 - WP | 1 - Google)
                 'Message' => array ( 
 					'Update' => 2, ## Update-Messages: Update-Messages für Hinweise nach dem Update (x Anzahl für Anzeige - Default: 2)
@@ -340,7 +354,7 @@ function GBRestore() {
 				'archiv_activ' => 0
 			),
 			'Generator' => array (
-				'url' => get_home_url(),
+				'url' => (version_compare( $wp_version, '3.0', '>=' )) ? get_home_url() : get_bloginfo('siteurl'),
 				'layout' => "standard",
 				'faces' => 0,
 				'width' => "150",
@@ -355,6 +369,7 @@ function GBRestore() {
 				'trans' => 1
 			),
 			'OpenGraph' => array (
+				'on' => 1,
 				'site_name' => "&#036;binfo",
 				'blogtype' => "blog",
 				'pagetype' => "blog",
@@ -377,10 +392,193 @@ function GBRestore() {
 				'country' => "",
 				'latitude' => "",
 				'longitude' => ""
+			),
+			'Expert' => array( ## wird hier, in der extend-datei sowie output verwendet #
+				'besidebutton' => "",
+				'besideposition' => "right"
 			));
 			
 	update_option('GBLikeButton',$GBLikeButton);
 	
+} // end function
+} // end class
+} // end if-class
+
+####################################################
+####################################################
+###########								 ###########
+###########								 ###########
+###########	   WIDGET-CLEANER-CLASS		 ###########
+###########								 ###########
+###########								 ###########
+####################################################
+####################### by gb-world.net ############
+####################################################
+if (!class_exists('GBLikeButtonWidgetCleaner')) {
+class GBLikeButtonWidgetCleaner {
+	
+	var $GBLikeButtonWidget;
+	
+function GBLikeButtonWidgetCleaner() { if(get_option('GBLikeButtonWidget')) { $this->GBLikeButtonWidget = get_option('GBLikeButtonWidget'); } } // end konstruktor
+function WidgetCleaner() {
+	
+if( get_option('gxtb_fb_lB_data') ) {
+	
+	$gxtb_fb_lB_data = get_option('gxtb_fb_lB_data');
+	global $wp_version;
+	$this->GBLikeButtonWidget = array ( # alle Optionen auf 0 setzten falls es zu Fehlern kam #
+				'LikeButton' => array ( 
+					'title' => (isset($gxtb_fb_lB_data['title'])) ? $gxtb_fb_lB_data['title']:'',
+					'url' => (isset($gxtb_fb_lB_data['url'])) ? $gxtb_fb_lB_data['url']:(version_compare( $wp_version, '3.0', '>=' )) ? get_home_url() : get_bloginfo('siteurl'),
+					'dynamic' => (isset($gxtb_fb_lB_data['dynamic'])) ? $gxtb_fb_lB_data['dynamic']:1,
+					'layout' => (isset($gxtb_fb_lB_data['layout'])) ? $gxtb_fb_lB_data['layout']:'standard',
+					'faces' => (isset($gxtb_fb_lB_data['faces'])) ? $gxtb_fb_lB_data['faces']:1,
+					'width' => (isset($gxtb_fb_lB_data['width'])) ? $gxtb_fb_lB_data['width']:'',
+					'height' => (isset($gxtb_fb_lB_data['height'])) ? $gxtb_fb_lB_data['height']:'',
+					'verb' => (isset($gxtb_fb_lB_data['verb'])) ? $gxtb_fb_lB_data['verb']:'like',
+					'color' => (isset($gxtb_fb_lB_data['color'])) ? $gxtb_fb_lB_data['color']:'',
+					'font' => (isset($gxtb_fb_lB_data['font'])) ? $gxtb_fb_lB_data['font']:'',
+					'scrolling' => (isset($gxtb_fb_lB_data['scrolling'])) ? $gxtb_fb_lB_data['scrolling']:0,
+					'frameborder' => (isset($gxtb_fb_lB_data['frameborder'])) ? $gxtb_fb_lB_data['frameborder']:'',
+					'borderstyle' => (isset($gxtb_fb_lB_data['borderstyle'])) ? $gxtb_fb_lB_data['borderstyle']:'',
+					'overflow' => (isset($gxtb_fb_lB_data['overflow'])) ? $gxtb_fb_lB_data['overflow']:'hidden',
+					'trans' => (isset($gxtb_fb_lB_data['trans'])) ? $gxtb_fb_lB_data['trans']:1,
+					'css' => (isset($gxtb_fb_lB_data['css'])) ? $gxtb_fb_lB_data['css']:'',
+					'ref' => (isset($gxtb_fb_lB_data['ref'])) ? $gxtb_fb_lB_data['ref']:''
+				),
+				'Recommendation' => array ( 
+					'title' => (isset($gxtb_fb_lB_data['rec_title'])) ? $gxtb_fb_lB_data['rec_title']:'',
+					'site' => (isset($gxtb_fb_lB_data['rec_domain'])) ? $gxtb_fb_lB_data['rec_domain']:(version_compare( $wp_version, '3.0', '>=' )) ? get_home_url() : get_bloginfo('siteurl'),
+					'header' => (isset($gxtb_fb_lB_data['rec_header'])) ? $gxtb_fb_lB_data['rec_header']:1,
+					'width' => (isset($gxtb_fb_lB_data['rec_width'])) ? $gxtb_fb_lB_data['rec_width']:'',
+					'height' => (isset($gxtb_fb_lB_data['rec_height'])) ? $gxtb_fb_lB_data['rec_height']:'',
+					'colorscheme' => (isset($gxtb_fb_lB_data['rec_color'])) ? $gxtb_fb_lB_data['rec_color']:'light',
+					'font' => (isset($gxtb_fb_lB_data['rec_font'])) ? $gxtb_fb_lB_data['rec_font']:'',
+					'border_style' => (isset($gxtb_fb_lB_data['rec_border'])) ? $gxtb_fb_lB_data['rec_border']:'',
+					'border_color' => '',
+					'scrolling' => 0,
+					'frameborder' => '',
+					'overflow' => 'hidden',
+					'trans' => '',
+					'css' => (isset($gxtb_fb_lB_data['rec_css'])) ? $gxtb_fb_lB_data['rec_css']:'',
+					'ref' => ''
+				),
+				'ActivityFeed' => array (
+					'title' => '',
+					'site' => (version_compare( $wp_version, '3.0', '>=' )) ? get_home_url() : get_bloginfo('siteurl'),
+					'width' => '',
+					'height' => '',
+					'header' => 0,
+					'colorscheme' => 'light',
+					'font' => '',
+					'border_style' => '',
+					'border_color' => '',
+					'scrolling' => 0,
+					'frameborder' => '',
+					'overflow' => 'hidden',
+					'trans' => 0,
+					'recommendations' => 0,
+					'filter' => '',
+					'css' => '',
+					'ref' => ''
+				)
+			);
+	update_option('GBLikeButtonWidget', $this->GBLikeButtonWidget);
+	delete_option('gxtb_fb_lB_data');	
+?>
+  <div id="message" class="updated fade"><p><strong><?php echo sprintf( "%s '%s' [v%s] %s!", __('Successfully cleaned all the', gxtb_fb_lB_lang), gxtb_fb_lB_name,  gxtb_fb_lB_version, __('Widget-Settings', gxtb_fb_lB_lang)); ?></strong></p></div>
+<?php	
+} // end if
+} // end function
+function WidgetResetAndAdd() {
+
+	$GBLikeButton = get_option('GBLikeButton');
+	
+	if ( get_option('gxtb_fb_lB_data') && ($GBLikeButton['PluginSetting']['GBWidgetCleaner'] == 0 || !isset($GBLikeButton['PluginSetting']['GBWidgetCleaner'])) ) { ## Übernahme aller alten Werte #
+		$this->GBLikeButtonWidget = get_option('GBLikeButtonWidget');
+		$this->WidgetCleaner();
+		# GBWidgetCleaner auf 1 setzten (das er bereits ausgeführt worden ist #
+		$GBLikeButton['PluginSetting']['GBWidgetCleaner'] = 1;
+		update_option('GBLikeButton',$GBLikeButton);
+		
+	} elseif (!get_option('GBLikeButtonWidget')) {
+		
+		global $wp_version;
+		$this->GBLikeButtonWidget = array ( # alle Optionen auf 0 setzten falls es zu Fehlern kam #
+				'LikeButton' => array ( 
+					'title' => '',
+					'url' => (version_compare( $wp_version, '3.0', '>=' )) ? get_home_url() : get_bloginfo('siteurl'),
+					'dynamic' => 1,
+					'layout' => 'standard',
+					'faces' => 1,
+					'width' => '',
+					'height' => '',
+					'verb' => 'like',
+					'color' => 'light',
+					'font' => '',
+					'scrolling' => 0,
+					'frameborder' => '',
+					'borderstyle' => '',
+					'overflow' => 'hidden',
+					'trans' => 1,
+					'css' => '',
+					'ref' => ''
+				),
+				'Recommendation' => array ( 
+					'title' => '',
+					'site' => (version_compare( $wp_version, '3.0', '>=' )) ? get_home_url() : get_bloginfo('siteurl'),
+					'header' => 1,
+					'width' => '',
+					'height' => '',
+					'colorscheme' => 'light',
+					'font' => '',
+					'border_style' => '',
+					'border_color' => '',
+					'scrolling' => 0,
+					'frameborder' => '',
+					'overflow' => 'hidden',
+					'trans' => 0,
+					'css' => '',
+					'ref' => ''
+				),
+				'ActivityFeed' => array (
+					'title' => '',
+					'site' => (version_compare( $wp_version, '3.0', '>=' )) ? get_home_url() : get_bloginfo('siteurl'),
+					'width' => '',
+					'height' => '',
+					'header' => 0,
+					'colorscheme' => 'light',
+					'font' => '',
+					'border_style' => '',
+					'border_color' => '',
+					'scrolling' => 0,
+					'frameborder' => '',
+					'overflow' => 'hidden',
+					'trans' => 0,
+					'recommendations' => 0,
+					'filter' => '',
+					'css' => '',
+					'ref' => ''
+				)
+			);
+		add_option('GBLikeButtonWidget', $this->GBLikeButtonWidget);
+	}
+	
+} // end function
+function WidgetReset() {
+	/* $this->GBLikeButtonWidget = get_option('GBLikeButtonWidget');
+	
+	foreach ($this->GBLikeButtonWidget as $key => $value) { 
+	   	foreach ($this->GBLikeButtonWidget[$key] as $key1 => $value1) {
+			$this->GBLikeButtonWidget[$key][$key1] = "";
+		}
+	}
+	update_option('GBLikeButtonWidget', $this->GBLikeButtonWidget); */
+	delete_option('GBLikeButtonWidget');
+	$this->WidgetResetAndAdd();
+?>
+  <div id="message" class="updated fade"><p><strong><?php echo sprintf( "%s '%s' [v%s] %s!", __('Successfully reset all the', gxtb_fb_lB_lang), gxtb_fb_lB_name,  gxtb_fb_lB_version, __('Widget-Settings', gxtb_fb_lB_lang)); ?></strong></p></div>
+<?php	
 } // end function
 } // end class
 } // end if-class

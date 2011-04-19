@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3] - Like-Button-Generator [v0.5 FINAL]
++	Like-Button-Plugin-For-Wordpress [v4.3] - Like-Button-Generator [v0.6 FINAL]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -253,8 +253,36 @@ function gxtb_fb_lB_Generate($url, $style) {
 		$div_before = "";
 		$div_after = "";
 	}
-		/* returns the generated code and generates the final output*/
+	
+	/* returns the generated code and generates the final output - special Output if the current WP is higher/equal than 3.x */
+	global $wp_version;
+	if (version_compare( $wp_version, '3.0', '>=' ) ) {
+		return $this -> gxtb_using_message() . $this->besidebutton("left") . $div_before . $text . $div_after . $this->besidebutton("right") . $this -> gxtb_using_message();
+	} else {
 		return $this -> gxtb_using_message() . $div_before . $text . $div_after . $this -> gxtb_using_message();
+	}
+}
+
+####################################################
+####################################################
+###########								 ###########
+###########								 ###########
+###########	  EXPERT Modus Optionen		 ###########
+###########								 ###########
+###########								 ###########
+####################################################
+##################### by gb-world.net   ############
+####################################################
+
+function besidebutton($position) {
+	if($this->GBLikeButton['Expert']['besidebutton'] !="") {
+		
+		if($position == "left" && $this->GBLikeButton['Expert']['besideposition'] == "left") {
+			return $this->GBLikeButton['Expert']['besidebutton']; 
+		} else if ($position == "right" && $this->GBLikeButton['Expert']['besideposition'] == "right") {
+			return $this->GBLikeButton['Expert']['besidebutton']; 
+		}
+	}	
 }
 
 ####################################################

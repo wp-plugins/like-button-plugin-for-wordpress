@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-Settings-Page [v0.3 - FINAL]
++	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-Settings-Page [v0.3.2 - FINAL]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -26,6 +26,7 @@ class gxtb_gb_settings {
 	var $pagehook;
 	var $gxtb_fb_lB_Settings;
 	var $gxtb_fb_lB_Cleaner;
+	var $GBLikeButtonWidgetCleaner;
 	
 function gxtb_gb_settings() {
 	
@@ -33,14 +34,17 @@ function gxtb_gb_settings() {
 		$this->gxtb_fb_lB_Settings = new gxtb_fb_lB_Settings;
 		include( dirname(dirname(__FILE__)) . '/include/gb_cleaner.php' );
 		$this->gxtb_fb_lB_Cleaner = new gxtb_fb_lB_Cleaner();
+		$this->GBLikeButtonWidgetCleaner = new GBLikeButtonWidgetCleaner();
 
 		global $screen_layout_columns;
 		$screen_layout_columns = 2;
 
 		add_meta_box('gb_fb_tools',  __('Like-Button-Plugin-For-Wordpress Tools', gxtb_fb_lB_lang), array(&$this, 'gb_tools'), $this->pagehook, 'first', 'core');
-		add_meta_box('gb_fb_plugin',  __('Plugin-Settings', gxtb_fb_lB_lang), array(&$this, 'gb_plugin'), $this->pagehook, 'first', 'core');
-		add_meta_box('gb_fb_editor',  __('Editor-Settings', gxtb_fb_lB_lang), array(&$this, 'gb_editor'), $this->pagehook, 'first', 'core');
-		#add_meta_box('gb_fb_help',  __('Support', gxtb_fb_lB_lang), array(&$this, 'gb_support'), $this->pagehook, 'first', 'core');
+		if (version_compare( gxtb_fb_lB_version, '4.4.4', '>=' )) {
+			add_meta_box('gb_fb_plugin',  __('Plugin-Settings - available soon', gxtb_fb_lB_lang), array(&$this, 'gb_plugin'), $this->pagehook, 'first', 'core');
+			add_meta_box('gb_fb_editor',  __('Editor-Settings - available soon', gxtb_fb_lB_lang), array(&$this, 'gb_editor'), $this->pagehook, 'first', 'core');
+			#add_meta_box('gb_fb_help',  __('Support', gxtb_fb_lB_lang), array(&$this, 'gb_support'), $this->pagehook, 'first', 'core');
+		}
 				
 		
 		if ( isset( $_POST['gxtb_run_cleaner'] ) ) {
@@ -50,6 +54,14 @@ function gxtb_gb_settings() {
 		
 		if (isset( $_POST['gxtb_reset'] ) ) {
 			$this->gxtb_fb_lB_Cleaner -> RunGBChanger44();	
+		}
+		
+		if (isset( $_POST['gxtb_widgetcleaner'] ) ) {
+			$this->GBLikeButtonWidgetCleaner->WidgetResetAndAdd();	
+		}
+		
+		if (isset( $_POST['gxtb_widgetreset'] ) ) {
+			$this->GBLikeButtonWidgetCleaner->WidgetReset();	
 		}
 				
 #########################################################
@@ -66,8 +78,8 @@ function gxtb_gb_settings() {
 <div class="ui-widget">
 			<div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;"> 
 				<p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
-				<strong><?php _e("Information", gxtb_fb_lB_lang); ?>:</strong><br /><br /><?php 
-		_e("Currently there is only the GB-Cleaner available because we had to release this update to fix some bugs! But you can already see what the next bigger update will include.", gxtb_fb_lB_lang); 
+				<strong><?php _e("Information", gxtb_fb_lB_lang); ?> [v<?php echo gxtb_fb_lB_version; ?>]:</strong><br /><br /><?php 
+		_e("Currently there are only the GB-Cleaners available but there will be a lot more options soon!", gxtb_fb_lB_lang);
 ?></p>
 			</div>
 		</div>

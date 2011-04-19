@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3] - GBLikeButton [v0.1 - FINAL]
++	Like-Button-Plugin-For-Wordpress [v4.3] - GBLikeButton [v0.2 - FINAL]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -33,7 +33,7 @@ function gxtb_fb_lB_Class() {
 	// this security-if is new since v4.0 because we got some errors without this if-statement
 	if ( !isset($this->GBLikeButton['General']['addfooter_activate']) || empty($this->GBLikeButton['General']['addfooter_activate']) )
 		$this->GBLikeButton['General']['addfooter_activate'] = false;			
-			
+		
 	if ($this->GBLikeButton['General']['on'] == 1 && $this->GBLikeButton['General']['shortcode'] != 1) {
 		
 ############################## ACTION ##############################
@@ -119,9 +119,9 @@ if( !is_404() ) {
 	
 	global $post, $wp_query;
    	$page_id = $wp_query->post->ID;
-    $pic = get_post_meta($page_id, '_fbnone', true);
+    $fbnone = get_post_meta($page_id, '_fbnone', true);
 
-	if ( $this->GBLikeButton['General']['on'] && !$pic ) {
+	if ( $this->GBLikeButton['General']['on'] && !$fbnone ) {
 				
 		$text = "";
 		
@@ -198,13 +198,15 @@ if( $like_button_shown && ( isset($this->GBLikeButton['General']['position_befor
 	} 
 	
 	// returning the content of the post
-	return $text;
+	#return $text;
 	
 } else {
 	$text = $content;
 	// returning the content of the post
-	return $text;
+	#return $text;
 }
+
+	return $text;	
 
 } // end if-404	
 } // end function

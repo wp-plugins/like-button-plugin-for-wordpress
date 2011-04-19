@@ -3,7 +3,7 @@
 	Plugin Name: Like-Button-Plugin-For-Wordpress
 	Plugin URI: http://www.gb-world.net/like-button-plugin-for-wordpress/
 	Description: This Plugin provides the most settings for the Like-Button of Facebook. It's in a steadily development to ensure that everything is up-to-date with all the Web 2.0 Standards and Requirements. Enjoy the Like-Button now with GB-World.net's Like-Button-Plugin-For-Wordpress!
-	Version: 4.4.3
+	Version: 4.4.3.1
 	Author: Stefan Natter
 	Author URI: http://www.gb-world.net
 	Update Server: http://wordpress.org/extend/plugins/like-button-plugin-for-wordpress
@@ -76,7 +76,7 @@ function GBLikeButton() {
 if ( !defined('gxtb_fb_lB_shortcode' ) )
 	define( 'gxtb_fb_lB_shortcode', "gxtb" );
 if ( !defined('gxtb_fb_lB_version' ) )
-	define( 'gxtb_fb_lB_version', "4.4.3" );
+	define( 'gxtb_fb_lB_version', "4.4.3.1" );
 if ( !defined( 'gxtb_fb_lB_name' ) )
 	define( 'gxtb_fb_lB_name', "Like-Button-Plugin-For-Wordpress" );
 if ( !defined( 'gxtb_fb_lB_page' ) )
@@ -187,17 +187,20 @@ if ( !defined( 'gxtb_fb_lB_URLPATH' ) )
 
 function gbworld_dashboard_widget_function() {
 	// displays the recommendation and activity of current blog
-	echo "<table><tr><td>";
+?>
+<table width="100%" style="overflow:hidden"><tr><td>
+<?php
 	include('admin/gb_fb_activity.php');
 	$gxtb_fb_lB_FBActivity = new gxtb_fb_lB_FBActivity();
 	?><br />
-	<!-- using Like-Button-Plugin-For-Wordpress [<?php echo gxtb_fb_lB_version; ?>] | by http://www.gb-world.net -->
-<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2FGBWorldnet&amp;layout=box_count&amp;show_faces=false&amp;width=50x&amp;action=like&amp;colorscheme=light&amp;height=80&amp;ref=fdasf" scrolling="no" frameborder="0" allowTransparency="false" style="border:none; overflow:hidden; width:150px; height:80px"></iframe>
-<!-- using Like-Button-Plugin-For-Wordpress [<?php echo gxtb_fb_lB_version; ?>] | by http://www.gb-world.net -->
-</td><td align="left" valign="top">
-<iframe src="http://www.facebook.com/plugins/recommendations.php?site=<?php echo $_SERVER['HTTP_HOST']; ?>&amp;width=250&amp;height=300&amp;header=true&amp;colorscheme=light" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:250px; height:300px;" allowTransparency="true"></iframe>
-<?php echo "</td></tr></table>";
-	if( is_admin()) {
+	<!-- using Like-Button-Plugin-For-Wordpress [<?php echo gxtb_fb_lB_version; ?>] | by Stefan Natter (http://www.gb-world.net) -->
+<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2FGBWorldnet&amp;layout=box_count&amp;show_faces=false&amp;width=80&amp;action=like&amp;colorscheme=light&amp;height=80&amp;ref=wordpress_like_dashboard" scrolling="yes" frameborder="0" allowTransparency="false" style="border:none; overflow:hidden; width:80px; height:80px;"></iframe>
+<!-- using Like-Button-Plugin-For-Wordpress [<?php echo gxtb_fb_lB_version; ?>] | by Stefan Natter (http://www.gb-world.net) -->
+</td><td align="left" valign="top" width="100%" style="padding-top: 2px;">
+<iframe src="http://www.facebook.com/plugins/recommendations.php?site=<?php echo $_SERVER['HTTP_HOST']; ?>&amp;width=300&amp;height=300&amp;header=true&amp;colorscheme=light" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100%; height:300px;" allowTransparency="true"></iframe>
+</td></tr></table>
+<?php
+if( is_admin()) {
 		echo "<hr>";
 		echo sprintf( '<div style="padding-left:10px;"><a href="options-general.php?page=%s">%s</a></div>', "fb-like-button", __('Plugin', gxtb_fb_lB_lang) . "-" . __('Settings', gxtb_fb_lB_lang) );
 	}
@@ -382,11 +385,13 @@ function gxtb_fb_lB_activate(){
 	if(!get_option('GBLikeButton')) {
 		
 		$cleaner_update_check = true;
+		global $wp_version;
 		
 		$this->GBLikeButton = array (
 			'PluginSetting' => array ( 
                 'Userlevel' => 'administrator', # min. Userlevel für alle Like-Seiten
 				'GBCleaner' => 0, ## deaktiviert den GB-Cleaner am Anfang by default (0 nie gelaufen | 1 bereits ausgeführt )
+				'GBWidgetCleaner' => 0, ## deaktiviert den GB-Cleaner am Anfang by default (0 nie gelaufen | 1 bereits ausgeführt )				
                 'jQuery' => 0, ## aktivieren/deaktivieren der Google-jQuery-Library (0 - WP | 1 - Google)
                 'Message' => array ( 
 					'Update' => 2, ## Update-Messages: Update-Messages für Hinweise nach dem Update (x Anzahl für Anzeige - Default: 2)
@@ -445,7 +450,7 @@ function gxtb_fb_lB_activate(){
 				'archiv_activ' => 0
 			),
 			'Generator' => array (
-				'url' => get_bloginfo('siteurl'),
+				'url' =>  (version_compare( $wp_version, '3.0', '>=' )) ? get_home_url() : get_bloginfo('siteurl'),
 				'layout' => "standard",
 				'faces' => 0,
 				'width' => "150",
@@ -460,6 +465,7 @@ function gxtb_fb_lB_activate(){
 				'trans' => 1
 			),
 			'OpenGraph' => array (
+				'on' => 1,
 				'site_name' => "&#036;binfo",
 				'blogtype' => "blog",
 				'pagetype' => "blog",
@@ -482,12 +488,25 @@ function gxtb_fb_lB_activate(){
 				'country' => "",
 				'latitude' => "",
 				'longitude' => ""
+			),
+			'Expert' => array(
+				'besidebutton' => "",
+				'besideposition' => "right"
 			)); 
 			
 			add_option('GBLikeButton', $this->GBLikeButton);
 						
 			} else {
 				$this->GBLikeButton = get_option('GBLikeButton');
+				$this->GBLikeButton['PluginInfo']['cVersion'] = gxtb_fb_lB_version;
+				if($GBLikeButton['PluginSetting']['Message']['Update'] == 0) ## Message Output reset
+					$GBLikeButton['PluginSetting']['Message']['Update'] += 2;
+				if($GBLikeButton['PluginSetting']['Message']['Help'] == 0) ## Message Output reset
+					$GBLikeButton['PluginSetting']['Message']['Help'] += 2;
+				# ab hier können neuen Optionen hinzugefügt werden #
+				$this->GBLikeButton['Expert']['besidebutton'] = "";
+				$this->GBLikeButton['Expert']['besideposition'] = "right";
+				update_option('GBLikeButton', $this->GBLikeButton);
 			}
 	
 	############ GB-World Infopage Setup ############

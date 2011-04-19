@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-MESSAGE-SYSTEM [v0.2 FINAL] - GB-WARNING-SYSTEM [v0.3 BETA] [mit global $GBLikeButton]
++	Like-Button-Plugin-For-Wordpress [v4.4.3.1] - GB-MESSAGE-SYSTEM [v0.2a FINAL] - GB-WARNING-SYSTEM [v0.3 BETA] [mit global $GBLikeButton]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -31,24 +31,59 @@ function GBMessage() {
 if( (isset($GBLikeButton['PluginInfo']['lVersion']) && ( 
 isset($GBLikeButton['PluginSetting']['Message']['Update']) || 
 isset($GBLikeButton['PluginSetting']['Message']['Installation']) || 
-isset($GBLikeButton['PluginSetting']['Message']['Help']) )) && (
+isset($GBLikeButton['PluginSetting']['Message']['Help']) || 
+isset($GBLikeButton['PluginSetting']['Message']['Support']))) && (
 $GBLikeButton['PluginSetting']['Message']['Update'] > 0 ||
 $GBLikeButton['PluginSetting']['Message']['Installation'] > 0 ||
 $GBLikeButton['PluginSetting']['Message']['Help'] > 0  ||
 $GBLikeButton['PluginSetting']['Message']['Support'] > 0)
-) {  
+&& version_compare( $GBLikeButton['PluginInfo']['lVersion'], gxtb_fb_lB_version, '<=')) {  
+
+	$this->GBMessageOutput();
+
+	if($GBLikeButton['PluginSetting']['Message']['Update'] >= 1)
+		$GBLikeButton['PluginSetting']['Message']['Update'] -= 1;
+	
+	if($GBLikeButton['PluginSetting']['Message']['Installation'] >= 1)
+		$GBLikeButton['PluginSetting']['Message']['Installation'] -= 1;
+	
+	if($GBLikeButton['PluginSetting']['Message']['Help'] >= 1)
+		$GBLikeButton['PluginSetting']['Message']['Help'] -= 1;
+	
+	if($GBLikeButton['PluginSetting']['Message']['Support'] >= 1)
+		$GBLikeButton['PluginSetting']['Message']['Support'] -= 1;
+	
+	update_option('GBLikeButton', $GBLikeButton);
+
+} # end if Abfrage
+
+} // end constructor
+function GBMessageOutput() {
+		$GBLikeButton = get_option('GBLikeButton');
 
 $text = "";	
 				foreach ($GBLikeButton['PluginSetting']['Message'] as $key => $value) { 
 					switch($key) {
 						
-					 case ($key == "Update" && gxtb_fb_lB_version != $GBLikeButton['PluginInfo']['lVersion'] && $GBLikeButton['PluginSetting']['Message']['Update'] > 0):
+					 case ($key == "Update" && gxtb_fb_lB_version != $GBLikeButton['PluginInfo']['lVersion'] && $GBLikeButton['PluginSetting']['Message']['Update'] > 0 && version_compare( gxtb_fb_lB_version, '4.4.3', '<=') ):
 					 	$text .= sprintf( "<strong>%s:</strong> %s - <b>%s:</b> %s",
 						
 						__('Update', gxtb_fb_lB_lang),
 						__('After this Update/Reactivation <b>please check all your FB-Like Settings</b> if they are all the same! Because since [v4.3] there are many new things in the Backend. Thanks. Because there is a new function which copies all the old options into a new one but there is a chance that there is a problem after updating the Plugin. Please check all the options! <b>Instant Help: Run the GBCleaner on the Settings Page (in the menu on the left) to prevent bugs.</b>', gxtb_fb_lB_lang),
 						__('Especially', gxtb_fb_lB_lang),
 						__('Dynamic Button Setting, Meta-Tags and Design-Options. And do also update your header.php-file if you use XFBML (see more information below the XFBML-Checkbox).', gxtb_fb_lB_lang)
+						
+						);
+						$text .= "<br /><br />";
+					 break;
+						
+					 case ($key == "Update" && gxtb_fb_lB_version != $GBLikeButton['PluginInfo']['lVersion'] && $GBLikeButton['PluginSetting']['Message']['Update'] > 0 && version_compare( gxtb_fb_lB_version, '4.4.3.1', '=') ):
+					 	$text .= sprintf( "<strong>%s:</strong> %s<br/><b>%s:</b> %s",
+						
+						__('Update', gxtb_fb_lB_lang),
+						__('This new Update includes many new backend but also frontend changes. For example the widgets were totally new organized and updated. There is also a new widget available: Activity Feed. You are also able to add some other stuff beside the Like Button now. Just visit the Expert-Mode page and take a look at the new Options.', gxtb_fb_lB_lang),
+						__('Also new', gxtb_fb_lB_lang),
+						__('You can now reset and clean your Widget Settings too. Read more in the Changelog to see whats new too.', gxtb_fb_lB_lang)
 						
 						);
 						$text .= "<br /><br />";
@@ -113,27 +148,10 @@ if($text != "") {
 					?></p>
 			</div>
 		</div>
-<?php
+<?php		
+} // end if text
+} // end function
 
-	if($GBLikeButton['PluginSetting']['Message']['Update'] >= 1)
-		$GBLikeButton['PluginSetting']['Message']['Update'] -= 1;
-	
-	if($GBLikeButton['PluginSetting']['Message']['Installation'] >= 1)
-		$GBLikeButton['PluginSetting']['Message']['Installation'] -= 1;
-	
-	if($GBLikeButton['PluginSetting']['Message']['Help'] >= 1)
-		$GBLikeButton['PluginSetting']['Message']['Help'] -= 1;
-	
-	if($GBLikeButton['PluginSetting']['Message']['Support'] >= 1)
-		$GBLikeButton['PluginSetting']['Message']['Support'] -= 1;
-	
-	update_option('GBLikeButton', $GBLikeButton);
-
-	} // end if-text
-	
-} // end if Abfrage
-
-} // end constructor
 } // end class
 } // end if-class
 

@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-AdminPage [v1.0.2 - FINAL]
++	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-AdminPage [v1.0.3 - FINAL]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -98,7 +98,7 @@ function gb_admin_header() {
 	$this->pagehook = add_submenu_page("fb-like-button", 'FB-Settings', __('Settings', gxtb_fb_lB_lang), $pagelevel, 'fb-like-settings', array(&$this, 'gb_settings'));
 	$this->pagehook = add_submenu_page("fb-like-button", 'FB-FAQ', __('FAQ', gxtb_fb_lB_lang), $pagelevel, 'fb-like-faq', array(&$this, 'gb_faq'));
 	$this->pagehook = add_submenu_page("fb-like-button", 'GB-World', __('GB-World<small>.net</small>', gxtb_fb_lB_lang), $pagelevel, 'fb-like-gbworld', array(&$this, 'gb_infopage'));
-	$this->pagehook = add_submenu_page("fb-like-button", 'FB-Expert-Mode', __('Expert-Mode', gxtb_fb_lB_lang), 'administrator', 'fb-like-beta', array(&$this, 'gb_expert'));
+	$this->pagehook = add_submenu_page("fb-like-button", 'FB-Expert-Mode', __('Expert-Mode', gxtb_fb_lB_lang), 'administrator', 'fb-like-expert', array(&$this, 'gb_expert'));
 	
 	}
 	function on_load_page() {		

@@ -1,7 +1,7 @@
 === Like-Button-Plugin-For-Wordpress ===
 Contributors:  GBWorld, GangXtaBoii
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SB94MEM9ATTBG
-Tags: facebook, like button, open graph protocol, social plugins, fb, plugins, for wordpress, button, widget, sidebar widget, shortcode, like, generator, gb world, share, socialwidget, likebutton, fb, gbworld, gangxtaboii, meta tags, shortcode like, gbwiki, gb-world, dynamic, exclude, live support
+Tags: facebook, like button, open graph protocol, social plugins, fb, plugins, for wordpress, button, widget, sidebar widget, shortcode, like, generator, gb world, share, socialwidget, likebutton, fb, gbworld, gangxtaboii, meta tags, shortcode like, gbwiki, gb-world, dynamic, exclude, live support, recommend, wordpress, Facebook, featured image, featured post, dynamic, twitter, twitter button, page, plugin, post, wordpress like, recommendation, widgets, activity feed, fb, fblike, fb like, opengraph, analyse, iframe, xfbml, javasdk
 Requires at least: 2.7.x
 Tested up to: 3.1
 Stable tag: trunk
@@ -21,8 +21,9 @@ This plugin adds a Like-Button wherever you want on your blog. Before or after t
 *   our Like-Button-Generator makes it even more easier for you to create a Like Button
 *   Analyse your Blog: Analyse the activity of your visitors and their likes
 *   Use iFrame or XFBML-Button (with share and comment functionality)
-*   use a shortcode to insert the like-Button
+*   use a shortcode to insert the like-Button wherever you want it to show up on your page
 *   create a Like-Button Sidebar-Widget (also individual Like-Button for every Site/Post or one Like-Button for the whole site.
+*   Facebook Recommendation and Activity Feed: it is also possible to add this Widgets beside the Like-Button Widget
 *   Recommendations-Sidebar-Widget: you can also add a Recommendations-Widget to your Sidebar
 *   [BugTracker](http://bugs.gb-world.net/) and live support on our [FanPage](http://www.facebook.com/GBWorldnet)
 *   easily connect your Facebook-Account, Fanpage or Application with the Like-Button on your blog
@@ -30,9 +31,10 @@ This plugin adds a Like-Button wherever you want on your blog. Before or after t
 *   Individual Description-Tag for every post/page of your blog
 *   Shortcode-Only-Modus: If you just like the Shortcode and you do not anything else
 *   you can choose a individual (fb-)image for each post/page
+*   you can set up to three images for every post/page including the featured image of each post/page
 *   Exclude Pages with their ID or with a single click on the checkbox on every Post-/Page-Edit Site
 *   design your like-Button individually from the settings page with the CSS-Box
-*   Recommendation-Sidebar: it is also possible to add this Widget beside the Like-Button Widget
+*   NEW: You can now add anything you want (Twitter Button, Images, Text) beside the generated Like Button *NEW*
 *   and many more (read more in our wiki or Changelog)
 
 **Facebook-Like-Button**
@@ -128,6 +130,18 @@ xmlns:fb="http://www.facebook.com/2008/fbml">**
 to the html-tag in your template-header.php-file. If you do not do this the Open-Graph-Protocol will not work with all its functions.
 
 
+= Problems with DISQUS and Like-Button-Plugin-For-Wordpress (Bugfix) =
+
+If you can't access your tabs on the Settings Page and you use the Disqus-Plugin beside this Plugin than you have to do the following to solve the bug:
+
+1) Open the discus.php-file on your server in the Disqus-Plugin Directory
+
+2) find this function 'function sdq_menu_admin_head()' and add the following line after '<?php }':
+if ( ( isset($_GET['page']) && strstr($_GET['page'],"disqus") )) { add_action('admin_head', 'sdq_menu_admin_head'); }
+
+3) now you should be able to access the tabs again!
+
+
 = official FAQ: =
 
 | [Video-Tutorial](http://www.facebook.com/GBWorldnet?v=app_2392950137) |
@@ -146,6 +160,25 @@ to the html-tag in your template-header.php-file. If you do not do this the Open
 
 
 == Changelog ==
+
+= Version 4.4.3.1 =
+
++ New: Featured Image Option - Notice: all posts/pages before this update have the featured image option deactivated to prevent bugs or incompability
++ New: You can now deactivate the Meta-Tags for posts/pages if you want to on the Edit-Pages.
++ Notice: featured image is set by default if you add a new post/page
++ New: You can choose up to 3 images including the default one of the blog and the featured and specific image of each post/page.
++ New: It is now possible to deactivate the Meta-Output of the Plugin
++ New: You can now add something (code, other button, links, images and more) beside the Button (left or right) (WP3.+ required)
++ New: You can now also add the Activity-Feed-Box to your Sidebar (new Widget)
++ Bugfix: some people below WP3.0 had problems with some new functions
++ Bugfix: Tooltips did not work on several pages ( including the edit pages of pages/posts)
++ Coding: page=fb-like-beta page is now available at page=fb-like-expert
++ Widget-Fix: it was not possible to choose 'Recommend' it is now fixed
++ Widget-Design: more space for the ref-attribute
++ Widget-Menu-Design: new Widget-Backend CSS based Design to show the identity of the Plugin
++ Dasboard-Design: Fixed the unwanted overflow depending on the Screensize of your monitor/smartphone
++ GB-World-Page: Feed-URL Update (because we switched to FeedBurner: http://feeds.feedburner.com/GBWorldnet)
++ Message-Update: Updated Message Output after you update to this version
 
 
 = Version 4.4.3 =
@@ -445,6 +478,7 @@ to the html-tag in your template-header.php-file. If you do not do this the Open
 
 *   relase this version to the official WP-Plugin-Repo.
 
+
 == Help US ==
 
 Help us translating the Plugin into other languages. Translate it into your language and send us your language-files. Thanks a lot. You'll also get a link on our plugin-page.
@@ -452,6 +486,10 @@ Help us translating the Plugin into other languages. Translate it into your lang
 == SUPPORT MY WORK ==
 
 I would appreciate it if you would support my work with a little Donation. Thanks a lot to all my Supporters. | [Donation/Spende](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SB94MEM9ATTBG) |
+
+== Rate my Plugin please ==
+
+If you like my plugin the rate it please --> (on the right side). Thanks a lot! :)
 
 == Searching for new Dev-Team-Members  ==
 

@@ -140,6 +140,24 @@ $tools_settings = array (
 			"content" => __('If you activate this option and hit save all of your settings will be <b>restored</b> to the your old settings of version 4.3 or below.', gxtb_fb_lB_lang),
 			"smalltip" => "",
             "type" => "content"),
+			
+	array(	"content" => __('Run GB-Widget-Cleaner', gxtb_fb_lB_lang),
+			"tooltip" =>  __('With this GB-Widget-Cleaner App you can delete, unset and clear old widget-options from older versions of this Plugin.', gxtb_fb_lB_lang),
+			"type" => "title"),	
+	array(	"input" => '<input type="checkbox" class="checkbox" name="gxtb_run_widgetcleaner" id="gxtb_run_widgetcleaner" /> ',	
+			"content" => __('If you run this Tool the GB-Widget-Cleaner will try to fix Bugs with the Widget-Settings and other stuff. <b>But keep in mind that you have to check all of your settings after you run it. Because it cleans and restores some settings!</b>', gxtb_fb_lB_lang),
+			"smalltip" => "",
+            "type" => "content"),
+			
+	array(	"content" => __('RESET Widget-Options', gxtb_fb_lB_lang),
+			"tooltip" =>  __('If you activate this option and hit save all of your settings will be reset to the value 0 or empty.', gxtb_fb_lB_lang),
+			"type" => "title"),	
+	array(	"input" => '<input type="checkbox" class="checkbox" name="gxtb_widgetreset" id="gxtb_widgetreset" /> ',	
+			"content" => __('If you activate this option and hit save all of your settings will be reset to the value 0 or empty. Notice: You will loose all your Widget-Settings if you run this Option.', gxtb_fb_lB_lang),
+			"smalltip" => "",
+            "type" => "content"),
+			
+			
 	array(	"type" => "close")
 );
 
