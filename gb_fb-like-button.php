@@ -507,7 +507,7 @@ function gxtb_fb_lB_activate(){
 				if($this->GBLikeButton['PluginSetting']['Message']['Help'] == 0) ## Message Output reset
 					$this->GBLikeButton['PluginSetting']['Message']['Help'] += 2;
 				## Initialize new Options ##
-				$this->GBLikeButton['PluginInfo']['OpenGraph'] = 1; # New Option is set to 1
+				$this->GBLikeButton['OpenGraph']['on'] = 1; # New Option is set to 1
 				$this->GBLikeButton['Expert']['besidebutton'] = "";
 				$this->GBLikeButton['Expert']['besideposition'] = "right";
 				update_option('GBLikeButton', $this->GBLikeButton);
