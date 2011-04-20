@@ -161,6 +161,11 @@ if ( ( isset($_GET['page']) && strstr($_GET['page'],"disqus") )) { add_action('a
 
 == Changelog ==
 
+= Version 4.4.3.2 =
+
++ Bugfix: OpenGraph was not activated by default after the update
+
+
 = Version 4.4.3.1 =
 
 + New: Featured Image Option - Notice: all posts/pages before this update have the featured image option deactivated to prevent bugs or incompability
