@@ -63,7 +63,12 @@ If you find any bugs **please report** them at our BugTracker: | [BugTracker](ht
 **Translation**
 
 We need your help to translate our plugin into more different languages (currently only English and German is supported). Write a new topic in our forum if you would like to help us. Thx!
-Internationalization Support: English, Deutsch
+Internationalization Support: English, Deutsch**Translation**
+
+**Become a Fan of GB-World**
+Become a Fan of GB-World and get all the latest development and social media news daily!
+
+**Other Important Links**
 
 | [GB-World-Post](http://www.gb-world.net/like-button-plugin-for-wordpress) |
 | [FanPage](http://www.facebook.com/GBWorldnet) |
