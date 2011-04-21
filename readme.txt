@@ -1,5 +1,5 @@
 === Like-Button-Plugin-For-Wordpress ===
-Contributors:  GBWorld, GangXtaBoii
+Contributors:  GBWorld
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SB94MEM9ATTBG
 Tags: facebook, like button, open graph protocol, social plugins, fb, plugins, for wordpress, button, widget, sidebar widget, shortcode, like, generator, gb world, share, socialwidget, likebutton, fb, gbworld, gangxtaboii, meta tags, shortcode like, gbwiki, gb-world, dynamic, exclude, live support, recommend, wordpress, Facebook, featured image, featured post, dynamic, twitter, twitter button, page, plugin, post, wordpress like, recommendation, widgets, activity feed, fb, fblike, fb like, opengraph, analyse, iframe, xfbml, javasdk
 Requires at least: 2.7.x
@@ -160,6 +160,15 @@ if ( ( isset($_GET['page']) && strstr($_GET['page'],"disqus") )) { add_action('a
 
 
 == Changelog ==
+
+= Version 4.4.3.4 =
+
++ Bugfix: the new OpenGraph Option was accidently shown in the sourcecode
++ Bugfix: Post-Title-Value was taken on Category and Archive Pages -> currently you can not set which value this two sites have but it will be available soon
++ Bugfix: Meta-Tags were sometimes disabled
++ Bugfix: The featured image option is not set true by default anymore
++ Bugfix: Some Post-Specific Options (on the Edit-Pages) were not changeable
+
 
 = Version 4.4.3.2 =
 
@@ -488,7 +497,7 @@ if ( ( isset($_GET['page']) && strstr($_GET['page'],"disqus") )) { add_action('a
 
 Help us translating the Plugin into other languages. Translate it into your language and send us your language-files. Thanks a lot. You'll also get a link on our plugin-page.
 
-== SUPPORT MY WORK ==
+== Please support me and my work ==
 
 I would appreciate it if you would support my work with a little Donation. Thanks a lot to all my Supporters. | [Donation/Spende](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SB94MEM9ATTBG) |
 

@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.2] - GB-Meta-Generator [v1.5.1 - FINAL]
++	Like-Button-Plugin-For-Wordpress [v4.3.2] - GB-Meta-Generator [v1.5.2 - FINAL]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -38,6 +38,8 @@ class gxtb_fb_lB_MetaAction {
 	var $GBLikeButton;
 
 function gxtb_fb_lB_MetaAction() {
+	
+	$fbnometa = false;
 
 	if ( is_single() || is_page() ) {
 		global $post;
@@ -50,7 +52,7 @@ function gxtb_fb_lB_MetaAction() {
 		
 	$this->GBLikeButton = get_option('GBLikeButton');
 
-	if($this->GBLikeButton['General']['on'] && (!isset($fbnometa) || !$fbnometa) && $this->GBLikeButton['OpenGraph']['on'] ) {
+	if($this->GBLikeButton['General']['on'] && (!isset($fbnometa) || !$fbnometa) && ( !isset($this->GBLikeButton['OpenGraph']['on']) || $this->GBLikeButton['OpenGraph']['on']) ) {
 		ob_start(array( $this, 'meta_output' ));
 		ob_end_flush();
 	}
@@ -81,14 +83,18 @@ $meta .= '
 						
 					case strstr($value, '$ptitle'):
 					case strstr($value, '&#036;ptitle'):
+					case ($key == "title"):
 					if(is_home()){
 $meta .= '
 <meta property="og:title" content="' . get_bloginfo ( 'name' ). '"/>';
 						$title = true;
-					} else if (!is_category()) {
+					} else if (is_page() && is_single()) {
 $meta .= '
 <meta property="og:title" content="' . get_the_title($post->ID) . '"/>';
 						$title = true;
+					} else if (!is_page() && !is_single() && !is_home()) { ## Currently not special ##
+$meta .= '
+<meta property="og:title" content="' . get_bloginfo ( 'name' ). '"/>';					
 					}
 						break;
 						
@@ -122,7 +128,8 @@ $meta .= '
 $meta .= '
 <meta property="fb:' . $key . '" content="' . $value . '"/>';
 	break;
-	
+
+# DESCRIPTION #
 	case "dusage":
 		if ($value != "blognon") {
 		$this -> gxtb_meta_description($key, $value, &$meta);
@@ -174,7 +181,7 @@ $meta .= '
 ## END Special Tags ##	
 ## BEGIN Tags ##	
 	default:
-	if ($key != "dusage" && $key != "blogtype" && $key != "pagetype" && $key != "posttype" && $key != "type" && $key != "description")
+	if ($key != "dusage" && $key != "blogtype" && $key != "pagetype" && $key != "posttype" && $key != "type" && $key != "description" && $key != "on")
 $meta .= '
 <meta property="og:' . $key . '" content="' . $value . '"/>';
 	break;

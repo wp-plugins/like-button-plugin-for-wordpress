@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3] - GB-Post-Option [v1.2]
++	Like-Button-Plugin-For-Wordpress [v4.3] - GB-Post-Option [v1.3]
 +	by Stefan Natter (http://www.gangxtaboii.com and http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -72,26 +72,11 @@ function gxtb_fb_lB_inner_custom_box() {
     if (is_object($post_id)) 
     	$post_id = $post_id->ID;
     
-	$fbdefault = get_post_meta($post_id, '_fbdefault', true); ## Default Variable for the FB-Featured Option
     $value = get_post_meta($post_id, '_fbpic', false);
 	$fbnone = get_post_meta($post_id, '_fbnone', true);
 	$fbnometa = get_post_meta($post_id, '_fbnometa', true);
 	$fbfeatured = get_post_meta($post_id, '_fbfeatured', true);
 
-	# OFFEN: Tooltip geht nicht mehr -> Fehler im jQuery Dings! OFFEN #
-
-	# Datumabfrage um sicher zu gehen, dass nur "neue" Posts die Featured Option standardmäßig aktiviert haben #
-	global $wp_version;
-	if (version_compare( $wp_version, '3.0', '>=' ) ){
-			$date = get_the_date("Y-m-d"); }
-	else {
-			$date = the_time('Y-m-d');
-	}
-	if ($date >= "2011-04-19") {
-		# Abfrage wie Default-Value aggiert und setzt den Default-Wert #
-		if( $fbdefault == 0 && isset($fbdefault) ) { $fbfeatured = 1; }
-	}
-	
 ?><br>
     	<input name="gxtb_fb_lB_fbfeatured" type="checkbox" class="checkbox" <?php if ($fbfeatured) echo("checked"); ?> value="1" />&nbsp; <?php _e("Use the Featured Image for the Image-Tag.", gxtb_fb_lB_lang ) ?>
         <br /><br />
@@ -115,24 +100,16 @@ function gxtb_fb_lB_inner_custom_box() {
 
 function gxtb_fb_lB_save_postdata( $post_id ) {
 
-  // Check permissions
- /*  if ( 'page' == $_POST['post_type'] ) {
-    if ( !current_user_can( 'edit_page', $post_id ) )
-      return $post_id;
-  } else {
-    if ( !current_user_can( 'edit_post', $post_id ) )
-      return $post_id;
-  } */
     $value = $_POST['gxtb_fb_lB_post_image'];
 	$fbnone = $_POST['gxtb_fb_lB_fbnone'];
-	$fbnometa = ( isset($_POST['gxtb_fb_lB_fbnometa']) ) ? $_POST['gxtb_fb_lB_fbnometa']:0;
-	$fbfeatured = ( isset($_POST['gxtb_fb_lB_fbfeatured']) ) ? $_POST['gxtb_fb_lB_fbfeatured']:0;
+	$fbnometa = $_POST['gxtb_fb_lB_fbnometa'];
+	$fbfeatured = $_POST['gxtb_fb_lB_fbfeatured'];
 		
     if (isset($value)) {
 				delete_post_meta($post_id, '_fbpic');
 		   		add_post_meta($post_id, '_fbpic', $value);
 	}
-	if (($fbnone || !$fbnone)) {
+	if ($fbnone || !$fbnone) {
 				delete_post_meta($post_id, '_fbnone');
 		    	add_post_meta($post_id, '_fbnone', $fbnone);
     }
@@ -144,12 +121,6 @@ function gxtb_fb_lB_save_postdata( $post_id ) {
 				delete_post_meta($post_id, '_fbnometa');
 		    	add_post_meta($post_id, '_fbnometa', $fbnometa);
     }
-	if ( isset($_POST['gxtb_fb_lB_fbfeatured'] ) && $_POST['gxtb_fb_lB_fbfeatured'] != 0 ) {
-		$fbdefault = "1";
-		#delete_post_meta($post_id, '_fbdefault');
-		update_post_meta($post_id, '_fbdefault', $fbdefault);
-	}
-
 }
 
 } // end class

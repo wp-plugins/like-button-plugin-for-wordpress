@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-Save-Settings [v0.5 FINAL]
++	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-Save-Settings [v0.6 FINAL]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -160,6 +160,10 @@ if ($_GET['page'] == "fb-like-opengraph") {
 	foreach ($GBLikeButton[$area] as $key => $value) { 
 		
 				  switch ($key) {
+					  
+					  case "on":
+					   # hier darf nichts passieren da es bereits weiter oben abgespeichert wird #
+					  break;
 					  				  
 					  default:
 						  $GBLikeButton[$area][$key] = ( isset($_POST[$keycode . $key]) && $_POST[$keycode . $key] != "" ) ? $_POST[$keycode . $key]:'';
