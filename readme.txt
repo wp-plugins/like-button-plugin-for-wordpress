@@ -35,7 +35,7 @@ This plugin adds a Like-Button wherever you want on your blog. Before or after t
 *   Exclude Pages with their ID or with a single click on the checkbox on every Post-/Page-Edit Site
 *   design your like-Button individually from the settings page with the CSS-Box
 *   NEW: You can now add anything you want (Twitter Button, Images, Text) beside the generated Like Button *NEW*
-*   and many more (read more in our wiki or Changelog)
+*   and many more (read more on our [GB-World Facebook-Page](http://www.facebook.com/GBWorldnet)or on our [Blog](http://www.gb-world.net/blog))
 
 **Facebook-Like-Button**
 
