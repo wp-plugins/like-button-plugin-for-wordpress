@@ -35,7 +35,7 @@ This plugin adds a Like-Button wherever you want on your blog. Before or after t
 *   Exclude Pages with their ID or with a single click on the checkbox on every Post-/Page-Edit Site
 *   design your like-Button individually from the settings page with the CSS-Box
 *   NEW: You can now add anything you want (Twitter Button, Images, Text) beside the generated Like Button *NEW*
-*   and many more (read more in our wiki or Changelog)
+*   and many more (read more on our [GB-World Facebook-Page](http://www.facebook.com/GBWorldnet)or on our [Blog](http://www.gb-world.net/blog))
 
 **Facebook-Like-Button**
 
@@ -63,7 +63,12 @@ If you find any bugs **please report** them at our BugTracker: | [BugTracker](ht
 **Translation**
 
 We need your help to translate our plugin into more different languages (currently only English and German is supported). Write a new topic in our forum if you would like to help us. Thx!
-Internationalization Support: English, Deutsch
+Internationalization Support: English, Deutsch**Translation**
+
+**Become a Fan of GB-World**
+Become a Fan of GB-World and get all the latest development and social media news daily!
+
+**Other Important Links**
 
 | [GB-World-Post](http://www.gb-world.net/like-button-plugin-for-wordpress) |
 | [FanPage](http://www.facebook.com/GBWorldnet) |
