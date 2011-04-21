@@ -1,7 +1,7 @@
 === Like-Button-Plugin-For-Wordpress ===
 Contributors:  GBWorld
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SB94MEM9ATTBG
-Tags: facebook, like button, open graph protocol, social plugins, fb, plugins, for wordpress, button, widget, sidebar widget, shortcode, like, generator, gb world, share, socialwidget, likebutton, fb, gbworld, gangxtaboii, meta tags, shortcode like, gbwiki, gb-world, dynamic, exclude, live support, recommend, wordpress, Facebook, featured image, featured post, dynamic, twitter, twitter button, page, plugin, post, wordpress like, recommendation, widgets, activity feed, fb, fblike, fb like, opengraph, analyse, iframe, xfbml, javasdk
+Tags: facebook, like button, open graph protocol, social plugins, fb, plugins, for wordpress, button, widget, sidebar widget, shortcode, like, generator, gb world, share, socialwidget, likebutton, fb, gbworld, natterstefan, natter stefan, meta tags, shortcode like, gbwiki, gb-world, dynamic, exclude, live support, recommend, wordpress, Facebook, featured image, featured post, dynamic, twitter, twitter button, page, plugin, post, wordpress like, recommendation, widgets, activity feed, fb, fblike, fb like, opengraph, analyse, iframe, xfbml, javasdk
 Requires at least: 2.7.x
 Tested up to: 3.1
 Stable tag: trunk
