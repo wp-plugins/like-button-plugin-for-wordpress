@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3] - GB-Post-Option [v1.3]
++	Like-Button-Plugin-For-Wordpress [v4.3] - GB-Post-Option [v1.4]
 +	by Stefan Natter (http://www.gangxtaboii.com and http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -66,23 +66,29 @@ function gxtb_fb_lB_add_custom_box() {
 /* Prints the inner fields for the custom post/page section */
 function gxtb_fb_lB_inner_custom_box() {
 
-    global $post;
+    global $post, $wp_version;
     $post_id = $post;
     
     if (is_object($post_id)) 
     	$post_id = $post_id->ID;
     
-    $value = get_post_meta($post_id, '_fbpic', false);
-	$fbnone = get_post_meta($post_id, '_fbnone', true);
-	$fbnometa = get_post_meta($post_id, '_fbnometa', true);
+    $value = get_post_meta($post_id, '_fbpic', false); ## Wenn != "" dann benutzen
+	$fbnone = get_post_meta($post_id, '_fbnone', true); ## Wenn == 1 dann keinen Like-Button-Output
+	$fbnometa = get_post_meta($post_id, '_fbnometa', true); ## Wenn == 1 dann kein Meta-Output
+	$fbnodefault = get_post_meta($post_id, '_fbnodefault', true); ## Wenn == 1 dann kein Default-Image-Tag
+	
+if (version_compare( $wp_version, '2.9', '>=' )) {
+	if (current_theme_supports('post-thumbnails')) {	
 	$fbfeatured = get_post_meta($post_id, '_fbfeatured', true);
-
 ?><br>
     	<input name="gxtb_fb_lB_fbfeatured" type="checkbox" class="checkbox" <?php if ($fbfeatured) echo("checked"); ?> value="1" />&nbsp; <?php _e("Use the Featured Image for the Image-Tag.", gxtb_fb_lB_lang ) ?>
         <br /><br />
+<?php } } ?>
         <input name="gxtb_fb_lB_fbnone" type="checkbox" class="checkbox" <?php if ($fbnone) echo("checked"); ?>  />&nbsp; <?php  echo sprintf("<b>%s</b> %s", __("Disable", gxtb_fb_lB_lang ), __("Like-Button for this post/page.", gxtb_fb_lB_lang )); ?>
         <br /><br />
         <input name="gxtb_fb_lB_fbnometa" type="checkbox" class="checkbox" <?php if ($fbnometa) echo("checked"); ?>  value="1" />&nbsp; <?php  echo sprintf("<b>%s</b> %s", __("Disable", gxtb_fb_lB_lang ), __("the Meta-Tags on this page/post.", gxtb_fb_lB_lang )); ?>
+        <br /><br />
+        <input name="gxtb_fb_lB_fbnodefault" type="checkbox" class="checkbox" <?php if ($fbnodefault) echo("checked"); ?>  value="1" />&nbsp; <?php  echo sprintf("<b>%s</b> %s", __("Disable", gxtb_fb_lB_lang ), __("the Default-Image on this page/post.", gxtb_fb_lB_lang )); ?>
         <br /><br />
 <?php
 	echo '<label for="gxtb_fb_lB_post_description">' . __("Enter the full path to an image you wanna connect with this Post/Page.", gxtb_fb_lB_lang ) . '</label><br/><br/>';
@@ -104,6 +110,7 @@ function gxtb_fb_lB_save_postdata( $post_id ) {
 	$fbnone = $_POST['gxtb_fb_lB_fbnone'];
 	$fbnometa = $_POST['gxtb_fb_lB_fbnometa'];
 	$fbfeatured = $_POST['gxtb_fb_lB_fbfeatured'];
+	$fbnodefault = $_POST['gxtb_fb_lB_fbnodefault'];;
 		
     if (isset($value)) {
 				delete_post_meta($post_id, '_fbpic');
@@ -120,6 +127,10 @@ function gxtb_fb_lB_save_postdata( $post_id ) {
 	if ($fbnometa || !$fbnometa) {
 				delete_post_meta($post_id, '_fbnometa');
 		    	add_post_meta($post_id, '_fbnometa', $fbnometa);
+    }
+	if ($fbnodefault || !$fbnodefault) {
+				delete_post_meta($post_id, '_fbnodefault');
+		    	add_post_meta($post_id, '_fbnodefault', $fbnodefault);
     }
 }
 

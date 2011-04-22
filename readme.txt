@@ -166,6 +166,13 @@ if ( ( isset($_GET['page']) && strstr($_GET['page'],"disqus") )) { add_action('a
 
 == Changelog ==
 
+= Version 4.4.3.5 =
+
++ New: Due to a request I added the function to deactivate the default image if you like (Edit-Pages)
++ Bugfix: Featured Image Support now only with WP 2.9+
++ Bugfix: new Query to check if the current theme supports thumbnails
+
+
 = Version 4.4.3.4 =
 
 + Bugfix: the new OpenGraph Option was accidently shown in the sourcecode

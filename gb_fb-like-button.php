@@ -3,7 +3,7 @@
 	Plugin Name: Like-Button-Plugin-For-Wordpress
 	Plugin URI: http://www.gb-world.net/like-button-plugin-for-wordpress/
 	Description: This Plugin provides the most settings for the Like-Button of Facebook. It's in a steadily development to ensure that everything is up-to-date with all the Web 2.0 Standards and Requirements. Enjoy the Like-Button now with GB-World.net's Like-Button-Plugin-For-Wordpress!
-	Version: 4.4.3.4
+	Version: 4.4.3.5
 	Author: Stefan Natter
 	Author URI: http://www.gb-world.net
 	Update Server: http://wordpress.org/extend/plugins/like-button-plugin-for-wordpress
@@ -76,7 +76,7 @@ function GBLikeButton() {
 if ( !defined('gxtb_fb_lB_shortcode' ) )
 	define( 'gxtb_fb_lB_shortcode', "gxtb" );
 if ( !defined('gxtb_fb_lB_version' ) )
-	define( 'gxtb_fb_lB_version', "4.4.3.4" );
+	define( 'gxtb_fb_lB_version', "4.4.3.5" );
 if ( !defined( 'gxtb_fb_lB_name' ) )
 	define( 'gxtb_fb_lB_name', "Like-Button-Plugin-For-Wordpress" );
 if ( !defined( 'gxtb_fb_lB_page' ) )

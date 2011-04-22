@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.2] - GB-Meta-Generator [v1.5.2 - FINAL]
++	Like-Button-Plugin-For-Wordpress [v4.3.2] - GB-Meta-Generator [v1.5.3 - FINAL]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -60,8 +60,10 @@ function gxtb_fb_lB_MetaAction() {
 
 function meta_output($content) {
 
+	global $post, $wp_query, $wp_version;
 	$meta = "";
 	$title = false;
+   	$page_id = $wp_query->post->ID;
 			
 foreach($this->GBLikeButton['OpenGraph'] as $key => $value) {
 	
@@ -157,17 +159,20 @@ $meta .= '
 	break; */
 	
 	case "image":
-	
 if( is_single() || is_page() ) {
-	global $post, $wp_query;
-   	$page_id = $wp_query->post->ID;
-    $pic = get_post_meta($page_id, '_fbpic', true);	
-	$fbfeatured = get_post_meta($page_id, '_fbfeatured', true);
+    $pic = get_post_meta($page_id, '_fbpic', true);
 	
-	if($fbfeatured == 1) { # Featured Image:
-		$fbfeatured = wp_get_attachment_image_src( get_post_thumbnail_id( $page_id ), 'single-post-thumbnail' );
+	if (version_compare( $wp_version, '2.9', '>=' )) {
+		
+		if (current_theme_supports('post-thumbnails')) {
+			$fbfeatured = get_post_meta($page_id, '_fbfeatured', true);
+			
+			if($fbfeatured == 1) { # Featured Image:
+				$fbfeatured = wp_get_attachment_image_src( get_post_thumbnail_id( $page_id ), 'post-thumbnails' );
 $meta .= '
-<meta property="og:' . $key . '" content="' . $fbfeatured[0] . '"/>';	
+<meta property="og:' . $key . '" content="' . $fbfeatured[0] . '"/>';				
+			}
+		}
 	}	
 	# Specific Image:
 	if ( isset($pic) && !empty($pic) && strstr($pic, "http://") ) {
@@ -175,8 +180,11 @@ $meta .= '
 <meta property="og:' . $key . '" content="' . $pic . '"/>';
 	}
 	} # Default Image:
+	$fbnodefault = get_post_meta($page_id, '_fbnodefault', true);
+	if ($fbnodefault == 0) {
 $meta .= '
 <meta property="og:' . $key . '" content="' . $value . '"/>';	
+	}
 	break;
 ## END Special Tags ##	
 ## BEGIN Tags ##	
