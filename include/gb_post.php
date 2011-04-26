@@ -76,11 +76,15 @@ function gxtb_fb_lB_inner_custom_box() {
 	$fbnone = get_post_meta($post_id, '_fbnone', true); ## Wenn == 1 dann keinen Like-Button-Output
 	$fbnometa = get_post_meta($post_id, '_fbnometa', true); ## Wenn == 1 dann kein Meta-Output
 	$fbnodefault = get_post_meta($post_id, '_fbnodefault', true); ## Wenn == 1 dann kein Default-Image-Tag
-	
+		
+	_e("Check the OpenGraph Meta-Tags", gxtb_fb_lB_lang );
+?><br>
+<a href="http://developers.facebook.com/tools/lint/?url=<?php echo get_permalink( $post_id ); ?>" target="_blank">Facebook URL Linter</a>
+<?php
 if (version_compare( $wp_version, '2.9', '>=' )) {
 	if (current_theme_supports('post-thumbnails')) {	
 	$fbfeatured = get_post_meta($post_id, '_fbfeatured', true);
-?><br>
+?><br><br><br>
     	<input name="gxtb_fb_lB_fbfeatured" type="checkbox" class="checkbox" <?php if ($fbfeatured) echo("checked"); ?> value="1" />&nbsp; <?php _e("Use the Featured Image for the Image-Tag.", gxtb_fb_lB_lang ) ?>
         <br /><br />
 <?php } } ?>

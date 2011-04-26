@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-Cleaner [v1.1.3 Beta]
++	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-Cleaner [v1.1.4 FINAL]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -117,8 +117,8 @@ try
 				'url' => get_home_url(),
 				'layout' => (isset($gxtb_fb_lB_generator['layout'])) ? $gxtb_fb_lB_generator['layout']:'standard',
 				'faces' => (isset($gxtb_fb_lB_generator['faces']) && $gxtb_fb_lB_generator['faces']==true) ? '1':'0',
-				'width' => (isset($gxtb_fb_lB_generator['width'])) ? $gxtb_fb_lB_generator['width']:'150',
-				'height' => (isset($gxtb_fb_lB_generator['height'])) ? $gxtb_fb_lB_generator['height']:'250',
+				'width' => (isset($gxtb_fb_lB_generator['width'])) ? $gxtb_fb_lB_generator['width']:'250',
+				'height' => (isset($gxtb_fb_lB_generator['height'])) ? $gxtb_fb_lB_generator['height']:'100',
 				'verb' => (isset($gxtb_fb_lB_generator['verb'])) ? $gxtb_fb_lB_generator['verb']:'like',
 				'color' => (isset($gxtb_fb_lB_generator['color'])) ? $gxtb_fb_lB_generator['color']:'light',
 				'font' => (isset($gxtb_fb_lB_generator['font'])) ? $gxtb_fb_lB_generator['font']:'arial',
@@ -126,7 +126,8 @@ try
 				'frameborder' => (isset($gxtb_fb_lB_generator['frameborder'])) ? $gxtb_fb_lB_generator['frameborder']:'0',
 				'borderstyle' => (isset($gxtb_fb_lB_generator['borderstyle'])) ? $gxtb_fb_lB_generator['borderstyle']:'none',
 				'overflow' => (isset($gxtb_fb_lB_generator['overflow'])) ? $gxtb_fb_lB_generator['overflow']:'hidden',
-				'trans' => (isset($gxtb_fb_lB_generator['trans']) && $gxtb_fb_lB_generator['trans']==true) ? '1':'0'
+				'trans' => (isset($gxtb_fb_lB_generator['trans']) && $gxtb_fb_lB_generator['trans']==true) ? '1':'0',
+				'send' => 0
 			),
 			'OpenGraph' => array (
 				'on' => 1, # gab es in den alten Optionen noch gar nicht #
@@ -180,7 +181,7 @@ try
 				'GBWidgetCleaner' => 0, ## deaktiviert den GB-Cleaner am Anfang by default (0 nie gelaufen | 1 bereits ausgeführt )	
                 'jQuery' => 0, ## aktivieren/deaktivieren der Google-jQuery-Library (0 - WP | 1 - Google)
                 'Message' => array ( 
-					'Update' => 2, ## Update-Messages: Update-Messages für Hinweise nach dem Update (x Anzahl für Anzeige - Default: 2)
+					'Update' => 0, ## Update-Messages: Update-Messages für Hinweise nach dem Update (x Anzahl für Anzeige - Default: 0)
 					'Installation' => 2, ## Installation-Messages (x Anzahl für Anzeige - Default: 2)
 					'Help' => 2, ## Help-Messages (x Anzahl für Anzeige - Default: 2)
 					'Support' => 4, ## Support-Message for all the Hardwork I did (x Anzahl der Anzeige - Default:4 )
@@ -239,8 +240,8 @@ try
 				'url' =>  (version_compare( $wp_version, '3.0', '>=' )) ? get_home_url() : get_bloginfo('siteurl'),
 				'layout' => "standard",
 				'faces' => 0,
-				'width' => "150",
-				'height' => "250",
+				'width' => "250",
+				'height' => "100",
 				'verb' => "like",
 				'color' => "light",
 				'font' => "arial",
@@ -248,7 +249,8 @@ try
 				'frameborder' => "0",
 				'borderstyle' => "none",
 				'overflow' => "hidden",
-				'trans' => 1
+				'trans' => 1,
+				'send' => 0
 			),
 			'OpenGraph' => array (
 				'on' => 1,
@@ -299,7 +301,7 @@ function GBRestore() {
 				'GBWidgetCleaner' => 0, ## deaktiviert den GB-Cleaner am Anfang by default (0 nie gelaufen | 1 bereits ausgeführt )	
                 'jQuery' => 0, ## aktivieren/deaktivieren der Google-jQuery-Library (0 - WP | 1 - Google)
                 'Message' => array ( 
-					'Update' => 2, ## Update-Messages: Update-Messages für Hinweise nach dem Update (x Anzahl für Anzeige - Default: 2)
+					'Update' => 0, ## Update-Messages: Update-Messages für Hinweise nach dem Update (x Anzahl für Anzeige - Default: 0)
 					'Installation' => 2, ## Installation-Messages (x Anzahl für Anzeige - Default: 2)
 					'Help' => 2, ## Help-Messages (x Anzahl für Anzeige - Default: 2)
 					'Warning' => 0 ## Warning-Sys (0 - keine Warnung | 1 - es gibt Warnungen)
@@ -357,8 +359,8 @@ function GBRestore() {
 				'url' => (version_compare( $wp_version, '3.0', '>=' )) ? get_home_url() : get_bloginfo('siteurl'),
 				'layout' => "standard",
 				'faces' => 0,
-				'width' => "150",
-				'height' => "250",
+				'width' => "250",
+				'height' => "100",
 				'verb' => "like",
 				'color' => "light",
 				'font' => "arial",
@@ -366,7 +368,8 @@ function GBRestore() {
 				'frameborder' => "0",
 				'borderstyle' => "none",
 				'overflow' => "hidden",
-				'trans' => 1
+				'trans' => 1,
+				'send' => 0
 			),
 			'OpenGraph' => array (
 				'on' => 1,

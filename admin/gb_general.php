@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-General-Page [v0.3 - OPEN Beta]
++	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-General-Page [v0.3.1 - FINAL]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -143,6 +143,22 @@ function gxtb_gb_generator() {
 					<tr>
                     	<td width="20%" rowspan="2" valign="top" class="gb-table-header">
 							<strong>
+								<?php _e('Send Button', gxtb_fb_lB_lang); ?>
+							</strong>
+						</td>
+                        <td width="80%" valign="bottom">
+						<input name="gxtb_fb_lB_generator_send" type="checkbox" class="checkbox" onchange="gxtb_generator()" <?php if ( isset($this->GBLikeButton['Generator']['send']) && $this->GBLikeButton['Generator']['send']) echo("checked"); ?>  value="1"/>
+							
+                         </td>
+                    </tr>
+                    <tr>
+                        <td class="gb-table-tipp">
+						</td>
+                    </tr>
+
+					<tr>
+                    	<td width="20%" rowspan="2" valign="top" class="gb-table-header">
+							<strong>
 								<?php _e('Layout Style', gxtb_fb_lB_lang); ?>
 								<br /><br />
 								<?php _e('Show Faces?', gxtb_fb_lB_lang); ?>
@@ -170,7 +186,7 @@ function gxtb_gb_generator() {
                         <td class="gb-table-tipp">
 						</td>
                     </tr>
-					                    <tr>
+					<tr>
                     	<td width="20%" rowspan="2" valign="top" class="gb-table-header">
 							<strong>
 								<?php _e('Verb to display', gxtb_fb_lB_lang); ?>
@@ -208,9 +224,9 @@ function gxtb_gb_generator() {
 							</strong>
 						</td>
                         <td width="80%" valign="top">
-						<input name="gxtb_fb_lB_generator_width" type="text" onchange="gxtb_generator()" value="<?php if (isset($this->GBLikeButton['Generator']['width']) && $this->GBLikeButton['Generator']['width'] != "") {echo $this->GBLikeButton['Generator']['width'];} else {echo "";} ?>" size="4" maxlength="4"/> px <small>(<?php _e('Default', gxtb_fb_lB_lang); ?>: 150 px)</small>
+						<input name="gxtb_fb_lB_generator_width" type="text" onchange="gxtb_generator()" value="<?php if (isset($this->GBLikeButton['Generator']['width']) && $this->GBLikeButton['Generator']['width'] != "") {echo $this->GBLikeButton['Generator']['width'];} else {echo "";} ?>" size="4" maxlength="4"/> px <small>(<?php _e('Default', gxtb_fb_lB_lang); ?>: 250 px)</small>
 							<br />
-							<input name="gxtb_fb_lB_generator_height" type="text" onchange="gxtb_generator()" value="<?php if (isset($this->GBLikeButton['Generator']['height']) && $this->GBLikeButton['Generator']['height'] != "") {echo $this->GBLikeButton['Generator']['height'];} else {echo "";} ?>" size="4" maxlength="4"/> px <small>(<?php _e('Default', gxtb_fb_lB_lang); ?>: 250 px)</small>
+							<input name="gxtb_fb_lB_generator_height" type="text" onchange="gxtb_generator()" value="<?php if (isset($this->GBLikeButton['Generator']['height']) && $this->GBLikeButton['Generator']['height'] != "") {echo $this->GBLikeButton['Generator']['height'];} else {echo "";} ?>" size="4" maxlength="4"/> px <small>(<?php _e('Default', gxtb_fb_lB_lang); ?>: 100 px)</small>
                          </td>
                     </tr>
                     <tr>
@@ -227,7 +243,7 @@ function gxtb_gb_generator() {
 					<p><label><?php _e('Color Scheme', gxtb_fb_lB_lang); ?><br />
 					<SELECT NAME="gxtb_fb_lB_generator_color" onchange="gxtb_generator()">
 					<?php
-					$i = array( "light", "dark", "evil" );
+					$i = array( "light", "dark" );
 					  foreach($i as $variable) {
 						if($variable == $this->GBLikeButton['Generator']['color'] && isset($this->GBLikeButton['Generator']['color'])) {
 							echo '<OPTION selected>' . $variable .'</OPTION>';
@@ -331,13 +347,13 @@ function gxtb_gb_generator() {
 					<tr>
                     	<td width="20%" rowspan="2" valign="top" class="gb-table-header-preview"><br />
 							<strong>
-<p><b><?php _e('Preview', gxtb_fb_lB_lang); ?></b> <img src="<?php echo gxtb_fb_lB_PLUGIN_FOLDER; ?>/images/rot17a.gif"  onmouseover="tooltip.show('<?php _e('It will show a preview of a iFrame-FB-Like-Button. If XFBML (Java-SDK) is enabled it will act a little bit different like this preview. Because the preview is always without XFBML (Java-SDK).', gxtb_fb_lB_lang); ?>');" onmouseout="tooltip.hide();"></p>
+<p><b><?php _e('iFrame-Preview', gxtb_fb_lB_lang); ?></b> <img src="<?php echo gxtb_fb_lB_PLUGIN_FOLDER; ?>/images/rot17a.gif"  onmouseover="tooltip.show('<?php _e('It will show a preview of a iFrame-FB-Like-Button. If XFBML (Java-SDK) is enabled it will act a little bit different like this preview. Because the preview is always without XFBML (Java-SDK).', gxtb_fb_lB_lang); ?>');" onmouseout="tooltip.hide();"></p>
 <p><b><?php echo sprintf( '%s <a href="admin.php?page=fb-like-button#tabs-6">%s</a>.',  __('Do not forget to set the height and width of your Like Button under the', gxtb_fb_lB_lang), __('Design-Tab', gxtb_fb_lB_lang)); ?></b></p>
 							</strong>
 						</td>
                         <td width="80%" valign="bottom"><br />
 							<div id="gxtb_fb_lB_preview"></div>
-							<script type="text/javascript"> gxtb_generator(""); </script>
+							<script type="text/javascript"> gxtb_generator(); </script>
                          </td>
                     </tr>
                     <tr>

@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-Save-Settings [v0.6 FINAL]
++	Like-Button-Plugin-For-Wordpress [v4.3.3] - GB-Save-Settings [v0.6.1 FINAL]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -106,6 +106,7 @@ if( gxtb_fb_lB_debug ) {
 					  case "faces":
 					  case "scrolling":
 					  case "trans":
+					  case "send":
 						  $GBLikeButton[$area][$key] = ( isset($_POST[$keycode . $key])) ? $_POST[$keycode . $key]:0;
 						  if( gxtb_fb_lB_debug && isset($_POST[$keycode . $key]) ) {
 						  	echo "[" . $area ."][".$key."] => '";

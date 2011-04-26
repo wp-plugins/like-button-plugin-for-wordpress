@@ -1,7 +1,7 @@
 === Like-Button-Plugin-For-Wordpress ===
 Contributors:  GBWorld, natterstefan
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SB94MEM9ATTBG
-Tags: facebook, like button, open graph protocol, social plugins, fb, plugins, for wordpress, button, widget, sidebar widget, shortcode, like, generator, gb world, share, socialwidget, likebutton, fb, gbworld, natterstefan, natter stefan, meta tags, shortcode like, gbwiki, gb-world, dynamic, exclude, live support, recommend, wordpress, Facebook, featured image, featured post, dynamic, twitter, twitter button, page, plugin, post, wordpress like, recommendation, widgets, activity feed, fb, fblike, fb like, opengraph, analyse, iframe, xfbml, javasdk
+Tags: facebook, like button, open graph protocol, social plugins, fb, plugins, for wordpress, button, widget, sidebar widget, shortcode, like, generator, gb world, share, socialwidget, likebutton, fb, gbworld, natterstefan, natter stefan, meta tags, shortcode like, gbwiki, gb-world, dynamic, exclude, live support, recommend, wordpress, Facebook, featured image, featured post, dynamic, twitter, twitter button, page, plugin, post, wordpress like, recommendation, widgets, activity feed, fb, fblike, fb like, opengraph, analyse, iframe, xfbml, javasdk, send button, send, sendbutton, new, update, url linter, lint, tools, facebook url linter
 Requires at least: 2.7.x
 Tested up to: 3.1
 Stable tag: trunk
@@ -17,6 +17,7 @@ This plugin adds a Like-Button wherever you want on your blog. Before or after t
 *   you can exclude sites which won't get a like button
 *   individual button position (before/after the content)
 *   add all available OpenGraph Meta-Tags
+*   choose any language for your Like Button you want (any one that Facebook supports)
 *   you can individually design your Like-Button with css (css-Class)
 *   our Like-Button-Generator makes it even more easier for you to create a Like Button
 *   Analyse your Blog: Analyse the activity of your visitors and their likes
@@ -35,6 +36,7 @@ This plugin adds a Like-Button wherever you want on your blog. Before or after t
 *   Exclude Pages with their ID or with a single click on the checkbox on every Post-/Page-Edit Site
 *   design your like-Button individually from the settings page with the CSS-Box
 *   NEW: You can now add anything you want (Twitter Button, Images, Text) beside the generated Like Button *NEW*
+*   NEW: Use the Send-Button (new feature) of Facebook right now! It is availble now!
 *   and many more (read more on our [GB-World Facebook-Page](http://www.facebook.com/GBWorldnet)or on our [Blog](http://www.gb-world.net/blog))
 
 **Facebook-Like-Button**
@@ -166,10 +168,20 @@ if ( ( isset($_GET['page']) && strstr($_GET['page'],"disqus") )) { add_action('a
 
 == Changelog ==
 
+= Version 4.4.3.6 =
+
++ New: Implement the new Send Button if you using the XFBML Like Button (iFrame also but Facebook recommends the XFBML-Button)
++ New: Facebook URL Linter Link on every Edit-Page (post and page)
++ Bugfix: the iFrame Version does now also support the language you choose
++ OpenGraph: displays now the WP-Title of the current Category/Archive for the title-tag (more dynamic soon)
++ JavaScript: Generator-File Update
++ Coding: the new default value of height/width is 100/250px
+
+
 = Version 4.4.3.5 =
 
 + New: Due to a request I added the function to deactivate the default image if you like (Edit-Pages)
-+ Bugfix: Featured Image Support now only with WP 2.9+
++ Bugfix: Featured Image Support now only with WP 2.9+ and if your template supports thumbnails
 + Bugfix: new Query to check if the current theme supports thumbnails
 
 

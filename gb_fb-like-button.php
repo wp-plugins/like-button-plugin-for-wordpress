@@ -3,7 +3,7 @@
 	Plugin Name: Like-Button-Plugin-For-Wordpress
 	Plugin URI: http://www.gb-world.net/like-button-plugin-for-wordpress/
 	Description: This Plugin provides the most settings for the Like-Button of Facebook. It's in a steadily development to ensure that everything is up-to-date with all the Web 2.0 Standards and Requirements. Enjoy the Like-Button now with GB-World.net's Like-Button-Plugin-For-Wordpress!
-	Version: 4.4.3.5
+	Version: 4.4.3.6
 	Author: Stefan Natter
 	Author URI: http://www.gb-world.net
 	Update Server: http://wordpress.org/extend/plugins/like-button-plugin-for-wordpress
@@ -76,7 +76,7 @@ function GBLikeButton() {
 if ( !defined('gxtb_fb_lB_shortcode' ) )
 	define( 'gxtb_fb_lB_shortcode', "gxtb" );
 if ( !defined('gxtb_fb_lB_version' ) )
-	define( 'gxtb_fb_lB_version', "4.4.3.5" );
+	define( 'gxtb_fb_lB_version', "4.4.3.6" );
 if ( !defined( 'gxtb_fb_lB_name' ) )
 	define( 'gxtb_fb_lB_name', "Like-Button-Plugin-For-Wordpress" );
 if ( !defined( 'gxtb_fb_lB_page' ) )
@@ -395,7 +395,7 @@ function gxtb_fb_lB_activate(){
 				'GBWidgetCleaner' => 0, ## deaktiviert den GB-Cleaner am Anfang by default (0 nie gelaufen | 1 bereits ausgeführt )				
                 'jQuery' => 0, ## aktivieren/deaktivieren der Google-jQuery-Library (0 - WP | 1 - Google)
                 'Message' => array ( 
-					'Update' => 2, ## Update-Messages: Update-Messages für Hinweise nach dem Update (x Anzahl für Anzeige - Default: 2)
+					'Update' => 0, ## Update-Messages: Update-Messages für Hinweise nach dem Update (x Anzahl für Anzeige - Default: 0)
 					'Installation' => 2, ## Installation-Messages (x Anzahl für Anzeige - Default: 2)
 					'Help' => 2, ## Help-Messages (x Anzahl für Anzeige - Default: 2)
 					'Support' => 4, ## Support-Message for all the Hardwork I did (x Anzahl der Anzeige - Default:4 )
@@ -454,8 +454,8 @@ function gxtb_fb_lB_activate(){
 				'url' =>  (version_compare( $wp_version, '3.0', '>=' )) ? get_home_url() : get_bloginfo('siteurl'),
 				'layout' => "standard",
 				'faces' => 0,
-				'width' => "150",
-				'height' => "250",
+				'width' => "250",
+				'height' => "100",
 				'verb' => "like",
 				'color' => "light",
 				'font' => "arial",
@@ -463,7 +463,8 @@ function gxtb_fb_lB_activate(){
 				'frameborder' => "0",
 				'borderstyle' => "none",
 				'overflow' => "hidden",
-				'trans' => 1
+				'trans' => 1,
+				'send' => 0
 			),
 			'OpenGraph' => array (
 				'on' => 1,
@@ -504,14 +505,15 @@ function gxtb_fb_lB_activate(){
 				## Update Version ##
 				$this->GBLikeButton['PluginInfo']['cVersion'] = gxtb_fb_lB_version;
 				## Message System ##
-				if($this->GBLikeButton['PluginSetting']['Message']['Update'] == 0) ## Message Output reset
+				if($this->GBLikeButton['PluginSetting']['Message']['Update'] == 0 && gxtb_fb_lB_version != $this->GBLikeButton['PluginInfo']['lVersion']) ## Message Output reset
 					$this->GBLikeButton['PluginSetting']['Message']['Update'] += 2;
 				if($this->GBLikeButton['PluginSetting']['Message']['Help'] == 0) ## Message Output reset
 					$this->GBLikeButton['PluginSetting']['Message']['Help'] += 2;
 				## Initialize new Options ##
-				$this->GBLikeButton['OpenGraph']['on'] = 1; # New Option is set to 1
-				$this->GBLikeButton['Expert']['besidebutton'] = "";
-				$this->GBLikeButton['Expert']['besideposition'] = "right";
+				if(!isset($this->GBLikeButton['OpenGraph']['on'])) { $this->GBLikeButton['OpenGraph']['on'] = 1; } # New Option is set to 1
+				if(!isset($this->GBLikeButton['Generator']['send'])) { $this->GBLikeButton['Generator']['send'] = 0; } # New Option is set to 0
+				if(!isset($this->GBLikeButton['Expert']['besidebutton'])) { $this->GBLikeButton['Expert']['besidebutton'] = ""; }
+				if(!isset($this->GBLikeButton['Expert']['besideposition'])) { $this->GBLikeButton['Expert']['besideposition'] = "right"; }
 				update_option('GBLikeButton', $this->GBLikeButton);
 			}
 	

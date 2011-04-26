@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3.2] - GB-Meta-Generator [v1.5.3 - FINAL]
++	Like-Button-Plugin-For-Wordpress [v4.3.2] - GB-Meta-Generator [v1.5.4 - FINAL]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -94,9 +94,10 @@ $meta .= '
 $meta .= '
 <meta property="og:title" content="' . get_the_title($post->ID) . '"/>';
 						$title = true;
-					} else if (!is_page() && !is_single() && !is_home()) { ## Currently not special ##
+					} else if (!is_page() && !is_single() && !is_home()) { ## Currently not dynamic ##
+#$name = single_term_title('', false);		
 $meta .= '
-<meta property="og:title" content="' . get_bloginfo ( 'name' ). '"/>';					
+<meta property="og:title" content="'.wp_title('',false).'"/>';
 					}
 						break;
 						

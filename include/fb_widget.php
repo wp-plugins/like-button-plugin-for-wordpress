@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.4.3.1] - GB-FB-Widget [v1.5 - OPEN RELEASE] - OFFEN: 1x + option auf neuen Standard bringen + Optionen in GBLikeButtonWidget umspeichern (neuer Standard) + ZEILE 201 + XFBML Like Widget Output
++	Like-Button-Plugin-For-Wordpress [v4.4.3.1] - GB-FB-Widget [v1.5.1 - OPEN RELEASE] - OFFEN: 1x + option auf neuen Standard bringen + Optionen in GBLikeButtonWidget umspeichern (neuer Standard) + ZEILE 201 + XFBML Like Widget Output
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+

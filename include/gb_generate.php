@@ -5,7 +5,7 @@
 <?php
 /*
 +----------------------------------------------------------------+
-+	Like-Button-Plugin-For-Wordpress [v4.3] - Like-Button-Generator [v0.6 FINAL]
++	Like-Button-Plugin-For-Wordpress [v4.3] - Like-Button-Generator [v0.6.1 FINAL]
 +	by Stefan Natter (http://www.gb-world.net)
 +   required for Like-Button-Plugin-For-Wordpress and WordPress 2.7.x or higher
 +----------------------------------------------------------------+
@@ -116,12 +116,14 @@ function gxtb_fb_lB_Generate($url, $style) {
 		}
 	
 	} // end ref-def-if
-
-	################################################
-	### FB-Analytics [v4.0] ### release-mode ###
-	################################################
 	
-	// Abfrage ob JDK aktiviert ist und die App-ID vorhanden ist!
+	$lang = $this->GBLikeButton['General']['language'];
+	if ($lang == "") { $lang = "en_US"; }
+	
+	if( isset($this->GBLikeButton['Generator']['send']) && $this->GBLikeButton['Generator']['send'] == 1) { $send = 'true';} else { $send = "false"; }
+
+#############################################################################################################	
+// Abfrage ob JDK aktiviert ist und die App-ID vorhanden ist!
 	if($this->GBLikeButton['General']['jdk'] && $this->GBLikeButton['OpenGraph']['app_id'] != "" ) { 
 	
 		// generiert die Schriften für die JDK-Variante
@@ -130,25 +132,16 @@ function gxtb_fb_lB_Generate($url, $style) {
 			} else {
 				 $font = '';
 			}
-			
-	################################################
-	### FB-Analytics [v4.0] ### release-mode ###
-	################################################	
+
 		// generiert die FB-Insights-Analyse (REL)
 		if(isset($ref) && $ref != "") {
 			$ref = 'ref="'. $ref .'"';
 		} else {
 			$ref = "";
 		}
-	################################################
-	### FB-Analytics [v4.0] ### release-mode ###
-	################################################
-	
-	$lang = $this->GBLikeButton['General']['language'];
-	if ($lang == "") { $lang = "en_US"; }
 	
 	// Zusammenbau des fb:like-Outputs
-	$text = '<script src="http://connect.facebook.net/' . $lang . '/all.js#xfbml=1"></script><fb:like href="'. urlencode($generator_content['url']) .'" layout="'. $generator_content['layout'] .'" show_faces="'. $generator_content['faces'] .'" width="'. $generator_content['width'] .'" action="'. $generator_content['verb'] .'"' . $font .'colorscheme="'. $generator_content['color'] .'" '. $ref .'></fb:like>';
+	$text = '<script src="http://connect.facebook.net/' . $lang . '/all.js#xfbml=1"></script><fb:like href="'. urlencode($generator_content['url']) .'" layout="'. $generator_content['layout'] .'" show_faces="'. $generator_content['faces'] .'" width="'. $generator_content['width'] .'" action="'. $generator_content['verb'] .'"' . $font .'colorscheme="'. $generator_content['color'] .'" '. $ref .' send="'. $send .'"></fb:like>';
 	
 	$text .=  gxtb_fb_lB_GenerateLike::gxtb_fb_lB_java();
 
@@ -218,21 +211,15 @@ function gxtb_fb_lB_Generate($url, $style) {
 		$generator_content['overflow'] = "hidden";
 	}	
 
-	################################################
-	### FB-Analytics [v4.0] ### release-mode ###
-	################################################	
-		// generiert die FB-Insights-Analyse (REF)
-		if(isset($ref) && $ref != "") {
-			$ref = '&amp;ref='. $ref;
-		}
-		else {
-			$ref = "";
-		}
-	################################################
-	### FB-Analytics [v4.0] ### release-mode ###
-	################################################
-	
-	$text = '<iframe src="http://www.facebook.com/plugins/like.php?href='. urlencode($generator_content['url']) .'&amp;layout='. $generator_content['layout'] .'&amp;show_faces='. $generator_content['faces'] .'&amp;width='. $generator_content['width'] .'&amp;action='. $generator_content['verb'] .'&amp;' . $generator_content['font'] . 'colorscheme='. $generator_content['color'] .'&amp;height='. $generator_content['height'] .''.$ref.'" scrolling="'. $generator_content['scrolling'] .'" frameborder="'. $generator_content['frameborder'] .'" allowTransparency="'. $generator_content['trans'] .'" style="border:'. $generator_content['borderstyle'] .'; overflow:'. $generator_content['overflow'] .'; width:'. $generator_content['width'] .'px; height:'. $generator_content['height'] .'px"></iframe>';
+	// generiert die FB-Insights-Analyse (REF)
+	if(isset($ref) && $ref != "") {
+		$ref = '&amp;ref='. $ref;
+	}
+	else {
+		$ref = "";
+	}
+
+	$text = '<iframe src="http://www.facebook.com/plugins/like.php?href='. urlencode($generator_content['url']) .'&amp;layout='. $generator_content['layout'] .'&amp;show_faces='. $generator_content['faces'] .'&amp;width='. $generator_content['width'] .'&amp;action='. $generator_content['verb'] .'&amp;' . $generator_content['font'] . 'colorscheme='. $generator_content['color'] .'&amp;height='. $generator_content['height'] .''.$ref.''.'&amp;locale='. $lang .'&amp;send='. $send .'" scrolling="'. $generator_content['scrolling'] .'" frameborder="'. $generator_content['frameborder'] .'" allowTransparency="'. $generator_content['trans'] .'" style="border:'. $generator_content['borderstyle'] .'; overflow:'. $generator_content['overflow'] .'; width:'. $generator_content['width'] .'px; height:'. $generator_content['height'] .'px"></iframe>';
 
 	}
 	
