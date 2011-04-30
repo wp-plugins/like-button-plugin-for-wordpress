@@ -66,7 +66,7 @@ If you find any bugs **please report** them at our BugTracker: | [BugTracker](ht
 **Translation**
 
 We need your help to translate our plugin into more different languages (currently only English and German is supported). Write a new topic in our forum if you would like to help us. Thx!
-Internationalization Support: English, Deutsch**Translation**
+Internationalization Support: English, Deutsch
 
 **Become a Fan of GB-World**
 Become a Fan of GB-World and get all the latest development and social media news daily!
@@ -96,6 +96,9 @@ After that visit the General-Setting Page on the bottom of the Menu and activate
 == Frequently Asked Questions ==
 
 **FAQ:** 
+
+
+**How-To install and setup the Plugin**
 
 **1.** Download and Install the Plugin
 
@@ -158,6 +161,7 @@ It is recommended to add the following
 `xmlns:og="http://ogp.me/ns#"
 xmlns:fb="http://www.facebook.com/2008/fbml"`
 
+
 to the html-tag of your template-header.php-file. If you do not do this the Open-Graph-Protocol will not work with all its functions.
 
 
@@ -175,10 +179,9 @@ If you can't access your tabs on the Settings Page and you use the Disqus-Plugin
 
 = Extended FAQ: =
 
-| [Video-Tutorial](http://www.facebook.com/GBWorldnet?v=app_2392950137) |
-
-| [GB-Wiki](http://wiki.gb-world.net/wiki/GB-Wiki:Like-Button-Plugin-For-Wordpress) |
+| [Video-Tutorials](http://www.facebook.com/GBWorldnet?v=app_2392950137) |
 | [Support](http://www.facebook.com/GBWorldnet) |
+| [GB-Wiki](http://wiki.gb-world.net/wiki/GB-Wiki:Like-Button-Plugin-For-Wordpress) |
 
 == Screenshots ==
 
