@@ -72,7 +72,7 @@ Internationalization Support: English, Deutsch**Translation**
 Become a Fan of GB-World and get all the latest development and social media news daily!
 
 
-** 1-Year Like-Button-Plugin-For-Wordpress **
+**1-Year Like-Button-Plugin-For-Wordpress**
 
 **This plugin is now one year old and I wanna say thank you everybody for supporting and using my work but also for your helpful thoughts, requests, ideas and bugreports! Thank you!**
 
@@ -117,44 +117,52 @@ After that visit the General-Setting Page on the bottom of the Menu and activate
 
 
 **[like]-Shortcode**
+
 *   You only have to insert `[like]` into a post/article and your like-Button (generated with all your defined settings) will appear at this position
 *   available Options: `url`, `action`, `width`, `height`, `style`
 *   Example: `[like]` or `[like url=http://www.gb-world.net action=recommend width=100 height=150 style=border:solid;float:right;padding-left:15px;]`
 
 
 **Template Function `GBLikeButtonTemplate`**
-*   You only have to insert `&lt;?php GBLikeButtonTemplate(); ?&gt;` somewhere in your template-files and your like-Button (generated with all your defined settings) will appear at this position
+
+*   You only have to insert `<?php GBLikeButtonTemplate(); ?>` somewhere in your template-files and your like-Button (generated with all your defined settings) will appear at this position
 *   available Options: `url`, `action`, `width`, `height`, `style`
 *   You have to set the values with an array like this: `array('url' => "http://www.gb-world.net")`. It does not work if you send the parameter like this to the function `GBLikeButtonTemplate("http://www.gb-world.net")`
 *   Example: `GBLikeButtonTemplate();` or `GBLikeButtonTemplate(array( 'url' => "http://www.gb-world.net", 'action' => 'recommend', 'width' => 250, 'height' => 200, 'style' => array('border' => 'solid', 'overflow' => 'hidden')));` 
 
 
 **Facebook-Like-Button-Widget, Facebook Recommendations and Facebook Activity Feed**
+
 *   Go to the Widgets-Page on the left. Add the needed Widget and add the required information.
 *   The URL must look like this and containt `http://` -> http://www.gb-world.net - Otherwise the Button will not work properly.
 
 
 **W3c-Validation**
+
 *   If you want to validate your site and the Validator says that the `og-` and `fb-tags` are not valid you can activate the W3c-Validated Output Checkbox on the Expert Side to generated an W3c-Valided Output of the Meta-Tags
 
 
+
 = Important Notes =  
-  
+
+
 You only have to enter one of this to Meta-Tags (Admin-ID or AppID) as long as you don not use the Java-SDK.  
 **APPID:** If you want to use the Java-SDK you have to enter a valid Facebook-App-ID.  
 **Admin-ID:** Facebook-Profile-IDs of all Administrators of this Like-Button.
+
 
 **Open-Graph-Protocol:**
 
 It is recommended to add the following
 
 `xmlns:og="http://ogp.me/ns#"
-xmlns:fb="http://www.facebook.com/2008/fbml">`
+xmlns:fb="http://www.facebook.com/2008/fbml"`
 
-to the html-tag in your template-header.php-file. If you do not do this the Open-Graph-Protocol will not work with all its functions.
+to the html-tag of your template-header.php-file. If you do not do this the Open-Graph-Protocol will not work with all its functions.
 
 
 = Problems with DISQUS and Like-Button-Plugin-For-Wordpress (Bugfix) =
+
 
 If you can't access your tabs on the Settings Page and you use the Disqus-Plugin beside this Plugin than you have to do the following to solve the bug:
 
