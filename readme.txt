@@ -153,7 +153,7 @@ After that visit the General-Setting Page on the bottom of the Menu and activate
 
 
 **How to use the og:image-Tag properly**
-[youtube http://www.youtube.com/watch?v=p8tyI57sUvI]
+[youtube http://www.youtube.com/watch?v=gsxA0Hai6kU]
 
 
 = Important Notes =  
