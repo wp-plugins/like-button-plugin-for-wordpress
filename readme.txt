@@ -216,6 +216,7 @@ If you can't access your tabs on the Settings Page and you use the Disqus-Plugin
 
 = Version 4.5 =
 
++ IMPORTANT: PLEASE BACKUP YOUR DATABASE FIRST BEFORE YOU UPDATE -> there is no way to downgrade this Plugin after the Update so please backup your data!
 + Important: min. Wordpress-Installation is now [v3.x]
 + Important: it is now required to provide a valid [App-ID](http://developers.facebook.com/setup/)
 + New: Quick Installation Page to make it even easier and faster to use/install the Like-Button
