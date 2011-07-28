@@ -90,10 +90,16 @@ After that visit the General-Setting Page on the bottom of the Menu and activate
 
 **Recommendation: it is better to use the XFBML-Version or even provide a valid App-ID if you still use the iFrame Version! Please enter a valid App-ID if you do not already have one! [Get an App-ID](http://developers.facebook.com/setup/)**
 
+**Notice: Please BACKUP your database everytime BEFORE you update to a new version!**
+
+
 **Step-by-Step Tutorial** 
 [youtube http://www.youtube.com/watch?v=p8tyI57sUvI]
 
 == Frequently Asked Questions ==
+
+**Notice: Please BACKUP your database everytime BEFORE you update to a new version!**
+
 
 **FAQ** 
 
