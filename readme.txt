@@ -670,14 +670,6 @@ I would appreciate it if you would support my work with a little Donation. Thank
 
 If you like my plugin the rate it please --> (on the right side). Thanks a lot! :)
 
-== Searching for new Dev-Team-Members  ==
-
-GB-World.net is a new comunity which will support many new projects from unknown and well-known people. Everybody can publish their projects on our website (in our forum). But we need more people in our team. A reliable gb-team is very important for us. Are you reliable, interested in our topics and you wanna host your projects and other projects on our website?
-
-Write us a small text about your personality, experiences and why you wanna join our team. We will answer as soon as possible. We are pleased to have new people in our gb-team.
-
-| [GB-Application](http://www.gb-world.net/forum/viewforum.php?f=20) |
-
 == BUGS ==
 
 If you find any bugs **please report** them at our BUGTRACKER-SYSTEM: | [BugTracker](http://bugs.gb-world.net) |
@@ -688,7 +680,7 @@ check our new wiki for further information: | [GB-Wiki](http:/wiki.gb-world.net/
 
 == FANPAGE ==
 
-Become a fan of us now: | [FanPage](http://www.facebook.com/GBWorldnet) |
+Become a fan of us now on our | [GB-World.net Facebook Page](http://www.facebook.com/GBWorldnet) |
 
 == We use ==
 
