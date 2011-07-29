@@ -13,37 +13,37 @@ This plugin adds a Like-Button wherever you want on your blog. Before or after t
 **Features**
 
 *   Plugin is available in English and in German
-*   the Button can be individualy created for every site or one button for the whole blog
+*   the Button can be individualy created for every site or one button for the entire blog
 *   you can exclude sites which won't get a like button
 *   individual button position (before/after the content)
-*   add all available OpenGraph Meta-Tags
+*   add all available OpenGraph Meta-Tags including video and audio tags
 *   choose any language for your Like Button you want (any one that Facebook supports)
 *   you can individually design your Like-Button with css (css-Class)
 *   our Like-Button-Generator makes it even more easier for you to create a Like Button
-*   Analyse your Blog: Analyse the activity of your visitors and their likes
-*   Use iFrame or XFBML-Button (with share and comment functionality)
+*   Analyse your Blog: Analyse the activity of your visitors and their likes (Dashboard Widget and additional stuff)
+*   Use iFrame or XFBML-Button including the Send-Button (with share and comment functionality)
+*   Use the Send-Button (new feature) of Facebook right now! It is availble now!
 *   use a shortcode to insert the like-Button wherever you want it to show up on your page
-*   create a Like-Button Sidebar-Widget (also individual Like-Button for every Site/Post or one Like-Button for the whole site.
+*   create a Like-Button Sidebar-Widget (also individual Like-Button for every Site/Post or one Like-Button for the entire site)
 *   Facebook Recommendation and Activity Feed: it is also possible to add this Widgets beside the Like-Button Widget
 *   Recommendations-Sidebar-Widget: you can also add a Recommendations-Widget to your Sidebar
 *   [BugTracker](http://bugs.gb-world.net/) and live support on our [FanPage](http://www.facebook.com/GBWorldnet)
 *   easily connect your Facebook-Account, Fanpage or Application with the Like-Button on your blog
-*   Dashboard-Widget which shows you your blog-recommendations
 *   Individual Description-Tag for every post/page of your blog
-*   Shortcode-Only-Modus: If you just like the Shortcode and you do not anything else
 *   you can choose a individual (fb-)image for each post/page
 *   you can set up to three images for every post/page including the featured image of each post/page
-*   Exclude Pages with their ID or with a single click on the checkbox on every Post-/Page-Edit Site
-*   design your like-Button individually from the settings page with the CSS-Box
-*   NEW: You can now add anything you want (Twitter Button, Images, Text) beside the generated Like Button *NEW*
-*   NEW: Use the Send-Button (new feature) of Facebook right now! It is availble now! *NEW*
-*   New: Admin-Bar Menu with many options you can set right from the frontend of your blog (WP 3.1+) *NEW*
-*   New: new and fully integrated Template-Function now available (WP 3.1+) *NEW*
+*   Exclude Pages with their ID or with a single click on the checkbox on every Post-/Page-Edit Site with the Editor-Widget
+*   design your Like-Button individually from the Design Page with the CSS-Box
+*   You can now add anything you want (Twitter Button, Images, Text) beside the generated Like Button
+*   Admin-Bar Menu with many options you can set right from the frontend of your blog (WP 3.1+)
+*   new and fully integrated Template-Function now available (WP 3.1+)
 *   and many more (read more on our [GB-World Facebook-Page](http://www.facebook.com/GBWorldnet)or on our [Blog](http://www.gb-world.net/blog))
+
 
 **Facebook-Like-Button**
 
 This plugin adds a Like-Button after every post/page you choose (you can exclude Posts/Pages/..., These excluded sites will have no Like-Button). The Like-Button-Widget includes a little Like-Button-Generator to make it easier for you to get a Like-Button to your sidebar. It also adds a Shortcode for your like-Button. It is also possible to choose the XFBML or the iframe-Button. You could also choose the position of your like-button within the post/page.
+
 
 **Shortcode**
 
@@ -51,22 +51,22 @@ It also adds a Shortcode `[like]` or `[like url=http://www.gb-world.net]` which 
 
 Now you can put the shortcode `[like]` or with the url-attribute (`[like url=http://www.gb-world.net]`) where ever you want to insert the Facebook-Like-Button.
 
+
 **Widget**
 
 There is also a new Widget available. Go to the Widget-Page and add the Facebook-Like-Button-Generator to your sidebar. Enter all your information into the FB-LB-Generator - that's it.
 
-**Live-Support**
 
-Since 3.0 there is a new GB-World-Page available with our Like-Box. You can post your bugs, issues, support-requests now also into this like-box and not only into our forum.
-
-**Bugs and Support**
+**Bugs and Live Support**
 
 If you find any bugs **please report** them at our BugTracker: | [BugTracker](http://bugs.gb-world.net) |
+
 
 **Translation**
 
 We need your help to translate our plugin into more different languages (currently only English and German is supported). Write a new topic in our forum if you would like to help us. Thx!
 Internationalization Support: English, Deutsch
+
 
 **[Become a Fan of GB-World](http://www.facebook.com/GBWorldnet)**
 Become a Fan of GB-World and get all the latest development and social media news daily!
@@ -90,10 +90,16 @@ After that visit the General-Setting Page on the bottom of the Menu and activate
 
 **Recommendation: it is better to use the XFBML-Version or even provide a valid App-ID if you still use the iFrame Version! Please enter a valid App-ID if you do not already have one! [Get an App-ID](http://developers.facebook.com/setup/)**
 
+**Notice: Please BACKUP your database everytime BEFORE you update to a new version!**
+
+
 **Step-by-Step Tutorial** 
 [youtube http://www.youtube.com/watch?v=p8tyI57sUvI]
 
 == Frequently Asked Questions ==
+
+**Notice: Please BACKUP your database everytime BEFORE you update to a new version!**
+
 
 **FAQ** 
 
@@ -210,6 +216,8 @@ If you can't access your tabs on the Settings Page and you use the Disqus-Plugin
 
 = Version 4.5 =
 
++ **IMPORTANT: PLEASE BACKUP YOUR DATABASE FIRST BEFORE YOU UPDATE -> there is no way to downgrade this Plugin after the Update so please backup your data!**
++ How-To-Downgrade: if something went wrong you can restore your Database (if you made a backup before the update) and restore the plugin (4.4.4.3.2 is still available in the Repo)
 + Important: min. Wordpress-Installation is now [v3.x]
 + Important: it is now required to provide a valid [App-ID](http://developers.facebook.com/setup/)
 + New: Quick Installation Page to make it even easier and faster to use/install the Like-Button
@@ -670,14 +678,6 @@ I would appreciate it if you would support my work with a little Donation. Thank
 
 If you like my plugin the rate it please --> (on the right side). Thanks a lot! :)
 
-== Searching for new Dev-Team-Members  ==
-
-GB-World.net is a new comunity which will support many new projects from unknown and well-known people. Everybody can publish their projects on our website (in our forum). But we need more people in our team. A reliable gb-team is very important for us. Are you reliable, interested in our topics and you wanna host your projects and other projects on our website?
-
-Write us a small text about your personality, experiences and why you wanna join our team. We will answer as soon as possible. We are pleased to have new people in our gb-team.
-
-| [GB-Application](http://www.gb-world.net/forum/viewforum.php?f=20) |
-
 == BUGS ==
 
 If you find any bugs **please report** them at our BUGTRACKER-SYSTEM: | [BugTracker](http://bugs.gb-world.net) |
@@ -688,7 +688,7 @@ check our new wiki for further information: | [GB-Wiki](http:/wiki.gb-world.net/
 
 == FANPAGE ==
 
-Become a fan of us now: | [FanPage](http://www.facebook.com/GBWorldnet) |
+Become a fan of us now on our | [GB-World.net Facebook Page](http://www.facebook.com/GBWorldnet) |
 
 == We use ==
 
