@@ -287,8 +287,11 @@ if ( !defined( 'gxtb_fb_lB_URLPATH' ) )
 	// initialize the Warning-System -- currently out of work sine 4.4.3 - bug testing is open
 	#add_action('admin_notices', array(&$this,'gxtb_fb_lB_warningsys'));
 	#add_action('admin_head', array(&$this, 'gxtb_fb_lB_warningsysheader'));
-		
-	add_filter('admin_footer_text', array(&$this,'GBLikeButton_AdminFooterText'));
+	
+	if ( isset($_GET['page']) && strstr($_GET['page'],"fb-like") ) {		
+		add_filter('admin_footer_text', array(&$this,'GBLikeButton_AdminFooterText'));
+	}
+	
 	add_filter( 'wp_feed_cache_transient_lifetime', array(&$this,'GBLikeButton_FeedController') );
 	add_action('admin_notices', array(&$this,'GBLikeButton_PluginInfoMessage'));
 		
