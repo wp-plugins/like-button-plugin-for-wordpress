@@ -213,6 +213,10 @@ If you can't access your tabs on the Settings Page and you use the Disqus-Plugin
 
 == Changelog ==
 
+= Version 4.5.1 =
+
++ **I am verry sorry for any inconvenience you got from the latest update(s). I am working on a fix and this bugfix patches the Google Problem. I am sorry though for any problems. ./Stefan**
+
 
 = Version 4.5 =
 
