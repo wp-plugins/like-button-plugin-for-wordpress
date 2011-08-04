@@ -1,7 +1,6 @@
 <?php // Do not delete these lines
-	if (!empty($_SERVER['SCRIPT_FILENAME']) && basename(__file__) == basename($_SERVER['SCRIPT_FILENAME']) ||
-	in_array( $_SERVER['HTTP_USER_AGENT'], array('Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)', 'Googlebot/2.1 (+http://www.googlebot.com/bot.html)', 'Googlebot/2.1 (+http://www.google.com/bot.html)')) )
-		die (header('Location:http://www.gb-world.net/projects/wordpress/like-button-plugin-for-wordpress/'));
+	if (!empty($_SERVER['SCRIPT_FILENAME']) && basename(__file__) == basename($_SERVER['SCRIPT_FILENAME']))
+		die ('Please do not load this page directly. Thanks!');
 /*
 +----------------------------------------------------------------+
 +	Like-Button-Plugin-For-Wordpress [v4.4.5] - GB-Admin-Header [v0.5 - FINAL]

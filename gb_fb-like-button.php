@@ -3,7 +3,7 @@
 	Plugin Name: Like-Button-Plugin-For-Wordpress
 	Plugin URI: http://www.gb-world.net/like-button-plugin-for-wordpress/
 	Description: This Plugin provides the most settings for the Like-Button of Facebook. It's in a steadily development to ensure that everything is up-to-date with all the Web 2.0 Standards and Requirements. Enjoy the Like-Button now with GB-World.net's Like-Button-Plugin-For-Wordpress! <strong>Please BACKUP your database everytime BEFORE you update to a new version!</strong>
-	Version: 4.5
+	Version: 4.5.1
 	Author: Stefan Natter
 	Author URI: http://www.gb-world.net
 	Min WP Version: 3.0
@@ -42,10 +42,14 @@ http://www.gnu.org/licenses/gpl.txt
 ####################################################
 
 #if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); }
-
+/*
 if (!empty($_SERVER['SCRIPT_FILENAME']) && basename(__file__) == basename($_SERVER['SCRIPT_FILENAME']) ||
 	in_array( $_SERVER['HTTP_USER_AGENT'], array('Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)', 'Googlebot/2.1 (+http://www.googlebot.com/bot.html)', 'Googlebot/2.1 (+http://www.google.com/bot.html)')) )
-		die (header('Location:http://www.gb-world.net/projects/wordpress/like-button-plugin-for-wordpress/'));
+		die (header('Location:http://www.gb-world.net/projects/wordpress/like-button-plugin-for-wordpress/')); */
+		
+// Do not delete these lines
+	if (!empty($_SERVER['SCRIPT_FILENAME']) && basename(__file__) == basename($_SERVER['SCRIPT_FILENAME']))
+		die ('Please do not load this page directly. Thanks!');
 
 ####################################################
 ####################################################
@@ -85,7 +89,7 @@ function GBLikeButton() {
 if ( !defined('gxtb_fb_lB_shortcode' ) )
 	define( 'gxtb_fb_lB_shortcode', "gxtb" );
 if ( !defined('GBLikeButton_Version' ) )
-	define( 'GBLikeButton_Version', "4.5" );
+	define( 'GBLikeButton_Version', "4.5.1" );
 if ( !defined( 'GBLikeButton_Name' ) )
 	define( 'GBLikeButton_Name', "Like-Button-Plugin-For-Wordpress" );
 if ( !defined( 'gxtb_fb_lB_page' ) )

@@ -1,8 +1,6 @@
 <?php // Do not delete these lines
 	if (!empty($_SERVER['SCRIPT_FILENAME']) && basename(__file__) == basename($_SERVER['SCRIPT_FILENAME']))
 		die ('Please do not load this page directly. Thanks!');
-?>
-<?php
 /*
 +----------------------------------------------------------------+
 +	Like-Button-Plugin-For-Wordpress [v4.4.4] - GBLikeButton [v1.0 - FINAL]
@@ -123,7 +121,7 @@ if( !is_404() ) {
    	$page_id = $wp_query->post->ID;
     $fbnone = get_post_meta($page_id, '_fbnone', true);
 
-	if ( $this->GBLikeButton['Functions']['General']['LikeButton'] && !$fbnone ) {
+	if ( $this->GBLikeButton['Functions']['General']['LikeButton'] && $fbnone == 0 ) {
 				
 		$text = "";
 		
