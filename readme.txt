@@ -213,6 +213,11 @@ If you can't access your tabs on the Settings Page and you use the Disqus-Plugin
 
 == Changelog ==
 
+= Version 4.5.2 =
+
++ **I deleted/patched all the Stuff that caused the Google-Problem - which was reported on Google+ and on many other websites - and I want to apologize again for any inconvenience. I did not want to harm anyone and I did not know - honestly - that this caused so much trouble on so many websites. Google will crawl all your sites again and this recrawling will fix all missing google search results. And I do want to disassociate myself from any malicious intent reproaches! I develope this Plugin since over 1 year and I did not want to injure anyones personal/business website. ./Stefan**
+
+
 = Version 4.5.1 =
 
 + **I am verry sorry for any inconvenience you got from the latest update(s). I am working on a fix and this bugfix patches the Google Problem. I am sorry though for any problems. ./Stefan**
